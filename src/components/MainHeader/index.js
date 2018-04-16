@@ -52,7 +52,7 @@ class MainHeader extends React.Component {
     return (
       <StyledMainHeader myProps={this.props.myProps} primary={this.props.primary}>
         <StyledLink to="/" />
-        <StyledLink to="/myServices">2</StyledLink>
+        <StyledLink to="/category">2</StyledLink>
         <StyledLink to="/addNew">3</StyledLink>
         <StyledHeaderLogo src="" />
       </StyledMainHeader>

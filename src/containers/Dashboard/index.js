@@ -10,10 +10,9 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <StyledWrapper>
-        <CategoryComponent title="nadpis" podkategorie="podkategorie" />
+        <CategoryComponent title="Animal" subcategory="Horse" title2="Car" subcategory2="BMW" />
       </StyledWrapper>
     );
   }
 }
-
 export default withRouter(DashboardPage);

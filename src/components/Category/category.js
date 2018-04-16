@@ -1,10 +1,19 @@
 import React from "react";
-import { StyledWrapper, StyledTitle, StyledSubCategory } from "./styles";
+import { StyledWrapper,StyledLink, StyledTitle, StyledSubCategory,StyledComponent,StyledLogo } from "./styles";
 
 const CategoryComponent = props => (
   <StyledWrapper>
-    <StyledTitle>{props.title}</StyledTitle>
-    <StyledSubCategory>{props.podkategorie}</StyledSubCategory>
+    <StyledComponent>
+    <StyledLink to="/animal">{props.title}</StyledLink>
+    <StyledLink to="/addNew">{props.subcategory}</StyledLink>
+    <StyledLogo src="" />
+    </StyledComponent>
+    <StyledComponent>
+    <StyledLink to="/category">{props.title2}</StyledLink>
+    <StyledLink to="/addNew">{props.subcategory2}</StyledLink>
+    <StyledLogo src="" />
+    </StyledComponent>
   </StyledWrapper>
+  
 );
 export default CategoryComponent;

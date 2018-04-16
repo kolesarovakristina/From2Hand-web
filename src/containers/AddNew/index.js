@@ -2,7 +2,7 @@ import React from "react";
 import Title from "../../components/Title";
 import Recenzia from "../../components/Recenzia";
 
-class AboutPage extends React.Component {
+class AddAdvertPage extends React.Component {
   state = {
     novyObjekt: [
       {
@@ -36,4 +36,4 @@ class AboutPage extends React.Component {
   }
 }
 
-export default AboutPage;
+export default AddAdvertPage;
