@@ -6,14 +6,14 @@ import AddNewPage from "./containers/AddNew";
 import RegisterPage from "./containers/Register";
 import theme from "./styles/themes/default";
 import MainHeader from "./components/MainHeader";
-import SecondaryHeader from "./components/SecondaryHeader";
+import Header from "./components/Header";
 
 const App = () => (
   <div>
     <ThemeProvider theme={theme}>
       <div>
         <MainHeader myProps primary={false} andrej={3} />
-        <SecondaryHeader />
+        <Header />
         <Switch>
           <Route exact path="/" component={DashboardPage} />
           <Route path="/myServices" component={DashboardPage} />

@@ -1,0 +1,108 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Professional\\Web\\External\\Node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Professional\\Web\\External\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@3.3.4
+3 info using node@v5.4.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly fetchOtherPackageData react-google-charts@git+https://github.com/ZeptInc/react-google-charts.git
+20 silly cache add args [ 'react-google-charts@git+https://github.com/ZeptInc/react-google-charts.git',
+20 silly cache add   null ]
+21 verbose cache add spec react-google-charts@git+https://github.com/ZeptInc/react-google-charts.git
+22 silly cache add parsed spec Result {
+22 silly cache add   raw: 'react-google-charts@git+https://github.com/ZeptInc/react-google-charts.git',
+22 silly cache add   scope: null,
+22 silly cache add   name: 'react-google-charts',
+22 silly cache add   rawSpec: 'git+https://github.com/ZeptInc/react-google-charts.git',
+22 silly cache add   spec: 'git+https://github.com/ZeptInc/react-google-charts.git',
+22 silly cache add   type: 'hosted',
+22 silly cache add   hosted:
+22 silly cache add    { type: 'github',
+22 silly cache add      ssh: 'git@github.com:ZeptInc/react-google-charts.git',
+22 silly cache add      sshUrl: 'git+ssh://git@github.com/ZeptInc/react-google-charts.git',
+22 silly cache add      httpsUrl: 'git+https://github.com/ZeptInc/react-google-charts.git',
+22 silly cache add      gitUrl: 'git://github.com/ZeptInc/react-google-charts.git',
+22 silly cache add      shortcut: 'github:ZeptInc/react-google-charts',
+22 silly cache add      directUrl: 'https://raw.githubusercontent.com/ZeptInc/react-google-charts/master/package.json' } }
+23 verbose addRemoteGit caching git+https://github.com/ZeptInc/react-google-charts.git
+24 verbose addRemoteGit git+https://github.com/ZeptInc/react-google-charts.git is a repository hosted by github
+25 silly tryClone cloning git+https://github.com/ZeptInc/react-google-charts.git via git+https://github.com/ZeptInc/react-google-charts.git
+26 verbose tryClone git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 not in flight; caching
+27 info git [ 'config', '--get', 'remote.origin.url' ]
+28 silly validateExistingRemote git+https://github.com/ZeptInc/react-google-charts.git remote.origin.url: https://github.com/ZeptInc/react-google-charts.git
+29 verbose validateExistingRemote git+https://github.com/ZeptInc/react-google-charts.git is updating existing cached remote C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9
+30 info git [ 'fetch', '-a', 'origin' ]
+31 verbose updateRemote git fetch -a origin (https://github.com/ZeptInc/react-google-charts.git)
+32 verbose setPermissions git+https://github.com/ZeptInc/react-google-charts.git skipping chownr on Windows
+33 verbose resolveHead git+https://github.com/ZeptInc/react-google-charts.git original treeish: master
+34 info git [ 'rev-list', '-n1', 'master' ]
+35 silly resolveHead git+https://github.com/ZeptInc/react-google-charts.git resolved treeish: 84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f
+36 verbose resolveHead git+https://github.com/ZeptInc/react-google-charts.git resolved Git URL: git+https://github.com/ZeptInc/react-google-charts.git#84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f
+37 silly resolveHead Git working directory: C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f
+38 info git [ 'clone',
+38 info git   'C:\\Users\\domin\\AppData\\Roaming\\npm-cache\\_git-remotes\\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9',
+38 info git   'C:\\Users\\domin\\AppData\\Local\\Temp\\npm-6700-93a860e6\\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f' ]
+39 error git clone C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f: Cloning into 'C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f'...
+39 error git clone C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f: error: cannot spawn sh: No such file or directory
+39 error git clone C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f: fatal: unable to fork
+40 silly fetchPackageMetaData Error: Command failed: git -c core.longpaths=true clone C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f
+40 silly fetchPackageMetaData Cloning into 'C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f'...
+40 silly fetchPackageMetaData error: cannot spawn sh: No such file or directory
+40 silly fetchPackageMetaData fatal: unable to fork
+40 silly fetchPackageMetaData
+40 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:213:12)
+40 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+40 silly fetchPackageMetaData     at ChildProcess.emit (events.js:172:7)
+40 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:821:16)
+40 silly fetchPackageMetaData     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+40 silly fetchPackageMetaData  error for react-google-charts@git+https://github.com/ZeptInc/react-google-charts.git { [Error: Command failed: git -c core.longpaths=true clone C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f
+40 silly fetchPackageMetaData Cloning into 'C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f'...
+40 silly fetchPackageMetaData error: cannot spawn sh: No such file or directory
+40 silly fetchPackageMetaData fatal: unable to fork
+40 silly fetchPackageMetaData ]
+40 silly fetchPackageMetaData   killed: false,
+40 silly fetchPackageMetaData   code: 128,
+40 silly fetchPackageMetaData   signal: null,
+40 silly fetchPackageMetaData   cmd: 'git -c core.longpaths=true clone C:\\Users\\domin\\AppData\\Roaming\\npm-cache\\_git-remotes\\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\\Users\\domin\\AppData\\Local\\Temp\\npm-6700-93a860e6\\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f' }
+41 silly rollbackFailedOptional Starting
+42 silly rollbackFailedOptional Finishing
+43 silly runTopLevelLifecycles Starting
+44 silly runTopLevelLifecycles Finishing
+45 silly install printInstalled
+46 verbose stack Error: Command failed: git -c core.longpaths=true clone C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f
+46 verbose stack Cloning into 'C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f'...
+46 verbose stack error: cannot spawn sh: No such file or directory
+46 verbose stack fatal: unable to fork
+46 verbose stack
+46 verbose stack     at ChildProcess.exithandler (child_process.js:213:12)
+46 verbose stack     at emitTwo (events.js:87:13)
+46 verbose stack     at ChildProcess.emit (events.js:172:7)
+46 verbose stack     at maybeClose (internal/child_process.js:821:16)
+46 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+47 verbose cwd C:\Users\domin\source\repos\sovy_bazar
+48 error Windows_NT 10.0.16299
+49 error argv "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Professional\\Web\\External\\Node.exe" "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Professional\\Web\\External\\node_modules\\npm\\bin\\npm-cli.js" "install"
+50 error node v5.4.1
+51 error npm  v3.3.4
+52 error code 128
+53 error Command failed: git -c core.longpaths=true clone C:\Users\domin\AppData\Roaming\npm-cache\_git-remotes\git-https-github-com-ZeptInc-react-google-charts-git-3a3d59fe38d36cfacfe160d3109228a9 C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f
+53 error Cloning into 'C:\Users\domin\AppData\Local\Temp\npm-6700-93a860e6\git-cache-c7c66a72aa42906c40019dcdb90c0cbf\84783ffdfac3adaf22ec8ef9e3e978235a4a8d7f'...
+53 error error: cannot spawn sh: No such file or directory
+53 error fatal: unable to fork
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]

@@ -1,0 +1,20 @@
+.headerSelect,
+input {
+    height: 35px;
+    width: 150px;
+    border: 0px;
+    padding: 0 10px;
+    margin: 6px 3px;
+    border-radius: 5px;
+}
+
+.headerSelect,
+input:focus {
+    outline-color: rgb(22,131,147);
+}
+
+input:first-child {
+    width: 180px;
+}
+
+    

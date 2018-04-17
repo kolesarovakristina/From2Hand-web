@@ -43,7 +43,14 @@ export const StyledMenuWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+    background-color: rgb(230,230,230);
+    width: 100%;
+    padding: 10px 0;
 `;
 export const StyledSettingsWrapper = styled.div`
   float: right;
 `;
+
+export const SearchImg = styled.img`
+    margin-left: 3px;
+`

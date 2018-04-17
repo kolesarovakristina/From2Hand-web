@@ -51,10 +51,9 @@ class MainHeader extends React.Component {
 
     return (
       <StyledMainHeader myProps={this.props.myProps} primary={this.props.primary}>
-        <StyledLink to="/" />
-        <StyledLink to="/category">2</StyledLink>
-        <StyledLink to="/addNew">3</StyledLink>
-        <StyledHeaderLogo src="" />
+        <StyledHeaderLogo src="from2hand.png" />
+        <StyledLink to="/myServices">Sign Up</StyledLink>
+        <StyledLink to="/addNew">Log In</StyledLink>
       </StyledMainHeader>
     );
   }

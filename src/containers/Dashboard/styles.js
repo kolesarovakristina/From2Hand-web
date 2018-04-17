@@ -6,8 +6,6 @@ export const StyledH1 = styled.h1`
 `;
 
 export const StyledWrapper = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
+  max-width: 60%;
+    margin: auto;
 `;

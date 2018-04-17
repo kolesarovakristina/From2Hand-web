@@ -1,37 +1,29 @@
 import Styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const StyledWrapper = Styled.div`
-display:flex;
-flex-wrap: wrap;
-flex-direction:row;
-justify-content:left;
-padding 20px;
+margin: 60px;
+width: calc(33.33% - 120px);
+position: relative;
+display: inline-block;
 `;
-export const StyledComponent = Styled.div`
-display:flex;
-flex-direction:column;
-justify-content:center;
-padding 20px;
-`;
+
 export const StyledTitle = Styled.h1`
-color:blue;
-font-size:12px;
-font-weight:bold;
+color: rgb(22,131,147);
+letter-spacing: .5px;
+font-size: 14px;
+font-weight: bold;
+text-align: center;
+width: 100%;
+display: block;
+text-transform: uppercase;
+padding-bottom: 10px;
 `;
 export const StyledSubCategory = Styled.div`
 color:pink;
-font-size:10;
+font-size: 15px;
 font-weight:bold;
-margin 20px;
 `;
-export const StyledLink = Styled(Link)`
-width: 20%;
-padding 5px;
-`;
-export const StyledLogo = Styled.img`
-  width: 50px;
-  height: 50px;
-  background: lightgrey;
-  padding 5px;
+
+export const CategoryImage = Styled.img`
+width: 100%;
 `;

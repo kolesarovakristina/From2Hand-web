@@ -2,35 +2,41 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 export const StyledMainHeader = styled.div`
-  background: grey;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-  justify-content: flex-end;
-  width: 100%;
+    padding: 0 5%;
+  width: calc(100% - 10%);
   height: 100px;
   ${props =>
     props.myProps &&
     css`
-      background: blue;
+        background-color: rgb(22,131,147);
+
     `};
   ${props =>
     props.primary === false &&
     css`
-      color: purple;
+      color: rgb(230,230,230);
     `};
 `;
 
 export const StyledLink = styled(Link)`
-  background: rgb(167, 167, 215);
-  width: 20%;
+    color: #fff;
+    text-decoration: none;
+    height: 100px;
+    line-height: 100px;
+    positon: relative;
+    float: right;
+    font-weight: bold;
+    padding: 0 10px;
+    text-transform: uppercase;
+    font-size: 19px;
 `;
 
 export const StyledHeaderLogo = styled.img`
-  width: 50px;
-  height: 50px;
-  background: red;
+    height: 50px;
+    padding: 0 10px;
+    padding-top: 25px;
+    positon: relative;
+    float: left;
 `;
 
 export const NewHeader = styled.div``;
@@ -42,7 +48,7 @@ export const NewHeaderContent = styled.div`
       display: block;
       color: palevioletred;
     `} ${props =>
-    props.isExpanded === false &&
+  props.isExpanded === false &&
     css`
       display: none;
       color: palevioletred;
