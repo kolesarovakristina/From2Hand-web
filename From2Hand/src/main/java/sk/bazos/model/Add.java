@@ -9,10 +9,10 @@ import javax.persistence.Id;
  */
 @Entity
 public class Add {
-    @Id
-    @GeneratedValue
-    private Long id;
-    private String description;
+        @Id
+        @GeneratedValue
+        private Long id;
+        private String description;
 
     public Long getId() {
         return id;
