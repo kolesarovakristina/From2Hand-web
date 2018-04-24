@@ -2,28 +2,22 @@ import React from "react";
 import { withRouter } from "react-router";
 import { StyledHeaderWrapper, StyledMenuWrapper, StyledNavLink, SearchImg } from "./styles";
 import "./style.css";
+import searchButton from "../../assets/categoryImage/searching.png";
+import PropTypes from "prop-types";
+import "./style.css";
 
-const activeStyle = { color: "#253993" };
-const Header = () => (
+
+const Header = props => (
   <StyledHeaderWrapper>
         <StyledMenuWrapper>
             <input type="text" placeholder="What Are You Looking For?" />
             <select className="headerSelect">
-                <option value = "All">All</option>
-                <option value = "Animals">Animals</option>
-                <option value = "Motors">Motors</option>
-                <option value = "Electronics">Electronics</option>
-                <option value = "Cell Phones">Cell Phones</option>
-                <option value = "Fashion">Fashion</option>
-                <option value = "MusicalInstruments">Musical Instruments</option>
-                <option value = "SportingGoods">Sporting Goods</option>
-                <option value = "Home&Garden">Home & Garden</option>
-                <option value = "Other">Other</option>
+                <option value = {props.optionValue}>All {props.optionText}</option>
             </select>
             <input type="text" placeholder="City" />
             <input type="text" placeholder="Price From" />
             <input type="text" placeholder="Price To" />
-            <SearchImg src="./categoryImage/searching.png" />
+            <SearchImg src={searchButton} />
     </StyledMenuWrapper>
   </StyledHeaderWrapper>
 );

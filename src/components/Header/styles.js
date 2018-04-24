@@ -53,4 +53,5 @@ export const StyledSettingsWrapper = styled.div`
 
 export const SearchImg = styled.img`
     margin-left: 3px;
+    height: 25px;
 `

@@ -50,16 +50,14 @@ class MainHeader extends React.Component {
     }
 
     return (
-      <StyledMainHeader myProps={this.props.myProps} primary={this.props.primary}>
+      <StyledMainHeader>
         <StyledHeaderLogo src="from2hand.png" />
-        <StyledLink to="/myServices">Sign Up</StyledLink>
-        <StyledLink to="/addNew">Log In</StyledLink>
+        <StyledLink to="/register">Sign Up</StyledLink>
+        <StyledLink to="/login">Log In</StyledLink>
       </StyledMainHeader>
     );
   }
 }
 
-MainHeader.propTypes = {
-  myProps: PropTypes.bool,
-};
+
 export default MainHeader;

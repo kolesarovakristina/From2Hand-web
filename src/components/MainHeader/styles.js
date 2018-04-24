@@ -5,17 +5,12 @@ export const StyledMainHeader = styled.div`
     padding: 0 5%;
   width: calc(100% - 10%);
   height: 100px;
-  ${props =>
-    props.myProps &&
-    css`
+  
         background-color: rgb(22,131,147);
 
-    `};
-  ${props =>
-    props.primary === false &&
-    css`
+  
       color: rgb(230,230,230);
-    `};
+   
 `;
 
 export const StyledLink = styled(Link)`

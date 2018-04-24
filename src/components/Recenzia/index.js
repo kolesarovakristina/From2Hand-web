@@ -1,16 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {StyledTitle, StyledDesc, StyledPrice, StyledAdvert,StyledImg} from "./styles";
+import StyledTitle from "./styles";
 
 const Recenzia = props => (
-  
-  <StyledAdvert>
+  <div>
     <StyledTitle>{props.recenziaObjekt.title}</StyledTitle>
-    <StyledImg src="car.png"></StyledImg>
-    <StyledDesc>{props.recenziaObjekt.description}</StyledDesc>
-    <StyledPrice>{props.recenziaObjekt.price}</StyledPrice>
-    {/* <p>{props.poziciaVpoli}</p> */}
-  </StyledAdvert>
+    <div>{props.recenziaObjekt.description}</div>
+    <div>{props.recenziaObjekt.price}</div>
+    <p>{props.poziciaVpoli}</p>
+  </div>
 );
 
 // Recenzia.propTypes = {
