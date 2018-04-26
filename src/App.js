@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import React from "react";
-import { Switch, Route,Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Dashboard from "./containers/Dashboard";
 import AddNewPage from "./containers/AddNew";
 import AllAdverts from "./containers/AllAdverts";
@@ -17,13 +17,15 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <div>
         <Switch>
-        <Route exact path="/" render={() => (
-         <Redirect to="/dashboard/homePage"/>
-          )}/>
-          <Route  path="/dashboard" component={Dashboard} />
-          <Route  path="/login" component={AboutPage} />
-          <Route  path="/register" component={RegisterPage} />
-          <Route  path="/adverts" component={AllAdverts} />
+          <Route
+            exact
+            path="/"
+            render={() => <Redirect to="/dashboard/homePage" />}
+          />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/login" component={AboutPage} />
+          <Route path="/register" component={RegisterPage} />
+          <Route path="/adverts" component={AllAdverts} />
         </Switch>
       </div>
     </ThemeProvider>

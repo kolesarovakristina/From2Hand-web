@@ -10,32 +10,36 @@ import { read } from "fs";
 import axios from "axios";
 
 class Homepage extends React.Component {
-    state = {
-        categoryData: []
-    };
+  state = {
+    categoryData: []
+  };
 
-    componentWillMount() {
-        this.fillStateData();
+  componentWillMount() {
+    this.fillStateData();
+  }
+
+  fillStateData = async () => {
+    try {
+      const response = await axios.get("/categoryItem/getAllCategories");
+      this.setState({ categoryData: response.data });
+    } catch (err) {
+      console.log(err);
     }
+  };
 
-    fillStateData = async () => {
-        try {
-            const response = await axios.get("/categoryItem/getAllCategories")
-            this.setState({ categoryData: response.data })
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
-    render() {
-        return (
-            <StyledWrapper>
-
-                {this.state.categoryData.map((item) => (
-                        <CategoryComponent title={item.categoryTitle} key={item.id} imgUrl={item.photoData}/>
-                    ))}
-        </StyledWrapper>
-        );
+  render() {
+    return (
+      <StyledWrapper>
+        {this.state.categoryData.map(item => (
+          <CategoryComponent
+            title={item.categoryTitle}
+            key={item.id}
+            imgUrl={item.photoData}
+            id={item.id}
+          />
+        ))}
+      </StyledWrapper>
+    );
   }
 }
 

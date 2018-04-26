@@ -1,10 +1,14 @@
 import Styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const StyledWrapper = Styled.div`
+export const StyledWrapper = Styled(Link)`
 margin: 60px;
 width: calc(33.33% - 120px);
 position: relative;
 display: inline-block;
+&:hover{
+    background:grey;
+}
 `;
 
 export const StyledTitle = Styled.h1`
@@ -27,3 +31,5 @@ font-weight:bold;
 export const CategoryImage = Styled.img`
 width: 100%;
 `;
+
+export const StyleLink = Styled(Link)``;
