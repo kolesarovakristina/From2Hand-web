@@ -3,6 +3,7 @@ import React from "react";
 import { Switch, Route,Redirect } from "react-router-dom";
 import Dashboard from "./containers/Dashboard";
 import AddNewPage from "./containers/AddNew";
+import AllAdverts from "./containers/AllAdverts";
 import AboutPage from "./containers/About";
 import RegisterPage from "./containers/Register";
 import theme from "./styles/themes/default";
@@ -22,6 +23,7 @@ const App = () => (
           <Route  path="/dashboard" component={Dashboard} />
           <Route  path="/login" component={AboutPage} />
           <Route  path="/register" component={RegisterPage} />
+          <Route  path="/adverts" component={AllAdverts} />
         </Switch>
       </div>
     </ThemeProvider>
