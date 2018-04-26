@@ -23,8 +23,7 @@ const App = () => (
           />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/login" component={LogIn} />
-          <Route path="/register" component={RegisterPage} />
-        </Switch>
+          <Route path="/register" component={RegisterPage} />        </Switch>
       </div>
     </ThemeProvider>
   </div>

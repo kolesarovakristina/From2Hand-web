@@ -7,5 +7,5 @@ export const StyledH1 = styled.h1`
 
 export const StyledWrapper = styled.div`
   max-width: 60%;
-    margin: auto;
+  margin: auto;
 `;
