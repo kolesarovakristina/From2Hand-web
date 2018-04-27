@@ -6,8 +6,11 @@ margin: 60px;
 width: calc(33.33% - 120px);
 position: relative;
 display: inline-block;
+transition: transform .2s;
+
 &:hover{
-    background:grey;
+
+    transform: scale(1.2);
 }
 `;
 

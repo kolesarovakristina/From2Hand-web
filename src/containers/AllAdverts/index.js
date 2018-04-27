@@ -39,11 +39,12 @@ class AllAdverts extends React.Component {
         <Navbar />
         <div>
           {this.state.novyObjekt.map((prvokVpoli, index) => (
-            <AdvertItem
+            <AdvertItem  
               advertObjekt={prvokVpoli}
               poziciaVpoli={index}
               key={prvokVpoli.id}
-            />
+              to={`/dashboard/bigadvert`}
+             />
           ))}
         </div>
       </StyledWrapper>

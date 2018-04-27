@@ -1,16 +1,25 @@
 import Styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledWrapper = Styled.div`
   background: lightgrey;
-  height 200px;
-  width 1225px;
+  height 350px;
+  width 1110px;
   // display: flex;
   //justify-content: right;
   text-align :left;
   border-style: solid;
     border-width: 1px;
+    margin-left:10px;
+    &:hover{
+
+      transform: scale(1.01);
+  }
 `;
-export const StyledTitle = Styled.h2`
+export const StyledLink = Styled(Link)`
+
+`;
+export const StyledTitle = Styled.h1`
   font-size: 15px;
   color: white;
   height: 50px;

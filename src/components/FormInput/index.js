@@ -7,6 +7,7 @@ const FormInput = props => (
       type={props.type}
       value={props.value}
       placeholder={props.placeholder}
+      onChange={props.changeState}
     />
   </div>
 

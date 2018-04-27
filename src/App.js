@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Dashboard from "./containers/Dashboard";
 import AddNewPage from "./containers/AddNew";
 import LogIn from "./containers/LogIn";
+import BigAdvert from "./containers/BigAdvert";
 import RegisterPage from "./containers/Register";
 import theme from "./styles/themes/default";
 import MainHeader from "./components/MainHeader";
@@ -23,7 +24,8 @@ const App = () => (
           />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/login" component={LogIn} />
-          <Route path="/register" component={RegisterPage} />        </Switch>
+          <Route path="/register" component={RegisterPage} />{" "}
+        </Switch>
       </div>
     </ThemeProvider>
   </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Charts from "../Charts";
-import About from "../About";
 import Header from "../../components/Header";
 import MainHeader from "../../components/MainHeader";
 import { StyledWrapper } from "./styles";

@@ -1,11 +1,10 @@
 import React from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Charts from "../Charts";
-import About from "../About";
 import Header from "../../components/Header";
 import MainHeader from "../../components/MainHeader";
 import Homepage from "../../containers/Homepage";
-import AboutPage from "../../containers/About";
+import BigAdvert from "../../containers/BigAdvert";
 import Footer from "../../components/Footer";
 import { StyledWrapper } from "./styles";
 import CategoryComponent from "../../components/Category";
@@ -21,6 +20,7 @@ const Dashboard = () => (
     <Switch>
       <Route path="/dashboard/homePage" component={Homepage} />
       <Route path="/dashboard/category/:id" component={AllAdverts} />
+      <Route path="/dashboard/bigadvert" component={BigAdvert} />
     </Switch>
     <Footer text="© 2018 FROM2HAND" />
   </div>
