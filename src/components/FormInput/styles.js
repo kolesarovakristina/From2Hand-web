@@ -33,18 +33,4 @@ export const StyledInputWrapper = styled.div`
   padding-bottom: 40px;
   background-color: rgb(22, 131, 147);
 `;
-export const StyledInputLink = styled.input`
-  display: flex;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 16px 16px;
-  color: grey;
-  text-decoration: none;
-  font-size: 20px;
-  align-items: center;
-  &:hover {
-    border-radius: 4px;
-    text-decoration: none;
-    color: red;
-  }
-`;
+

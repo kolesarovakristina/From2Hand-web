@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import motors from "../../assets/categoryImage/car.png";
+import motors from "../../assets/categoryImage/motors.png";
 
 import {
   StyledWrapper,

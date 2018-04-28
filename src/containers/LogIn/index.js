@@ -7,16 +7,54 @@ import {
   StyledH1
 } from "../../components/FormInput/styles";
 
-const LogIn = () => (
-  <form>
-    <StyledWrapper>
-      <StyledInputWrapper>
-        <StyledH1>Log In</StyledH1>
-        <FormInput type="text" label="" placeholder="Username" />
-        <FormInput type="text" label="" placeholder="Password" />
-      </StyledInputWrapper>
-    </StyledWrapper>
-  </form>
-);
+class LogInForm extends React.Component {
+  state = {
+    username: "",
+    password: ""
+  };
+  handleUserName = e => {
+    console.log(e.target.value);
+    this.setState({ username: e.target.value });
+  };
+  handlePassword = e => {
+    console.log(e.target.value);
+    this.setState({ password: e.target.value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("sending", this.state.username);
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("sending", this.state.password);
+  };
 
-export default LogIn;
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <StyledWrapper>
+          <StyledInputWrapper>
+            <StyledH1>Log In</StyledH1>
+            <FormInput
+              type="text"
+              label=""
+              placeholder="Username"
+              value={this.state.username}
+              changeState={this.handleUserName}
+            />
+            <FormInput
+              type="password"
+              label=""
+              placeholder="Password"
+              value={this.state.password}
+              changeState={this.handlePassword}
+            />
+            <button type="submit">submit</button>
+          </StyledInputWrapper>
+        </StyledWrapper>
+      </form>
+    );
+  }
+}
+
+export default LogInForm;
