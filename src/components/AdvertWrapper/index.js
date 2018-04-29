@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import {
   StyledWrapper,
   StyledTitle,
@@ -17,7 +16,7 @@ const AdvertItem = props => (
       <StyledTitle>{props.title}</StyledTitle>
     </StyledLink>
     <StyledImg />
-    <StyledDesc>{props.desc}</StyledDesc>
+        <StyledDesc>{props.desc}</StyledDesc>
     <StyledPrice>{props.price} </StyledPrice>
   </StyledWrapper>
 );
