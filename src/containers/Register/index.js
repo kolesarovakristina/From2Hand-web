@@ -1,10 +1,8 @@
 import React from "react";
 import FormInput from "../../components/FormInput";
-
 import {
   StyledWrapper,
-  StyledInputWrapper,
-  StyledH1
+  StyledInputWrapper
 } from "../../components/FormInput/styles";
 
 class RegisterForm extends React.Component {
@@ -34,7 +32,6 @@ handleSubmit = (e) =>{
       <form onSubmit={this.handleSubmit}> 
         <StyledWrapper>
           <StyledInputWrapper>
-            <StyledH1>Sign Up</StyledH1>
             <FormInput type="text" label="" placeholder="Username" value={this.state.username} changeState={this.handleUserName} />
             <FormInput type="text" label="" placeholder="Email" />
             <FormInput type="text" label="" placeholder="Phone number" />

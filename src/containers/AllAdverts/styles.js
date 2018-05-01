@@ -1,25 +1,17 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const MainHeader = styled.div`
-width 100%;
-`;
 export const StyledWrapper = styled.div`
-display: flex;  
-flex-direction:row;
-  flex-flow: row wrap;
-  font-weight: bold;
-  text-align: center;
-background-blue;
+  padding: 40px
+  position: relative;
+  display: inline-block;
+  width: calc(100% - 80px);
 `;
 
-export const Navbar = styled.span`
-display:flex;
-flex-direction: row;
-width 500px;
-`;
-export const AdvertWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+export const AllAdvertsWrapper = styled.div`
+  width: calc(80% - 15px);
+  height: 100%;
+  float: left;
+  position: relative;
+  padding-left: 15px;
 `;

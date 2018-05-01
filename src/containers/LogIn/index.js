@@ -1,22 +1,20 @@
 import React from "react";
 import FormInput from "../../components/FormInput";
-
+import Logo from "../../assets/from2hand.png";
 import {
   StyledWrapper,
   StyledInputWrapper,
-  StyledH1
+  StyledImage
 } from "../../components/FormInput/styles";
 
 const LogIn = () => (
-  <form>
     <StyledWrapper>
       <StyledInputWrapper>
-        <StyledH1>Log In</StyledH1>
-        <FormInput type="text" label="" placeholder="Username" />
-        <FormInput type="text" label="" placeholder="Password" />
+        <StyledImage src = {Logo} />
+        <FormInput type="text" label="" placeholder="Enter username" />
+        <FormInput type="text" label="" placeholder="Enter password" />
       </StyledInputWrapper>
     </StyledWrapper>
-  </form>
 );
 
 export default LogIn;

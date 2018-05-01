@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import logo from "../../assets/from2hand.png";
 import {
   StyledMainHeader,
   StyledLink,
@@ -51,7 +52,7 @@ class MainHeader extends React.Component {
 
     return (
       <StyledMainHeader>
-        <StyledHeaderLogo src="from2hand.png" />
+        <StyledHeaderLogo src={logo} />
         <StyledLink to="/register">Sign Up</StyledLink>
         <StyledLink to="/login">Log In</StyledLink>
       </StyledMainHeader>
