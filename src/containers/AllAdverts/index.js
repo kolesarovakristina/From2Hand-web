@@ -46,6 +46,7 @@ class AllAdverts extends React.Component {
   componentDidMount() {
     console.log(this.props.match.params.id);
     const idParam = this.props.match.params.id;
+    console.log(this.props.novyObjekt);
   }
   render() {
     return (
@@ -59,9 +60,12 @@ class AllAdverts extends React.Component {
               price={prvokVpoli.price +"€"}
               location={prvokVpoli.location}
               poziciaVpoli={index}
-              key={prvokVpoli.id}
-              to={`/dashboard/bigadvert`}
-             />
+              // key={item.id}
+              // title={item.title}
+              // desc={item.description}
+              // price={item.price}
+              // id={item.id}
+            />
           ))}
         </AllAdvertsWrapper>
       </StyledWrapper>

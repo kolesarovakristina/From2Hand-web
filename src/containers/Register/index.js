@@ -6,30 +6,51 @@ import {
 } from "../../components/FormInput/styles";
 
 class RegisterForm extends React.Component {
-  state ={
-    username: "" ,
-    email:"",
-    phonenumber:"",
-    city:"",
-    password:"",
-    confirmpassword:""
+  state = {
+    username: "",
+    email: "",
+    phonenumber: "",
+    city: "",
+    password: "",
+    confirmpassword: ""
+  };
+  handleUserName = e => {
+    console.log(e.target.value);
+    this.setState({ username: e.target.value });
+  };
+  handleEmail = e => {
+    console.log(e.target.value);
+    this.setState({ email: e.target.value });
+  };
+  handlePhoneNumber = e => {
+    console.log(e.target.value);
+    this.setState({ phonenumber: e.target.value });
+  };
+  handleCity = e => {
+    console.log(e.target.value);
+    this.setState({ city: e.target.value });
+  };
+  handlePassword = e => {
+    console.log(e.target.value);
+    this.setState({ password: e.target.value });
+  };
+  handleConfirmPassword = e => {
+    console.log(e.target.value);
+    this.setState({ confirmpassword: e.target.value });
+  };
 
-  }  
-handleUserName = (e) =>{
-  console.log(e.target.value);
-    this.setState({username:e.target.value})
-} 
-handleEmail = (e) =>{
-  this.setState({email:e.target.value})
-} //to do
-handleSubmit = (e) =>{
-  e.preventDefault();
-  console.log("odosielam",this.state.username);
-}
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("sending", this.state.username);
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("sending", this.state.confirmpassword);
+  };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}> 
+      <form onSubmit={this.handleSubmit}>
         <StyledWrapper>
           <StyledInputWrapper>
             <FormInput type="text" label="" placeholder="Username" value={this.state.username} changeState={this.handleUserName} />
