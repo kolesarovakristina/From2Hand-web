@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const StyledHeaderWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
   width: 100%;
 `;
 
@@ -55,3 +53,6 @@ export const SearchImg = styled.img`
     margin-left: 3px;
     height: 25px;
 `
+export const StyledInput = styled.input`
+  // width: 20%;
+`;

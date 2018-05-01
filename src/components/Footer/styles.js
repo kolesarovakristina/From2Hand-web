@@ -5,7 +5,8 @@ export const StyledFooter = styled.div`
     height: 70px;
     line-height: 70px;
     background-color: rgb(230,230,230);
-`;
+    position: absolute;
+    `;
 export const StyledText = styled.div`
     width: 100%;
     text-align: center;
