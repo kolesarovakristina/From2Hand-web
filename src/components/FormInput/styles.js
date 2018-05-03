@@ -12,19 +12,18 @@ export const StyledInputWrapper = styled.div``;
 
 export const StyledInputLink = styled.input`
   padding: 5px 15px;
+  width: calc(100% - 32px);
   font-size: 16px;
   display: inline-block;
   color: grey;
   border: 1px solid rgb(22, 131, 147);
-  margin: 0;
-  margin-bottom: -1px;
+  margin 1px 0;
+  border-radius: 0;
 `;
 
 export const StyledImage = styled.img`
   width: calc(100%);
   padding-bottom: 20px;
-  // background-color: rgb(22, 131, 147);
-  // padding: 20px 40px;
 `;
 
 export const StyledButton = styled.button`
@@ -51,4 +50,10 @@ export const Or = styled.div`
     text-align: center;
     color: grey;
     margin-top: 3px;
+`;
+
+export const RegisterWrapper = styled.div`
+  width: 30%;
+  position: relative;
+  margin: 4% auto;
 `;

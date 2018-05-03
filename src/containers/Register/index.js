@@ -2,8 +2,13 @@ import React from "react";
 import FormInput from "../../components/FormInput";
 import {
   StyledWrapper,
-  StyledInputWrapper
+  StyledInputWrapper,
+  StyledButton,
+  StyledImage,
+  Or,
+  RegisterWrapper
 } from "../../components/FormInput/styles";
+import logo from "../../assets/from2handLogin.png";
 
 class RegisterForm extends React.Component {
   state = {
@@ -50,19 +55,18 @@ class RegisterForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <StyledWrapper>
-          <StyledInputWrapper>
-            <FormInput type="text" label="" placeholder="Username" value={this.state.username} changeState={this.handleUserName} />
-            <FormInput type="text" label="" placeholder="Email" />
-            <FormInput type="text" label="" placeholder="Phone number" />
-            <FormInput type="text" label="" placeholder="City" />
-            <FormInput type="text" label="" placeholder="Password" />
-            <FormInput type="text" label="" placeholder="Confirm password" />
-            <button type="submit">submit</button>
-          </StyledInputWrapper>
-        </StyledWrapper>
-      </form>
+      <RegisterWrapper>
+        <StyledImage src={logo}/>
+        <FormInput type="text" label="" placeholder="Username" value={this.state.username} changeState={this.handleUserName} />
+        <FormInput type="text" label="" placeholder="Email" />
+        <FormInput type="text" label="" placeholder="Phone number" />
+        <FormInput type="text" label="" placeholder="City" />
+        <FormInput type="text" label="" placeholder="Password" />
+        <FormInput type="text" label="" placeholder="Confirm password" />
+        <StyledButton>Sent</StyledButton>
+        <Or>or</Or>
+        <StyledButton>Reset</StyledButton>
+      </RegisterWrapper>
     );
   }
 }
