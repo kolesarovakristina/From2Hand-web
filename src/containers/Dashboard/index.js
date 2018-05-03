@@ -12,6 +12,7 @@ import { read } from "fs";
 import axios from "axios";
 import { setTimeout } from "timers";
 import AllAdverts from "../AllAdverts";
+import ProfilePage from "../../containers/ProfilePage";
 
 const Dashboard = () => (
   <div>

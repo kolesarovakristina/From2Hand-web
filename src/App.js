@@ -10,6 +10,7 @@ import MainHeader from "./components/MainHeader";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PropTypes from "prop-types";
+import ProfilePage from "./containers/ProfilePage";
 
 const App = () => (
   <div>
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/login" component={LogIn} />
           <Route path="/register" component={RegisterPage} />{" "}
+          <Route path="/profile" component={ProfilePage} />
         </Switch>
       </div>
     </ThemeProvider>
