@@ -53,6 +53,4 @@ export const SearchImg = styled.img`
     margin-left: 3px;
     height: 25px;
 `
-export const StyledInput = styled.input`
-  // width: 20%;
-`;
+export const StyledInput = styled.input``;

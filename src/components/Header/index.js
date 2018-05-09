@@ -7,10 +7,9 @@ import {
   SearchImg,
   StyledInput
 } from "./styles";
-import "./style.css";
 import searchButton from "../../assets/categoryImage/searching.png";
 import PropTypes from "prop-types";
-import "./style.css";
+
 
 const Header = props => (
   <StyledHeaderWrapper>

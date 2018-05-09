@@ -3,14 +3,14 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Dashboard from "./containers/Dashboard";
 import AddNewPage from "./containers/AddNew";
-import LogIn from "./containers/LogIn";
+import UserProfile from "./containers/UserProfile";
 import RegisterPage from "./containers/Register";
 import theme from "./styles/themes/default";
 import MainHeader from "./components/MainHeader";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PropTypes from "prop-types";
-import ProfilePage from "./containers/ProfilePage";
+import LoginPage from "./containers/LogIn";
 
 const App = () => (
   <div>
@@ -23,9 +23,8 @@ const App = () => (
             render={() => <Redirect to="/dashboard/homePage" />}
           />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/login" component={LogIn} />
-          <Route path="/register" component={RegisterPage} />{" "}
-          <Route path="/profile" component={ProfilePage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
         </Switch>
       </div>
     </ThemeProvider>

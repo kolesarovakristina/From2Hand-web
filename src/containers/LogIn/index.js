@@ -1,27 +1,39 @@
 import React from "react";
-import FormInput from "../../components/FormInput";
-import Logo from "../../assets/from2handLogin.png";
-import "./style.css";
-import {
-  StyledWrapper,
-  StyledInputWrapper,
-  StyledImage,
-  StyledButton,
-  Or
-} from "../../components/FormInput/styles";
+import LogInForm from "./form";
 
-const LogIn = () => (
-    <StyledWrapper>
-      <StyledImage src = {Logo} />
-      <StyledInputWrapper>
-        <FormInput type="text" label="" placeholder="Enter username" />
-        <FormInput type="text" label="" placeholder="Enter password" />
-        <StyledButton className="login">Login</StyledButton>
-        <Or>or</Or>
-        <StyledButton>SIGN UP</StyledButton>
-      </StyledInputWrapper>
-    </StyledWrapper>
-);
+class LoginPage extends React.Component {
+  state = {
+    username: "",
+    password: ""
+  };
 
+  handleUserNameInput = (e) => {
+    console.log(e.target.value);
+    this.setState({username: e.target.value});
+  }
 
-export default LogIn;
+  handleUserPasswordInput = (e) => {
+    console.log(e.target.value);
+    this.setState({password: e.target.value});
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const {username, password} = this.state;
+    console.log("Posiela", username, password);
+  }
+
+  render(){
+    return (
+      <LogInForm 
+        onSubmit={this.onSubmit} 
+        changeName = {this.handleUserNameInput} 
+        changePassword = {this.handleUserPasswordInput}
+        userNameValue = {this.state.username}
+        userPasswordValue = {this.state.password}
+        />
+    )
+  }
+}
+
+export default LoginPage;

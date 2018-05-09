@@ -10,7 +10,7 @@ export const StyledWrapper = styled.div`
 
 export const StyledInputWrapper = styled.div``;
 
-export const StyledInputLink = styled.input`
+export const StyledInput = styled.input`
   padding: 5px 15px;
   width: calc(100% - 32px);
   font-size: 16px;
