@@ -8,9 +8,7 @@ import sk.bazos.repository.AddRepository;
 
 import java.util.List;
 
-/**
- * Created by martin.cuchran on 4/10/2018.
- */
+
 @RestController
 @RequestMapping("add")
 @Api(value = "add", description = "Basic crud over add entity.")

@@ -17,18 +17,14 @@ import {
 
 const AdvertItem = props => (
   <StyledWrapper>
-
-    <StyledLink to={`/dashboard/bigadvert`}>
+    <StyledLink to={`/dashboard/bigadvert/${props.id}`}>
       <StyledTitle>{props.title}</StyledTitle>
     </StyledLink>
-
     <DescWrapper>
       <ImageWrapper>
-        <StyledImg src={advertImage}/>
+        <StyledImg src={advertImage} />
       </ImageWrapper>
-      <StyledDesc>
-        {props.description}
-      </StyledDesc>
+      <StyledDesc>{props.description}</StyledDesc>
       <StyledPrice>{props.price}</StyledPrice>
       <StyledLocation>{props.location}</StyledLocation>
     </DescWrapper>

@@ -15,8 +15,8 @@ class AllAdverts extends React.Component {
           id: 1,
           title: "Predám niečo niekomu za dobru cenu",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis."
-              +"Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium, faucibus risus sed.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis." +
+            "Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium, faucibus risus sed.",
           price: "10",
           location: "Košice"
         },
@@ -24,8 +24,8 @@ class AllAdverts extends React.Component {
           id: 2,
           title: "Predám niečo",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis. "+
-            "Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium, faucibus risus sed, egestas purus. Curabitur at "+
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis. " +
+            "Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium, faucibus risus sed, egestas purus. Curabitur at " +
             "venenatis enim. Curabitur tempus, nibh vel aliquam scelerisque, arcu dolor finibus ex, ut iaculis ex ex nec nunc.",
           price: "20",
           location: "Sabinov"
@@ -34,7 +34,7 @@ class AllAdverts extends React.Component {
           id: 3,
           title: "Predám niečo niekomu",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis. Vestibulum "+
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis. Vestibulum " +
             "scelerisque vulputate convallis. Integer.",
           price: "44",
           location: "Prešov"
@@ -54,17 +54,13 @@ class AllAdverts extends React.Component {
         <Navbar />
         <AllAdvertsWrapper>
           {this.state.novyObjekt.map((prvokVpoli, index) => (
-            <AdvertWrapper  
+            <AdvertWrapper
               title={prvokVpoli.title}
               description={prvokVpoli.description}
-              price={prvokVpoli.price +"€"}
+              price={prvokVpoli.price + "€"}
               location={prvokVpoli.location}
               poziciaVpoli={index}
-              // key={item.id}
-              // title={item.title}
-              // desc={item.description}
-              // price={item.price}
-              // id={item.id}
+              id={prvokVpoli.id}
             />
           ))}
         </AllAdvertsWrapper>

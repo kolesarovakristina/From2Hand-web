@@ -15,7 +15,7 @@ const LogIn = () => (
       <StyledImage src = {Logo} />
       <StyledInputWrapper>
         <FormInput type="text" label="" placeholder="Enter username" />
-        <FormInput type="text" label="" placeholder="Enter password" />
+        <FormInput type="password" label="" placeholder="Enter password" />
         <StyledButton className="login">Login</StyledButton>
         <Or>or</Or>
         <StyledButton>SIGN UP</StyledButton>

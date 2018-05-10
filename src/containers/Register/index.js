@@ -35,6 +35,7 @@ class RegisterForm extends React.Component {
     console.log(e.target.value);
     this.setState({ city: e.target.value });
   };
+
   handlePassword = e => {
     console.log(e.target.value);
     this.setState({ password: e.target.value });
@@ -56,11 +57,23 @@ class RegisterForm extends React.Component {
   render() {
     return (
       <RegisterWrapper>
-        <StyledImage src={logo}/>
-        <FormInput type="text" label="" placeholder="Username" value={this.state.username} changeState={this.handleUserName} />
+        <StyledImage src={logo} />
+        <FormInput
+          type="text"
+          label=""
+          placeholder="Username"
+          value={this.state.username}
+          changeState={this.handleUserName}
+        />
         <FormInput type="text" label="" placeholder="Email" />
         <FormInput type="text" label="" placeholder="Phone number" />
-        <FormInput type="text" label="" placeholder="City" />
+        <FormInput
+          type="text"
+          label=""
+          placeholder="City"
+          value={this.state.city}
+          changeState={this.handleCity}
+        />
         <FormInput type="text" label="" placeholder="Password" />
         <FormInput type="text" label="" placeholder="Confirm password" />
         <StyledButton>Sent</StyledButton>
