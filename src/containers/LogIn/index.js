@@ -1,27 +1,60 @@
 import React from "react";
-import FormInput from "../../components/FormInput";
-import Logo from "../../assets/from2handLogin.png";
-import "./style.css";
-import {
-  StyledWrapper,
-  StyledInputWrapper,
-  StyledImage,
-  StyledButton,
-  Or
-} from "../../components/FormInput/styles";
+import LogInForm from "./form";
+import axios from "axios";
+// import { withCookies, Cookies } from 'react-cookie';
+import Cookies from "universal-cookie";
 
-const LogIn = () => (
-    <StyledWrapper>
-      <StyledImage src = {Logo} />
-      <StyledInputWrapper>
-        <FormInput type="text" label="" placeholder="Enter username" />
-        <FormInput type="password" label="" placeholder="Enter password" />
-        <StyledButton className="login">Login</StyledButton>
-        <Or>or</Or>
-        <StyledButton>SIGN UP</StyledButton>
-      </StyledInputWrapper>
-    </StyledWrapper>
-);
+class LoginPage extends React.Component {
+  state = {
+    username: "",
+    password: "",
+    token: ""
+  };
 
+  handleUserNameInput = e => {
+    console.log(e.target.value);
+    this.setState({ username: e.target.value });
+  };
 
-export default LogIn;
+  handleUserPasswordInput = e => {
+    console.log(e.target.value);
+    this.setState({ password: e.target.value });
+  };
+
+  onSubmit = async event => {
+    event.preventDefault();
+    const form = new FormData();
+    form.append("username", `${this.state.username}`);
+    form.append("password", `${this.state.password}`);
+    try {
+      const response = await axios({
+        method: "post",
+        url: "/user/login",
+        data: form,
+        config: { headers: { "Content-Type": "multipart/form-data" } }
+      });
+      const cookies = new Cookies();
+
+      cookies.set("token", response, { path: "/" });
+      // console.log(cookies.get('token'));
+      console.log("response", response);
+      this.props.history.push("/dashboard/userprofile");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  render() {
+    return (
+      <LogInForm
+        onSubmit={this.onSubmit}
+        changeName={this.handleUserNameInput}
+        changePassword={this.handleUserPasswordInput}
+        userNameValue={this.state.username}
+        userPasswordValue={this.state.password}
+      />
+    );
+  }
+}
+
+export default LoginPage;

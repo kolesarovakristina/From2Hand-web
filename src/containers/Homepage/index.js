@@ -19,7 +19,7 @@ class Homepage extends React.Component {
 
   fillStateData = async () => {
     try {
-      const response = await axios.get("/categoryItem/getAllCategories");
+      const response = await axios.get("/category");
       this.setState({ categoryData: response.data });
     } catch (err) {
       console.log(err);

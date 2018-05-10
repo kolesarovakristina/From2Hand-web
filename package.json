@@ -10,6 +10,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-addons-pure-render-mixin": "^15.6.2",
+    "react-cookie": "^2.1.4",
     "react-dom": "^16.2.0",
     "react-google-charts": "https://github.com/ZeptInc/react-google-charts",
     "react-grid-layout": "^0.16.6",

@@ -12,7 +12,7 @@ import { read } from "fs";
 import axios from "axios";
 import { setTimeout } from "timers";
 import AllAdverts from "../AllAdverts";
-import ProfilePage from "../../containers/ProfilePage";
+import UserProfile from "../UserProfile";
 
 const Dashboard = () => (
   <div>
@@ -22,6 +22,7 @@ const Dashboard = () => (
       <Route path="/dashboard/homePage" component={Homepage} />
       <Route path="/dashboard/category/:id" component={AllAdverts} />
       <Route path="/dashboard/bigadvert" component={BigAdvert} />
+      <Route path="/dashboard/userProfile" component={UserProfile} />
     </Switch>
     <Footer text="© 2018 FROM2HAND" />
   </div>
