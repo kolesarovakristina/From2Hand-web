@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+
 export const StyledHeaderWrapper = styled.div`
   width: 100%;
 `;
@@ -14,11 +15,6 @@ export const StyledInfoWrapper = styled.div`
   font-size: 15px;
   font-weight: bold;
   padding: 10px 0;
-  background: white;
-
-  @media (max-width: 1000px) {
-    justify-content: center;
-  }
 `;
 export const StyledNavLink = styled(NavLink)`
   display: flex;
@@ -53,4 +49,33 @@ export const SearchImg = styled.img`
     margin-left: 3px;
     height: 25px;
 `
-export const StyledInput = styled.input``;
+export const StyledInput = styled.input`
+  height: 30px;
+  width: 180px;
+  border: 0px;
+  padding: 0 10px;
+  margin: 6px 3px;
+  border-radius: 5px;
+  outline: 0;
+  &:focus {
+    outline: 2px solid rgb(22,131,147);
+  }
+`;
+
+export const StyledSelect = styled.select`
+height: 30px;
+width: 180px;
+border: 0px;
+padding: 0 10px;
+margin: 6px 3px;
+border-radius: 5px;
+&:focus {
+  outline: 2px solid rgb(22,131,147);
+}
+`;
+
+export const StyledOption = styled.option`
+  &:hover {
+    color: #000;
+  }
+`;

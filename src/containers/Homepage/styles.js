@@ -8,6 +8,6 @@ export const StyledH1 = styled.h1`
 export const StyledWrapper = styled.div`
   max-width: 60%;
   margin: auto;
-  padding-bottom: 60px;
+  padding-bottom: 90px;
   padding-top: 20px;
 `;

@@ -11,14 +11,14 @@ export const StyledWrapper = styled.div`
 export const StyledInputWrapper = styled.div``;
 
 export const StyledInput = styled.input`
-  padding: 5px 15px;
+  padding: 0 15px;
+  height: 40px;
   width: calc(100% - 32px);
-  font-size: 16px;
+  font-size: 15px;
   display: inline-block;
   color: grey;
   border: 1px solid rgb(22, 131, 147);
   margin 1px 0;
-  border-radius: 0;
 `;
 
 export const StyledImage = styled.img`

@@ -31,7 +31,7 @@ class Homepage extends React.Component {
       <StyledWrapper>
         {this.state.categoryData.map(item => (
           <CategoryComponent
-            title={item.categoryTitle}
+            title={item.title}
             key={item.id}
             imgUrl={item.photoData}
             id={item.id}

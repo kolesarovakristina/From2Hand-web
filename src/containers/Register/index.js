@@ -9,6 +9,7 @@ import {
   RegisterWrapper
 } from "../../components/FormInput/styles";
 import logo from "../../assets/from2handLogin.png";
+import "./style.css";
 
 class RegisterForm extends React.Component {
   state = {
@@ -74,9 +75,9 @@ class RegisterForm extends React.Component {
           value={this.state.city}
           changeState={this.handleCity}
         />
-        <FormInput type="text" label="" placeholder="Password" />
-        <FormInput type="text" label="" placeholder="Confirm password" />
-        <StyledButton>Sent</StyledButton>
+        <FormInput type="password" label="" placeholder="Password" />
+        <FormInput type="password" label="" placeholder="Confirm password" />
+        <StyledButton className="paddingTop">Sent</StyledButton>
         <Or>or</Or>
         <StyledButton>Reset</StyledButton>
       </RegisterWrapper>

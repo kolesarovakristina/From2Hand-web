@@ -10,9 +10,8 @@ display: inline-block;
 transition: transform .2s;
 &:hover{
     transform: scale(1.05);
-    background-color: rgba(22,131,147, .75);
-    border-radius:10px;  
-    color: #fff;
+    // background-color: rgba(22,131,147, .35);
+    // border-radius:100px;  
 }
 `;
 
