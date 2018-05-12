@@ -3,7 +3,7 @@ import UserInfoComponent from "../../components/UserInfoComponent";
 import { UserInfoWrapper } from "./styles";
 import Cookies from "universal-cookie";
 
-class UserProfile extends React.Component {
+class UserInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,4 +44,4 @@ class UserProfile extends React.Component {
 
 }
 
-export default UserProfile;
+export default UserInfo;

@@ -24,18 +24,18 @@ class Header extends React.Component {
     ]
   };
 
-  componentWillMount() {
-    this.fillStateData();
-  }
+  // componentWillMount() {
+  //   this.fillStateData();
+  // }
 
-  fillStateData = async () => {
-    try {
-      const response = await axios.get("/category");
-      this.setState({ categoryData: response.data });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // fillStateData = async () => {
+  //   try {
+  //     const response = await axios.get("/category");
+  //     this.setState({ categoryData: response.data });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   
   render(){
     return(
@@ -45,7 +45,7 @@ class Header extends React.Component {
           <StyledSelect className="headerSelect">
             <StyledOption value = "All">All</StyledOption>
             {this.state.categoryData.map((item, index) => (
-              <StyledOption value = {item.title}>{item.title}</StyledOption>
+              <StyledOption>{item.title}</StyledOption>
             ))}
           </StyledSelect>
           <StyledInput type="text" placeholder="City" />

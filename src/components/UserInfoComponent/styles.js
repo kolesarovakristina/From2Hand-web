@@ -2,13 +2,12 @@ import styled from "styled-components";
 import { style } from "react-toastify";
 
 export const UserInfoWrapper = styled.div`
-width: calc(56% - 10.5px);
-margin: 0 22%;
-display: inline-block;
-border: 5px solid rgba(22,131,147, 1);
-display: inline-block;
-border-bottom-right-radius: 10px;
-border-bottom-left-radius: 10px;
+    width: calc(56% - 10.5px);
+    margin: 0 22%;
+    display: inline-block;
+    border: 5px solid rgba(22,131,147, 1);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 `;
     
     export const StyledImage = styled.img`

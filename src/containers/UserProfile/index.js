@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { userInfo } from "os";
 import UserprofileSwitch from "../../components/UserprofileSwitch";
-import ProfilePage from '../../containers/AllAdverts';
+import ChangeInfo from '../../containers/ChangeInfoPage';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class UserProfile extends React.Component {
         ))}
         <Switch>
           <Route path="/dashboard/userprofile/info" component={UserInfo} />
-          <Route path="/dashboard/userprofile/changeInfo" component={ProfilePage} />
+          <Route path="/dashboard/userprofile/changeInfo" component={ChangeInfo} />
           <Route path="/dashboard/userprofile/myAdverts" component={UserInfo} />
         </Switch>
     </div>

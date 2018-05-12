@@ -7,9 +7,9 @@ const UserProfile =(props) => (
 
         <StyledWrapper>
 
-            <StyledLink to="/dashboard/userprofile/info" activeStyle={{ background:'rgb(22,131,147)' }}>{props.firstname + ' ' + props.lastname}</StyledLink>
-            <StyledLink to="/dashboard/userprofile/changeinfo" activeStyle={{background:"rgb(22,131,147)"}}>Change Info</StyledLink>
-            <StyledLink to="/dashboard/userprofile/myadverts" activeStyle={{background:"rgb(22,131,147)"}}>My Adverts</StyledLink>
+            <StyledLink to="/dashboard/userprofile/info" activeStyle={{background:"rgb(22,131,147)", fontSize: 21}}>{props.firstname + ' ' + props.lastname}</StyledLink>
+            <StyledLink to="/dashboard/userprofile/changeinfo" activeStyle={{background:"rgb(22,131,147)", fontSize: 21}}>Change Info</StyledLink>
+            <StyledLink to="/dashboard/userprofile/myadverts" activeStyle={{background:"rgb(22,131,147)", fontSize: 21}}>My Adverts</StyledLink>
 
         </StyledWrapper>
     );

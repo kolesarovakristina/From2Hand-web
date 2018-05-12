@@ -6,6 +6,8 @@ export const StyledWrapper = styled.div`
 width:56%;
 margin: 50px 22% 0;
 display: inline-block;
+transition: all .2s ease-in-out;
+
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -15,7 +17,9 @@ export const StyledLink = styled(NavLink)`
     color: #fff;
     width: 33.33%;
     border: 0;
-    padding: 20px 0;
+    // padding: 20px 0;
+    height: 65px;
+    line-height: 65px;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 19px;
@@ -25,5 +29,6 @@ export const StyledLink = styled(NavLink)`
     cursor: pointer;
     background-color: rgba(22,131,147, .35);
     position: relative;
-    top:5px;
+    top:4px;
+    transition: all .2s ease-in-out;
 `;

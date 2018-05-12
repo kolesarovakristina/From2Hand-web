@@ -19,7 +19,7 @@ const UserInfo = (props) => (
         <UserDetails>
             <InputHeader>E-mail address: </InputHeader>
             <InfoDetails>{props.email}</InfoDetails>
-            <InputHeader>Telepone Number: </InputHeader>
+            <InputHeader>Telephone Number: </InputHeader>
             <InfoDetails>{props.phoneNumber}</InfoDetails>
         </UserDetails>
     </UserInfoWrapper>
