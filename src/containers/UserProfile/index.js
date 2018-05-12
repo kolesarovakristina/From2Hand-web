@@ -1,8 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import UserInfo from "../../components/UserInfo";
-import { UserInfoWrapper } from "./styles";
+import UserInfo from "../../containers/UserInfo";
 import Cookies from "universal-cookie";
+import { Switch, Route, withRouter } from "react-router-dom";
+import { userInfo } from "os";
+import UserprofileSwitch from "../../components/UserprofileSwitch";
+import ProfilePage from '../../containers/AllAdverts';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -11,36 +14,28 @@ class UserProfile extends React.Component {
       person: [
         {
           firstName: "Peter",
-          lastName: "Novak",
-          email: "peternovak@gmail.com",
-          phoneNumber: "0911234567"
+          lastName: "Novak"
         }
       ]
     };
   }
 
-  componentWillMount() {
-    const cookies = new Cookies();
-    console.log(cookies.get("token"));
-    const token = cookies.get("token") || null;
-    if (token === null) {
-      this.props.history.push("/login");
-    }
-  }
-
-  render() {
+  render(){
     return (
-      <UserInfoWrapper>
+      <div>
         {this.state.person.map((user, index) => (
-          <UserInfo
-            firstName={user.firstName}
-            lastName={user.lastName}
-            email={user.email}
-            phoneNumber={user.phoneNumber}
+          <UserprofileSwitch
+            firstname={user.firstName}
+            lastname={user.lastName}
             key={index}
           />
         ))}
-      </UserInfoWrapper>
+        <Switch>
+          <Route path="/dashboard/userprofile/info" component={UserInfo} />
+          <Route path="/dashboard/userprofile/changeInfo" component={ProfilePage} />
+          <Route path="/dashboard/userprofile/myAdverts" component={UserInfo} />
+        </Switch>
+    </div>
     );
   }
 }

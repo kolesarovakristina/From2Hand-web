@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Charts from "../Charts";
 import Header from "../../components/Header";
 import MainHeader from "../../components/MainHeader";
@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
         <Route path="/dashboard/homePage" component={Homepage} />
         <Route path="/dashboard/category/:id" component={AllAdverts} />
         <Route path="/dashboard/bigadvert" component={BigAdvert} />
-        <Route path="/dashboard/userProfile" component={UserProfile} />
+        <Route path="/dashboard/userprofile" component={UserProfile} />
       </Switch>
       <Footer text="© 2018 FROM2HAND" />
     </div>

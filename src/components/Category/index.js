@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import { StyledWrapper, StyledTitle, CategoryImage, StyleLink } from "./styles";
+import { StyledWrapper, StyledTitle, CategoryImage } from "./styles";
 
 const CategoryComponent = props => (
   <StyledWrapper to={`/dashboard/category/${props.id}`}>

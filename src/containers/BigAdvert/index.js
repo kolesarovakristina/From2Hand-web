@@ -1,5 +1,4 @@
 import React from "react";
-import AdvertItem from "../../components/AdvertWrapper";
 import {
   StyledWrapper,
   StyledTitle,
@@ -10,7 +9,6 @@ import {
   StyledUserName,
   StyledUserNumber
 } from "./styles";
-import { MainHeader } from "../../components/MainHeader";
 
 class BigAdvert extends React.Component {
   render() {

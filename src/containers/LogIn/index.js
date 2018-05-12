@@ -38,7 +38,7 @@ class LoginPage extends React.Component {
       cookies.set("token", response, { path: "/" });
       // console.log(cookies.get('token'));
       console.log("response", response);
-      this.props.history.push("/dashboard/userprofile");
+      this.props.history.push("/dashboard/userprofile/info");
     } catch (err) {
       console.log(err);
     }

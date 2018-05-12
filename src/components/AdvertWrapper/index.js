@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import advertImage from "../../assets/categoryImage/animals.png";
 
 import {
@@ -7,7 +7,6 @@ import {
   StyledTitle,
   StyledDesc,
   StyledPrice,
-  StyledAdvert,
   StyledImg,
   StyledLink,
   StyledLocation,

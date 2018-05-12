@@ -56,20 +56,6 @@ class Header extends React.Component {
     </StyledHeaderWrapper>
     );
   }
-// const Header = props => (
-//   <StyledHeaderWrapper>
-//     <StyledMenuWrapper>
-//       <StyledInput type="text" placeholder="What Are You Looking For?" />
-//       <StyledSelect className="headerSelect">
-//         <option >{props.category}</option>
-//       </StyledSelect>
-//       <StyledInput type="text" placeholder="City" />
-//       <StyledInput type="text" placeholder="Price From" />
-//       <StyledInput type="text" placeholder="Price To" />
-//       <SearchImg src={searchButton} />
-//     </StyledMenuWrapper>
-//   </StyledHeaderWrapper>
-// );
 
 }
 
