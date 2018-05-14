@@ -11,6 +11,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PropTypes from "prop-types";
 import LoginPage from "./containers/LogIn";
+import './index.css';
+
 
 const App = () => (
   <div>

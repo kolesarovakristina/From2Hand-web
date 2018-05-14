@@ -9,6 +9,7 @@ import {
     StyledButton,
     Or
   } from "../../components/FormInput/styles";
+import { StyledLink } from "../../components/MyAdvert/styles";
   
   const LogInForm =(props) => (
       <StyledWrapper>
@@ -19,13 +20,12 @@ import {
             <FormInput changeState={props.changePassword} type="password" label="" placeholder="Enter password" value = {props.userPasswordValue}/>
             <StyledButton className="login" type="submit">Login</StyledButton>
             <Or>or</Or>
-            <StyledButton>SIGN UP</StyledButton>
+            <StyledLink to='/register'>
+              <StyledButton>SIGN UP</StyledButton>
+            </StyledLink>
           </form>
-         
         </StyledInputWrapper>
       </StyledWrapper>
   );
-  
-  
+
   export default LogInForm;
-  

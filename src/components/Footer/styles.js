@@ -6,6 +6,8 @@ export const StyledFooter = styled.div`
     line-height: 70px;
     background-color: rgb(230,230,230);
     position: absolute;
+    box-shadow: 0 -2px 7px 0px darkgray;
+
     `;
 export const StyledText = styled.div`
     width: 100%;

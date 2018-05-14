@@ -1,5 +1,6 @@
 import React from "react";
 import ChangeInfoComponent from '../../components/ChangeInfoComponent';
+import { StyledWrapper } from "./styles";
 
 class ChangeInfoPage extends React.Component {
   constructor(props) {
@@ -18,9 +19,9 @@ class ChangeInfoPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <StyledWrapper>
         <ChangeInfoComponent />
-      </div>
+      </StyledWrapper>
     );
   }
 

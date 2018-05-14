@@ -4,9 +4,10 @@ import { NavLink } from "react-router-dom";
 
 export const StyledHeaderWrapper = styled.div`
   width: 100%;
-`;
-
-export const StyledInfoWrapper = styled.div`
+  box-shadow: 0 3px 7px 0px darkgray;
+  `;
+  
+  export const StyledInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   color: black;
@@ -15,8 +16,8 @@ export const StyledInfoWrapper = styled.div`
   font-size: 15px;
   font-weight: bold;
   padding: 10px 0;
-`;
-export const StyledNavLink = styled(NavLink)`
+  `;
+  export const StyledNavLink = styled(NavLink)`
   display: flex;
   font-weight: bold;
   text-transform: uppercase;
@@ -30,8 +31,8 @@ export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     color: red;
   }
-`;
-export const StyledMenuWrapper = styled.div`
+  `;
+  export const StyledMenuWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -57,6 +58,7 @@ export const StyledInput = styled.input`
   margin: 6px 3px;
   border-radius: 5px;
   outline: 0;
+  transition: all .1s ease-in-out;
   &:focus {
     outline: 2px solid rgb(22,131,147);
   }

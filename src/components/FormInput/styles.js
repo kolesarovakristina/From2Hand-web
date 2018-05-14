@@ -18,7 +18,11 @@ export const StyledInput = styled.input`
   display: inline-block;
   color: grey;
   border: 1px solid rgb(22, 131, 147);
-  margin 1px 0;
+  margin 2px 0;
+  outline: 0;
+  &:focus{
+    border-bottom: 2px solid #168393;
+  }
 `;
 
 export const StyledImage = styled.img`

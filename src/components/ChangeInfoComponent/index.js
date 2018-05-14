@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledWrapper, StyledHeader, StyledInput } from './styles';
+import { StyledWrapper, StyledHeader, StyledInput, StyledButton } from './styles';
 
 const ChangeInfoComponent = props =>(
     <StyledWrapper>
@@ -11,6 +11,7 @@ const ChangeInfoComponent = props =>(
         <StyledInput type='password' placeholder='Enter your new password'/>
         <StyledHeader>Confirm Password:</StyledHeader>
         <StyledInput type='password' placeholder='Confirm your new password'/>
+        <StyledButton type='submit'>Confirm</StyledButton>
     </StyledWrapper>
 );
 
