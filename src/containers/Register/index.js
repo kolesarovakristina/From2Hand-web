@@ -77,7 +77,7 @@ class RegisterForm extends React.Component {
         />
         <FormInput type="password" label="" placeholder="Password" />
         <FormInput type="password" label="" placeholder="Confirm password" />
-        <StyledButton className="paddingTop">Sent</StyledButton>
+        <StyledButton className="paddingTop">Send</StyledButton>
         <Or>or</Or>
         <StyledButton>Reset</StyledButton>
       </RegisterWrapper>
