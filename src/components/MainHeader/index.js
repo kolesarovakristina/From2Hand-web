@@ -5,7 +5,7 @@ import {
   StyledLink,
   StyledHeaderLogo,
   NewHeader,
-  NewHeaderContent,
+  NewHeaderContent
 } from "./styles";
 
 class MainHeader extends React.Component {
@@ -13,7 +13,7 @@ class MainHeader extends React.Component {
     super(props);
     this.state = {
       width: "",
-      isExpanded: false,
+      isExpanded: false
     };
     // this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
@@ -44,7 +44,9 @@ class MainHeader extends React.Component {
       return (
         <NewHeader onClick={this.handleSetExpanded}>
           <button onClick={this.handleSetExpanded}>button </button>
-          <NewHeaderContent isExpanded={this.state.isExpanded}>content</NewHeaderContent>
+          <NewHeaderContent isExpanded={this.state.isExpanded}>
+            content
+          </NewHeaderContent>
         </NewHeader>
       );
     }
@@ -52,12 +54,11 @@ class MainHeader extends React.Component {
     return (
       <StyledMainHeader>
         <StyledHeaderLogo src={logo} />
-        <StyledLink to="/register">Sign Up</StyledLink>
-        <StyledLink to="/login">Log In</StyledLink>
+        <StyledLink to="/user">Sign Up</StyledLink>
+        <StyledLink to="/user/login">Log In</StyledLink>
       </StyledMainHeader>
     );
   }
 }
-
 
 export default MainHeader;

@@ -11,8 +11,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PropTypes from "prop-types";
 import LoginPage from "./containers/LogIn";
-import './index.css';
-
+import "./index.css";
 
 const App = () => (
   <div>
@@ -25,8 +24,8 @@ const App = () => (
             render={() => <Redirect to="/dashboard/homePage" />}
           />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
+          <Route path="/user/login" component={LoginPage} />
+          <Route path="/user" component={RegisterPage} />
         </Switch>
       </div>
     </ThemeProvider>
