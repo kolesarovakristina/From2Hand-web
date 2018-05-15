@@ -1,7 +1,7 @@
 import React from "react";
 import UserInfoComponent from "../../components/UserInfoComponent";
 import { UserInfoWrapper } from "./styles";
-import Cookies from "universal-cookie";
+import Componentik from "./nComp";
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -19,17 +19,21 @@ class UserInfo extends React.Component {
   }
 
   componentWillMount() {
-    const cookies = new Cookies();
-    console.log(cookies.get("token"));
-    const token = cookies.get("token") || null;
+    console.log( window.sessionStorage.getItem("token"));
+    const token = window.sessionStorage.getItem("token") || null;
     if (token === null) {
       this.props.history.push("/login");
     }
   }
+  foo = () =>{
+    console.log("daco");
+  }
+
 
   render() {
     return (
       <UserInfoWrapper>
+        <Componentik sendText={this.foo} />
         {this.state.person.map((user, index) => (
           <UserInfoComponent
             email={user.email}

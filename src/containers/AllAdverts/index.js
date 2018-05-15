@@ -61,6 +61,7 @@ class AllAdverts extends React.Component {
               location={prvokVpoli.location}
               poziciaVpoli={index}
               id={prvokVpoli.id}
+              user={false}
             />
           ))}
         </AllAdvertsWrapper>

@@ -1,5 +1,5 @@
 import React from "react";
-import AdvertWrapper from "../../components/MyAdvert";
+import AdvertWrapper from "../../components/AdvertWrapper";
 import PropTypes from "prop-types";
 import { StyledWrapper } from "./styles";
 
@@ -56,6 +56,7 @@ class AllUserAdverts extends React.Component {
               location={prvokVpoli.location}
               poziciaVpoli={index}
               id={prvokVpoli.id}
+              user = {true}
             />
           ))}
       </StyledWrapper>

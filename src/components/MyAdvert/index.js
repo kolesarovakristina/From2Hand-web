@@ -15,7 +15,8 @@ import {
 } from "./styles";
 
 const MyAdvert = props => (
-  <StyledLink to={`/dashboard/bigadvert/${props.id}`}>
+
+  <StyledLink to={props.user === true ? `/dashboard/bigadvert/${props.id}` : `/dashboard/bigadvert/`}>
     <StyledWrapper>
         <StyledTitle>{props.title}</StyledTitle>
       <DescWrapper>

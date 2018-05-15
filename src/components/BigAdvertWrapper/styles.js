@@ -1,16 +1,6 @@
 import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
-  // // display: flex;
-  // // flex-direction:column;
-  // //   flex-flow: column wrap;
-  // //   font-weight: bold;
-  // //
-  // height: 100%;
-  // width: 100%;
-  // background: lightgrey;
-  // //flex-direction: row;
-  position: absolute;
   width: 100%;
   height: 70%;
 `;

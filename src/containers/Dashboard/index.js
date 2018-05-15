@@ -14,6 +14,7 @@ import { setTimeout } from "timers";
 import AllAdverts from "../AllAdverts";
 import UserProfile from "../UserProfile";
 import AddAdvert from '../AddNewAdvertPage';
+import AdvertForUser from "../AdvertForUser";
 
 class Dashboard extends React.Component {
   
@@ -25,7 +26,8 @@ class Dashboard extends React.Component {
         <Switch>
         <Route path="/dashboard/homePage" component={Homepage} />
         <Route path="/dashboard/category/:id" component={AllAdverts} />
-        <Route path="/dashboard/bigadvert" component={BigAdvert} />
+        <Route path="/dashboard/bigadvert/:id" component={BigAdvert} />
+        <Route path="/dashboard/userBigadvert/:id" component={AdvertForUser} />
         <Route path="/dashboard/userprofile" component={UserProfile} />
         <Route path="/dashboard/addAdvert" component={AddAdvert} />
 

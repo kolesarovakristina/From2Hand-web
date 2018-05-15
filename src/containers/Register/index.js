@@ -10,6 +10,9 @@ import {
 } from "../../components/FormInput/styles";
 import logo from "../../assets/from2handLogin.png";
 import "./style.css";
+import axios from "axios";
+// import { withCookies, Cookies } from 'react-cookie';
+import Cookies from "universal-cookie";
 
 class RegisterForm extends React.Component {
   state = {
@@ -46,40 +49,92 @@ class RegisterForm extends React.Component {
     this.setState({ confirmpassword: e.target.value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log("sending", this.state.username);
-  };
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log("sending", this.state.confirmpassword);
+  onSubmit = async event => {
+    event.preventDefault();
+    const form = {
+      username: this.state.username,
+      password: this.state.password,
+      confirmpassword: this.state.confirmpassword,
+      phonenumber: this.state.phonenumber,
+      email: this.state.email,
+      city: this.state.city
+    };
+
+    var myJSON = JSON.stringify(form);
+    console.log(form);
+
+    try {
+      const response = await axios({
+        method: "post",
+        url: "/user",
+
+        data: form,
+        config: { headers: { "Content-Type": "application/json" } }
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   render() {
     return (
       <RegisterWrapper>
         <StyledImage src={logo} />
-        <FormInput
-          type="text"
-          label=""
-          placeholder="Username"
-          value={this.state.username}
-          changeState={this.handleUserName}
-        />
-        <FormInput type="text" label="" placeholder="Email" />
-        <FormInput type="text" label="" placeholder="Phone number" />
-        <FormInput
-          type="text"
-          label=""
-          placeholder="City"
-          value={this.state.city}
-          changeState={this.handleCity}
-        />
-        <FormInput type="password" label="" placeholder="Password" />
-        <FormInput type="password" label="" placeholder="Confirm password" />
-        <StyledButton className="paddingTop">Send</StyledButton>
-        <Or>or</Or>
-        <StyledButton>Reset</StyledButton>
+        <form onSubmit={this.onSubmit}>
+          <FormInput
+            type="text"
+            label=""
+            onSubmit={this.onSubmit}
+            placeholder="Username"
+            value={this.state.username}
+            changeState={this.handleUserName}
+          />
+          <FormInput
+            type="text"
+            label=""
+            placeholder="Email"
+            onSubmit={this.onSubmit}
+            value={this.state.email}
+            changeState={this.handleEmail}
+          />
+          <FormInput
+            type="text"
+            label=""
+            placeholder="Phone number"
+            onSubmit={this.onSubmit}
+            value={this.state.phonenumber}
+            changeState={this.handlePhoneNumber}
+          />
+          <FormInput
+            type="text"
+            label=""
+            placeholder="City"
+            onSubmit={this.onSubmit}
+            value={this.state.city}
+            changeState={this.handleCity}
+          />
+          <FormInput
+            type="text"
+            label=""
+            placeholder="password"
+            onSubmit={this.onSubmit}
+            value={this.state.password}
+            changeState={this.handlePassword}
+          />
+          <FormInput
+            type="password"
+            label=""
+            placeholder="Confirm password"
+            onSubmit={this.onSubmit}
+            value={this.state.confirmpassword}
+            changeState={this.handleConfirmPassword}
+          />
+          <StyledButton className="paddingTop" type="submit">
+            Send
+          </StyledButton>
+          <Or>or</Or>
+          <StyledButton>Reset</StyledButton>
+        </form>
       </RegisterWrapper>
     );
   }
