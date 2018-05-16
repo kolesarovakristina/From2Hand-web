@@ -6,7 +6,7 @@ const FirstPage = props => (
 
     <StyledWrapper>
         <StyledTitle>Tell us what you're selling</StyledTitle>
-        <StyledInput placeholder='Enter a title of your advert' />
+        <StyledInput placeholder='Enter a title of your advert' onChange={props.getValueFromTitle}/>
         <StyledButton onClick={props.toPage2}>Get Started</StyledButton>
     </StyledWrapper>
 )

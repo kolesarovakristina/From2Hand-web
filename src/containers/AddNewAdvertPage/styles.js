@@ -10,7 +10,7 @@ export const StyledTitle = styled.div`
     letter-spacing: 1px;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 28px;
+    font-size: 30px;
     text-align: center;
 `;
 
@@ -19,4 +19,5 @@ export const StyledWrapper = styled.div`
     width: 70%;
     margin: 50px 15% 125px;
     box-shadow: 0 0 7px 2px darkgrey;
+    
 `;

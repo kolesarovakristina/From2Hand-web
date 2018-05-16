@@ -16,12 +16,26 @@ export const StyledTitle = styled.div`
     margin-bottom: 60px;
 `;
 
-export const StyledSelect = styled.select`
-    width: 40%;
-    display: inline-block;
-    margin 2px 30%;
-    height: 50px;
-    font-size: 19px;
+export const StyledTextArea = styled.textarea`
+    resize: vertical;
+    display: block;
+    border: 1px solid rgb(22,131,147);
+    padding: 15px;
+    width: 50%;
+    margin: auto;
+    font-size: 17px;
+    outline: 0;
+        &:focus{
+            border: 2px solid rgb(22,131,147);
+        }
+`;
+
+export const StyledInput = styled.input`
+    display: block;
+    margin: 3px auto 0;
+    width: calc(50% + 10px);
+    height: 35px;
+    font-size: 17px;
     letter-spacing: .5px;
     border: 1px solid rgb(22,131,147);
     padding: 0 10px;
@@ -32,19 +46,35 @@ export const StyledSelect = styled.select`
         }
 `;
 
-export const StyledOption = styled.option`
-    display: inline-block;
-    font-size: 16px;
-    border: 0;
+export const SelectWrapper = styled.div`
+    width: 100%;
+    display:inline-block;
+    text-align: center;
 `;
+
+export const StyledSelect = styled.select`
+    display: inline-block;
+    width: calc(50% + 33px);
+    margin-top: 3px;
+    height: 35px;
+    font-size: 17px;
+    letter-spacing: .5px;
+    border: 1px solid rgb(22,131,147);
+    padding: 0 10px;
+    color: rgb(130,130,130);
+    outline: 0;
+        &:focus {
+            border: 2px solid rgb(22,131,147);
+        }`;
+
+export const StyledOption = styled.option``;
 
 export const ButtonWrapper = styled.div`
     display: inline-block;
     width: calc(100% - 20px);
-    margin-top: 60px;
+    margin-top: 70px;
     background-color: rgb(230,230,230);
     padding: 10px;
-    // border-top: 2px solid darkgrey;
 `;
 
 export const StyledButton = styled.button`

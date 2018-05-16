@@ -32,7 +32,7 @@ class SecondPage extends React.Component {
                 
                 <ButtonWrapper>
                     <StyledButton onClick={this.props.backTo1Page}>Previous</StyledButton>
-                    <StyledButton onClick={this.props.To3Page}>Next</StyledButton>
+                    <StyledButton onClick={this.props.toPage3}>Next</StyledButton>
                 </ButtonWrapper>
             </StyledWrapper>
         );
