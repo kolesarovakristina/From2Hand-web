@@ -11,8 +11,6 @@ import {
 import logo from "../../assets/from2handLogin.png";
 import "./style.css";
 import axios from "axios";
-// import { withCookies, Cookies } from 'react-cookie';
-import Cookies from "universal-cookie";
 
 class RegisterForm extends React.Component {
   state = {
