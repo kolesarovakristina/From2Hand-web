@@ -5,6 +5,7 @@ import ThirdPage from '../../components/AddAdvertComponent/ThirdPageDesc';
 import FourthPage from '../../components/AddAdvertComponent/FourthPageDragAndDrop';
 import LastPage from '../../components/AddAdvertComponent/LastPage';
 import { StyledTitle, StyledWrapper } from "./styles";
+import axios from 'axios';
 
 class AddNewAdvertPage extends React.Component {
     state = {
@@ -15,8 +16,17 @@ class AddNewAdvertPage extends React.Component {
         backTo1State: false,
         backTo2State: false,
         backTo3State: false,
-        backTo4State: false
+        backTo4State: false,
+        title: '',
+        category: '',
+        subcategory: '',
+        desc: '',
+        price: '',
+        district: '',
+        cityDistrict: '',
+        image: ''
     }
+
 
     handleToPage2 = () => {
         this.setState({toPage2State:true});
@@ -106,18 +116,6 @@ class AddNewAdvertPage extends React.Component {
         this.setState({backTo4State:true});
     }
 
-    // GETTING VALUES
-    state = {
-        title: '',
-        category: '',
-        subcategory: '',
-        desc: '',
-        price: '',
-        district: '',
-        cityDistrict: '',
-        image: ''
-    };
-
     handleValueFromTitle = event => {
         this.setState({ title: event.target.value });
         console.log(event.target.value);
@@ -153,6 +151,39 @@ class AddNewAdvertPage extends React.Component {
         console.log(event.target.value);
     }
 
+    componentWillMount() {
+        console.log( window.sessionStorage.getItem("token"));
+        const token = window.sessionStorage.getItem("token") || null;
+    }
+
+    createAdvert = async (event) => {
+        event.preventDefault();
+        const form = {
+            categoryId: this.state.category,
+            city: this.state.city,
+            desc: this.state.desc,
+            name: this.state.title,
+            price: this.state.price,
+        };
+
+        var myJSON = JSON.stringify(form);
+        console.log(form);
+
+        try {
+        const response = await axios({
+            method: "post",
+            url: "/advert",
+
+            data: form,
+            config: { headers: { "Content-Type": "application/json" } }
+        });
+        } catch (err) {
+        console.log(err);
+        }
+    }
+
+
+
     render() {
 
         if (this.state.toPage2State) {
@@ -163,7 +194,6 @@ class AddNewAdvertPage extends React.Component {
                                 toPage3={this.handleToPage3}
                                 categoryValue={this.handleValueFromCategory}
                                 subcategoryValue={this.handleValueFromSubcategory} />
-
                 </StyledWrapper>
             );
         }
@@ -173,11 +203,11 @@ class AddNewAdvertPage extends React.Component {
                 <StyledWrapper>
                     <StyledTitle>Add New Advert</StyledTitle>
                     <ThirdPage backTo2Page={this.handleBackToPage2}
-                                toPage4={this.handleToPage4}
-                                textareaValue={this.handleValueFromDesc}
-                                priceValue={this.handleValueFromPrice}
-                                districtValue={this.handleValueFromDistrict}
-                                citydistrictValue={this.handleValueFromCityDistrict} />
+                               toPage4={this.handleToPage4}
+                               textareaValue={this.handleValueFromDesc}
+                               priceValue={this.handleValueFromPrice}
+                               districtValue={this.handleValueFromDistrict}
+                               citydistrictValue={this.handleValueFromCityDistrict} />
                 </StyledWrapper>
             );
         }
@@ -203,7 +233,8 @@ class AddNewAdvertPage extends React.Component {
                               desc={this.state.desc}
                               price={this.state.price +'€'}
                               district={this.state.district}
-                              cityDistrict={this.state.cityDistrict}/>
+                              cityDistrict={this.state.cityDistrict}
+                              send={this.createAdvert}/>
                 </StyledWrapper >
             );
         }
