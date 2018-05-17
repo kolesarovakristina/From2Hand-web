@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import PropTypes from "prop-types";
 import LoginPage from "./containers/LogIn";
 import "./index.css";
+import ProfilePage from "./containers/ProfilePage";
+import CategoryForm from "./components/CategoryForm";
 
 const App = () => (
   <div>
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/user/login" component={LoginPage} />
           <Route path="/user" component={RegisterPage} />
+          <Route path="/profile" component={ProfilePage} />
+          <Route path="/categoryform" component={CategoryForm} />
         </Switch>
       </div>
     </ThemeProvider>
