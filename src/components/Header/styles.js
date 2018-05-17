@@ -65,15 +65,15 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledSelect = styled.select`
-height: 30px;
-width: 180px;
-border: 0px;
-padding: 0 10px;
-margin: 6px 3px;
-border-radius: 5px;
-&:focus {
-  outline: 2px solid rgb(22,131,147);
-}
+  height: 30px;
+  width: 180px;
+  border: 0px;
+  padding: 0 10px;
+  margin: 6px 3px;
+  border-radius: 5px;
+  &:focus {
+    outline: 2px solid rgb(22,131,147);
+  }
 `;
 
 export const StyledOption = styled.option`

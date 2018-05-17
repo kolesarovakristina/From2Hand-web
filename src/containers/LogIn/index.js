@@ -46,8 +46,6 @@ class LoginPage extends React.Component {
 
       window.sessionStorage.setItem("token", response);
 
-      // console.log(cookies.get('token'));
-     // console.log("response", response);
       this.props.history.push("/dashboard/userprofile/info");
     } catch (err) {
       console.log(err);
