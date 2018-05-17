@@ -5,7 +5,9 @@ import {
   StyledLink,
   StyledHeaderLogo,
   NewHeader,
-  NewHeaderContent
+  NewHeaderContent,
+  StyledCategory,
+  StyledLogOut
 } from "./styles";
 
 class MainHeader extends React.Component {
@@ -13,7 +15,9 @@ class MainHeader extends React.Component {
     super(props);
     this.state = {
       width: "",
-      isExpanded: false
+      isExpanded: false,
+      isAdmin: false,
+      isLogIn: false //na true je nahradene login sing in buttonom LOG OUT
     };
     // this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
@@ -50,21 +54,33 @@ class MainHeader extends React.Component {
         </NewHeader>
       );
     }
-// if(isToken){
-//   return(
-//     <StyledMainHeader>
-//     <StyledHeaderLogo src={logo} />
-//     <StyledLink to="/user">sign ut</StyledLink>
-//     <StyledLink to="/user/login">Log In</StyledLink>
-//   </StyledMainHeader>
-//   )
-// }
+    // if(isToken){
+    //   return(
+    //     <StyledMainHeader>
+    //     <StyledHeaderLogo src={logo} />
+    //     <StyledLink to="/user">sign ut</StyledLink>
+    //     <StyledLink to="/user/login">Log In</StyledLink>
+    //   </StyledMainHeader>
+    //   )
+    // }
     return (
-      
       <StyledMainHeader>
         <StyledHeaderLogo src={logo} />
-        <StyledLink to="/user">Sign Up</StyledLink>
-        <StyledLink to="/user/login">Log In</StyledLink>
+        <StyledCategory to="#" isAdmin={this.state.isAdmin}>
+          AddCategory
+        </StyledCategory>
+        <StyledCategory to="#" isAdmin={this.state.isAdmin}>
+          AddSubCategory
+        </StyledCategory>
+        <StyledLink to="/user" isLogIn={this.state.isLogIn}>
+          Sign Up
+        </StyledLink>
+        <StyledLink to="/user/login" isLogIn={this.state.isLogIn}>
+          Log In
+        </StyledLink>
+        <StyledLogOut to="#" isLogIn={this.state.isLogIn}>
+          Log Out
+        </StyledLogOut>
       </StyledMainHeader>
     );
   }
