@@ -7,8 +7,7 @@ import FormInput from "../FormInput";
 class CategoryForm extends React.Component {
     state={
         title:"",
-        description: "",
-        description2: ""
+        description: ""
     };
     
     handleTitle = e =>{
