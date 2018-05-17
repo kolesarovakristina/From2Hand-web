@@ -1,7 +1,6 @@
 import React from "react";
 import UserInfoComponent from "../../components/UserInfoComponent";
 import { UserInfoWrapper } from "./styles";
-import Componentik from "./nComp";
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -25,15 +24,10 @@ class UserInfo extends React.Component {
       this.props.history.push("/login");
     }
   }
-  foo = () =>{
-    console.log("daco");
-  }
-
 
   render() {
     return (
       <UserInfoWrapper>
-        <Componentik sendText={this.foo} />
         {this.state.person.map((user, index) => (
           <UserInfoComponent
             email={user.email}

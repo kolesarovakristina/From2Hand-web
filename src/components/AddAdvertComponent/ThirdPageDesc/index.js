@@ -22,17 +22,17 @@ class ThirdPage extends React.Component {
         return (
             <StyledWrapper>
                 <StyledTitle>Please, enter detailed information about product</StyledTitle>
-                <StyledTextArea cols="10" rows="5" charswidth="23" name="text_body" placeholder='Please, write product description, max 300 characters'></StyledTextArea>
-                <StyledInput type='text' placeholder='Price of product (EUR)'/>
+                <StyledTextArea onChange={this.props.textareaValue} cols="10" rows="5" charswidth="23" name="text_body" placeholder='Please, write product description, max 300 characters'></StyledTextArea>
+                <StyledInput onChange={this.props.priceValue} type='text' placeholder='Price of product (EUR)'/>
                 <SelectWrapper>
-                    <StyledSelect>
+                    <StyledSelect onChange={this.props.districtValue}>
                         <StyledOption value="" disabled selected>Select district</StyledOption>
                             {this.state.district.map((item, index) => (
                                 <StyledOption value={item.name}>{item.name}</StyledOption>
                             ))}
                     </StyledSelect>
 
-                    <StyledSelect>
+                    <StyledSelect onChange={this.props.citydistrictValue}>
                         <StyledOption value="" disabled selected>Select city district</StyledOption>
                         {this.state.kosice1.map((item, index) => (
                             <StyledOption value={item.name}>{item.name}</StyledOption>
@@ -41,7 +41,7 @@ class ThirdPage extends React.Component {
                 </SelectWrapper>
                 <ButtonWrapper>
                         <StyledButton onClick={this.props.backTo2Page}>Previous</StyledButton>
-                        <StyledButton onClick={this.props.to4Page}>Next</StyledButton>
+                        <StyledButton onClick={this.props.toPage4}>Next</StyledButton>
                 </ButtonWrapper>
             </StyledWrapper>
         );
