@@ -25,8 +25,30 @@ export const StyledCategory = styled(Link)`
       color: palevioletred;
     `};
 `;
+
+export const StyledLogOut = styled(Link)`
+${props => props.isLogIn === true && css`color: #fff;
+text-decoration: none;
+height: 100px;
+line-height: 100px;
+positon: relative;
+float: right;
+font-weight: bold;
+padding: 0 10px;
+text-transform: uppercase;
+font-size: 19px;`} ${props =>
+  props.isLogIn === false &&
+  css`
+    display: none;
+    color: palevioletred;
+  `};
+`;
 export const StyledLink = styled(Link)`
-  color: #fff;
+${props => props.isLogIn === true && css`color: #fff;
+display: none;
+`}
+
+color: #fff;
   text-decoration: none;
   height: 100px;
   line-height: 100px;
@@ -36,6 +58,7 @@ export const StyledLink = styled(Link)`
   padding: 0 10px;
   text-transform: uppercase;
   font-size: 19px;
+
 `;
 
 export const StyledHeaderLogo = styled.img`
