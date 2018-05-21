@@ -10,7 +10,7 @@ export const StyledTitle = styled.div`
     letter-spacing: 1px;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 28px;
     text-align: center;
 `;
 

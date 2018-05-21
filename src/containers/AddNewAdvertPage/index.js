@@ -18,13 +18,15 @@ class AddNewAdvertPage extends React.Component {
         backTo3State: false,
         backTo4State: false,
         title: '',
-        category: '',
-        subcategory: '',
+        categoryId: '',
+        subcategoryId: '',
         desc: '',
         price: '',
         district: '',
         cityDistrict: '',
-        image: ''
+        image: '',
+        category: '',
+        subcategory: ''
     }
 
 
@@ -122,12 +124,14 @@ class AddNewAdvertPage extends React.Component {
     }
 
     handleValueFromCategory = event => {
-        this.setState({ category: event.target.value });
+        this.setState({ categoryId: event.target.value });
+        this.setState({ category: event.target.options[event.target.selectedIndex].text});
         console.log(event.target.value);
     }
 
     handleValueFromSubcategory = event => {
-        this.setState({ subcategory: event.target.value });
+        this.setState({ subcategoryId: event.target.value });
+        this.setState({ subcategory: event.target.options[event.target.selectedIndex].text});
         console.log(event.target.value);
     }
 
@@ -159,8 +163,8 @@ class AddNewAdvertPage extends React.Component {
     createAdvert = async (event) => {
         event.preventDefault();
         const form = {
-            categoryId: this.state.category,
-            city: this.state.city,
+            categoryId: this.state.categoryId,
+            city: this.state.district,
             desc: this.state.desc,
             name: this.state.title,
             price: this.state.price,
@@ -181,8 +185,6 @@ class AddNewAdvertPage extends React.Component {
         console.log(err);
         }
     }
-
-
 
     render() {
 

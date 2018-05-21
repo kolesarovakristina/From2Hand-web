@@ -6,15 +6,16 @@ import image from '../../../assets/horse.jpg';
 
 const LastPage = props => (
     <StyledWrapper>
-        <StyledMainHeader>Check advert information & SUBMIT</StyledMainHeader>
+        <StyledMainHeader>Check advert information</StyledMainHeader>
 
         <Wrapper>
+            <StyledTitle>{props.title}</StyledTitle>
+            
             <ImageWrapper>
                 <StyledImage src={image}/>
             </ImageWrapper>
 
             <TextWrapper>
-                <StyledTitle>{props.title}</StyledTitle>
                 <TitleWrapper>
                     <StyledHeader>Category:</StyledHeader>
                     <StyledText>{props.category}</StyledText>

@@ -28,25 +28,32 @@ export const StyledTitle = styled.div`
     padding: 10px 20px;
     font-size: 25px;
     letter-spacing: .5px;
-    margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
 `;
 
 export const TitleWrapper = styled.div`
-    padding: 5px 0;
+    padding: 20px;
+    background: rgb(247,247,247);
+    border-radius: 10px;
+    border-bottom: 2px solid rgb(200,200,200);
+    &:nth-child(even){
+        background: rgb(237,237,237);
+    }
 `;
 
 export const StyledHeader = styled.span`
     color: rgb(22,131,147);
-    padding: 0px 10px 0 20px;
+    // padding: 0px 20px;
+    width: calc(100% - 40px);
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
 `; 
 export const StyledText = styled.span`
     color: rgb(80,80,80);
-    padding: 0 0px 0 5px;
+    // padding: 0px 20px;
+    width: calc(100% - 40px);
     display: inline-block;
     font-size: 17px;
     font-weight: bold;
@@ -54,8 +61,10 @@ export const StyledText = styled.span`
 
 export const ImageWrapper = styled.div`
     display: inline-block;
-    width: 40%;
+    width: 100%;
     float: left;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 `;
 
 export const StyledImage = styled.img`
@@ -64,7 +73,7 @@ export const StyledImage = styled.img`
 
 export const TextWrapper = styled.div`
     display: inline-block;
-    width: 60%;
+    width: 100%;
     float: left;
 `;
 

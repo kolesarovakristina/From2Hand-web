@@ -10,7 +10,7 @@ export const StyledWrapper = Styled.div`
     box-shadow: 0 0 9px 2px rgb(175,175,175);
     transform: scale(1.01);
   }
-  `;
+`;
 export const StyledLink = Styled(Link)`
   text-decoration: none;
 `;
