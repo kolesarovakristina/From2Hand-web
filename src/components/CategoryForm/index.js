@@ -6,7 +6,6 @@ import FormInput from '../FormInput';
 class CategoryForm extends React.Component {
 	state = {
 		title: '',
-		description: '',
 		photo: ''
 	};
 
@@ -28,15 +27,22 @@ class CategoryForm extends React.Component {
 	onSubmit = async (event) => {
 		event.preventDefault();
 		const form = new FormData();
+<<<<<<< HEAD
 		form.append('title', `${this.state.title}`);
 		form.append('photo', `${this.state.photo}`);
+=======
+		form.append('photo', this.state.photo);
+		form.append('title', this.state.title);
+
+>>>>>>> d7a14d7a4259fbbfe4fc06f73604b132156ec6ac
 		try {
 			const response = await axios({
 				method: 'post',
 				url: '/category',
-				data: form,
-				config: { headers: { 'Content-Type': 'multipart/form-data' } }
+				mimeType: 'multipart/form-data',
+				data: form
 			});
+			console.log(form);
 		} catch (err) {
 			console.log(err);
 		}
@@ -46,8 +52,8 @@ class CategoryForm extends React.Component {
 		return (
 			<StyledWrapper>
 				<form onSubmit={this.onSubmit}>
-					<StyledInput type="text" onChange={this.handleTitle} />
-					<StyledInput type="text" onChange={this.handleDescription} />
+					<StyledInput type="text" onChange={this.handleTitle} onSubmit={this.onSubmit} />
+
 					<StyledInput
 						type="file"
 						onChange={this.handleSetFile}
