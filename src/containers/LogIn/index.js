@@ -41,10 +41,11 @@ class LoginPage extends React.Component {
         method: "post",
         url: "/user/login",
         data: form,
-        config: { headers: { "Content-Type": "multipart/form-data" } }
+        config: { headers: { "Content-Type": "aplication/json" }}
       });
 
-      window.sessionStorage.setItem("token", response);
+      window.sessionStorage.setItem("token", JSON.stringify(response));
+      console.log(response);
 
       this.props.history.push("/dashboard/userprofile/info");
     } catch (err) {

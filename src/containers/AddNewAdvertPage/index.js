@@ -26,7 +26,8 @@ class AddNewAdvertPage extends React.Component {
         cityDistrict: '',
         image: '',
         category: '',
-        subcategory: ''
+        subcategory: '',
+        token: ''
     }
 
 
@@ -156,8 +157,13 @@ class AddNewAdvertPage extends React.Component {
     }
 
     componentWillMount() {
-        console.log( window.sessionStorage.getItem("token"));
+        console.log("token", window.sessionStorage.getItem("token"));
         const token = window.sessionStorage.getItem("token") || null;
+        console.log(JSON.parse(token));
+        this.setState({token: JSON.parse(token)},()=>{
+            console.log(this.state.token.data)
+        });
+
     }
 
     createAdvert = async (event) => {
@@ -170,19 +176,29 @@ class AddNewAdvertPage extends React.Component {
             price: this.state.price,
         };
 
-        var myJSON = JSON.stringify(form);
+        const myJSON = JSON.stringify(form);
         console.log(form);
+
+        const config = {
+            headers: {'Authorization': "Bearer " + this.state.token.data}
+        }
 
         try {
         const response = await axios({
             method: "post",
             url: "/advert",
-
             data: form,
-            config: { headers: { "Content-Type": "application/json" } }
-        });
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${this.state.token.data}`
+              },
+            });
+            alert("Send");
+            this.props.history.push("/dashboard/userprofile/myadverts");
+
         } catch (err) {
-        console.log(err);
+            console.log(err);
+            alert("Fail");
         }
     }
 

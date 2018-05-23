@@ -29,7 +29,6 @@ class CategoryForm extends React.Component {
 		event.preventDefault();
 		const form = new FormData();
 		form.append('title', `${this.state.title}`);
-		//form.append('description', `${this.state.description}`);
 		form.append('photo', `${this.state.photo}`);
 		try {
 			const response = await axios({
