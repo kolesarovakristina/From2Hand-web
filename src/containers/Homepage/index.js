@@ -33,7 +33,7 @@ class Homepage extends React.Component {
           <CategoryComponent
             title={item.title}
             key={item.id}
-            imgUrl={item.photoData}
+            imgUrl={item.photo.data}
             id={item.id}
           />
         ))}
