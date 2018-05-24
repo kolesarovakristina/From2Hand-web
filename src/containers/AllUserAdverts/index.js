@@ -2,43 +2,26 @@ import React from "react";
 import AdvertWrapper from "../../components/AdvertWrapper";
 import PropTypes from "prop-types";
 import { StyledWrapper } from "./styles";
+import axios from 'axios';
 
 class AllUserAdverts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      novyObjekt: [
-        {
-          id: 1,
-          title: "Predám niečo niekomu za dobru cenu",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis." +
-            "Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium, faucibus risus sed.",
-          price: "10",
-          location: "Košice"
-        },
-        {
-          id: 2,
-          title: "Predám niečo",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis. " +
-            "Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium, faucibus risus sed, egestas purus. Curabitur at " +
-            "venenatis enim. Curabitur tempus, nibh vel aliquam scelerisque, arcu dolor finibus ex, ut iaculis ex ex nec nunc.",
-          price: "20",
-          location: "Sabinov"
-        },
-        {
-          id: 3,
-          title: "Predám niečo niekomu",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel lobortis turpis. Vestibulum " +
-            "scelerisque vulputate convallis. Integer.",
-          price: "44",
-          location: "Prešov"
-        }
-      ]
-    };
+  state = {
+    userAdverts: []
+  };
+
+  componentWillMount() {
+    this.fillStateData();
   }
+
+  fillStateData = async () => {
+    try {
+      const response = await axios.get("/advert");
+      this.setState({ userAdverts: response.data });
+      console.log(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   componentDidMount() {
     console.log(this.props.match.params.id);
@@ -48,14 +31,14 @@ class AllUserAdverts extends React.Component {
   render() {
     return (
       <StyledWrapper>
-          {this.state.novyObjekt.map((prvokVpoli, index) => (
+          {this.state.userAdverts.map((item, index) => (
             <AdvertWrapper
-              title={prvokVpoli.title}
-              description={prvokVpoli.description}
-              price={prvokVpoli.price + "€"}
-              location={prvokVpoli.location}
+              title={item.name}
+              description={item.descr}
+              price={item.price + "€"}
+              location={item.city}
               poziciaVpoli={index}
-              id={prvokVpoli.id}
+              id={item.id}
               user = {true}
             />
           ))}

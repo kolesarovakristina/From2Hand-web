@@ -27,9 +27,8 @@ class CategoryForm extends React.Component {
 	onSubmit = async (event) => {
 		event.preventDefault();
 		const form = new FormData();
-		form.append('photo', this.state.photo);
-		form.append('title', this.state.title);
-
+		form.append('title', `${this.state.title}`);
+		form.append('photo', `${this.state.photo}`);
 		try {
 			const response = await axios({
 				method: 'post',

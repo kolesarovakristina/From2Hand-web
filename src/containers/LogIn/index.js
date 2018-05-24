@@ -11,7 +11,6 @@ import {
 } from "../../components/FormInput/styles";
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
-// import { withCookies, Cookies } from 'react-cookie';
 import Cookies from "universal-cookie";
 
 class LoginPage extends React.Component {
@@ -41,11 +40,19 @@ class LoginPage extends React.Component {
         method: "post",
         url: "/user/login",
         data: form,
+<<<<<<< HEAD
         config: {
           headers: { "Content-Type": "multipart/form-data" }
         }
       });
       window.sessionStorage.setItem("token", JSON.stringify(response));
+=======
+        config: { headers: { "Content-Type": "aplication/json" }}
+      });
+
+      window.sessionStorage.setItem("token", JSON.stringify(response));
+      console.log(response);
+>>>>>>> 20e691daf42543d29a532f4253bfcdd7deb94f34
 
       this.props.history.push("/dashboard/userprofile/info");
     } catch (err) {
