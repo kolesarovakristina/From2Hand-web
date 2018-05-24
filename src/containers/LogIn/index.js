@@ -11,7 +11,6 @@ import {
 } from "../../components/FormInput/styles";
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
-// import { withCookies, Cookies } from 'react-cookie';
 import Cookies from "universal-cookie";
 
 class LoginPage extends React.Component {

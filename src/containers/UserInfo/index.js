@@ -1,41 +1,60 @@
 import React from "react";
 import UserInfoComponent from "../../components/UserInfoComponent";
 import { UserInfoWrapper } from "./styles";
+import axios from 'axios';
 
 class UserInfo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      person: [
-        {
-          firstName: "Peter",
-          lastName: "Novak",
-          email: "peternovak@gmail.com",
-          phoneNumber: "0911234567"
-        }
-      ]
-    };
+
+  state = {
+    userInfo: [],
+    token: ''
   }
 
   componentWillMount() {
-    console.log( window.sessionStorage.getItem("token"));
-    const token = window.sessionStorage.getItem("token") || null;
-    if (token === null) {
+    
+    const token = JSON.parse(window.sessionStorage.getItem("token")) || null;
+    if (token === null){
       this.props.history.push("/login");
     }
+
+    this.setState({token: token.data}, ()=>{
+      this.getUserData();
+    });
+
+
   }
+  componentDidMount(){
+    console.log("user infoadsas",this.state.userInfo);
+  }
+
+  getUserData = async () => {
+    try {
+      const response = await axios({
+        method: "get",
+        url: "/user/profile",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${this.state.token}`
+        },
+      });
+      this.setState({ userInfo: response.data });
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 
   render() {
     return (
       <UserInfoWrapper>
-        {this.state.person.map((user, index) => (
+        {/* {this.state.person.map((user, index) => (
           <UserInfoComponent
             email={user.email}
             phoneNumber={user.phoneNumber}
             key={index}
             
           />
-        ))}
+        ))} */}
       </UserInfoWrapper>
     );
   }

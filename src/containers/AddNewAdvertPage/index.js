@@ -161,7 +161,7 @@ class AddNewAdvertPage extends React.Component {
         const token = window.sessionStorage.getItem("token") || null;
         console.log(JSON.parse(token));
         this.setState({token: JSON.parse(token)},()=>{
-            console.log(this.state.token.data)
+            console.log(this.state.token.data);
         });
 
     }
@@ -171,7 +171,7 @@ class AddNewAdvertPage extends React.Component {
         const form = {
             categoryId: this.state.categoryId,
             city: this.state.district,
-            desc: this.state.desc,
+            descr: this.state.desc,
             name: this.state.title,
             price: this.state.price,
         };
