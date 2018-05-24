@@ -11,7 +11,7 @@ import {
 } from "../../components/FormInput/styles";
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
-import Cookies from "universal-cookie";
+import base64 from "base-64";
 
 class LoginPage extends React.Component {
   state = {
@@ -30,6 +30,17 @@ class LoginPage extends React.Component {
     this.setState({ password: e.target.value });
   };
 
+  parseTokenAndRedirectUser = () => {
+    const token = JSON.parse(window.sessionStorage.getItem("token"));
+    const parsedToken = token.data.split(".");
+    const role = JSON.parse(base64.decode(parsedToken[1]));
+    if (role.sub === "admin") {
+      this.props.history.push("/dashboard/admin");
+    } else if (role.sub === "user") {
+      this.props.history.push("/dashboard/user");
+    }
+  };
+
   onSubmit = async event => {
     event.preventDefault();
     const form = new FormData();
@@ -40,21 +51,11 @@ class LoginPage extends React.Component {
         method: "post",
         url: "/user/login",
         data: form,
-<<<<<<< HEAD
-        config: {
-          headers: { "Content-Type": "multipart/form-data" }
-        }
+        config: { headers: { "Content-Type": "aplication/json" } }
       });
       window.sessionStorage.setItem("token", JSON.stringify(response));
-=======
-        config: { headers: { "Content-Type": "aplication/json" }}
-      });
-
-      window.sessionStorage.setItem("token", JSON.stringify(response));
-      console.log(response);
->>>>>>> 20e691daf42543d29a532f4253bfcdd7deb94f34
-
-      this.props.history.push("/dashboard/userprofile/info");
+      // this.props.history.push("/dashboard/userprofile/info");
+      this.parseTokenAndRedirectUser();
     } catch (err) {
       console.log(err);
     }
