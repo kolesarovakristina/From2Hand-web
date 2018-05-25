@@ -77,7 +77,7 @@ class LoginPage extends React.Component {
               Login
             </StyledButton>
             <Or>or</Or>
-            <StyledLink to="/register">
+            <StyledLink to="/user/registration">
               <StyledButton>SIGN UP</StyledButton>
             </StyledLink>
           </form>

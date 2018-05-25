@@ -77,8 +77,13 @@ class RegisterForm extends React.Component {
 				data: form,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
+			alert('You have successfully registered.');
+			this.props.history.push("/user/login");
 		} catch (err) {
 			console.log(err);
+			alert('Something went wrong. Try again.');
+			this.props.history.push("/user/registration");
+
 		}
 	};
 
@@ -192,7 +197,7 @@ class RegisterForm extends React.Component {
 							changeState={this.handleCity}
 						/>
 						<FormInput
-							type="text"
+							type="password"
 							label=""
 							placeholder="password"
 							onSubmit={this.onSubmit}
