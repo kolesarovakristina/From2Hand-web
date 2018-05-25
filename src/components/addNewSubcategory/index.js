@@ -36,6 +36,7 @@ class AddNewSubcategory extends React.Component {
   };
   onSubmit = async event => {
     event.preventDefault();
+
     const form = {
       title: this.state.title
     };
@@ -57,6 +58,7 @@ class AddNewSubcategory extends React.Component {
       <StyledWrapper>
         <form onSubmit={this.onSubmit}>
           <StyledSelect onChange={this.handleSelect}>
+            <StyledOption value="">Select category</StyledOption>
             {this.state.allCategories.map((item, index) => (
               <StyledOption value={item.id} key={item.id}>
                 {item.title}

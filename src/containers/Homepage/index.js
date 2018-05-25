@@ -5,7 +5,6 @@ import Header from "../../components/Header";
 import MainHeader from "../../components/MainHeader";
 import { StyledWrapper } from "./styles";
 import CategoryComponent from "../../components/Category";
-import { read } from "fs";
 import axios from "axios";
 
 class Homepage extends React.Component {
@@ -33,7 +32,7 @@ class Homepage extends React.Component {
           <CategoryComponent
             title={item.title}
             key={item.id}
-            // imgUrl={item.photo.data}
+            imgUrl={item.photo.data}
             id={item.id}
           />
         ))}

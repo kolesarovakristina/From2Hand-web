@@ -9,16 +9,20 @@ export const StyledMainHeader = styled.div`
   color: rgb(230, 230, 230);
 `;
 export const StyledCategory = styled(Link)`
-  ${props => props.isAdmin === true && css`color: #fff;
-  text-decoration: none;
-  height: 100px;
-  line-height: 100px;
-  positon: relative;
-  float: right;
-  font-weight: bold;
-  padding: 0 10px;
-  text-transform: uppercase;
-  font-size: 19px;`} ${props =>
+  ${props =>
+    props.isAdmin === true &&
+    css`
+      color: #fff;
+      text-decoration: none;
+      height: 100px;
+      line-height: 100px;
+      positon: relative;
+      float: right;
+      font-weight: bold;
+      padding: 0 10px;
+      text-transform: uppercase;
+      font-size: 19px;
+    `} ${props =>
     props.isAdmin === false &&
     css`
       display: none;
@@ -27,28 +31,6 @@ export const StyledCategory = styled(Link)`
 `;
 
 export const StyledLogOut = styled(Link)`
-${props => props.isLogIn === true && css`color: #fff;
-text-decoration: none;
-height: 100px;
-line-height: 100px;
-positon: relative;
-float: right;
-font-weight: bold;
-padding: 0 10px;
-text-transform: uppercase;
-font-size: 19px;`} ${props =>
-  props.isLogIn === false &&
-  css`
-    display: none;
-    color: palevioletred;
-  `};
-`;
-export const StyledLink = styled(Link)`
-${props => props.isLogIn === true && css`color: #fff;
-display: none;
-`}
-
-color: #fff;
   text-decoration: none;
   height: 100px;
   line-height: 100px;
@@ -58,7 +40,18 @@ color: #fff;
   padding: 0 10px;
   text-transform: uppercase;
   font-size: 19px;
-
+`;
+export const StyledLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  height: 100px;
+  line-height: 100px;
+  positon: relative;
+  float: right;
+  font-weight: bold;
+  padding: 0 10px;
+  text-transform: uppercase;
+  font-size: 19px;
 `;
 
 export const StyledHeaderLogo = styled.img`
@@ -71,18 +64,16 @@ export const StyledHeaderLogo = styled.img`
 
 export const NewHeader = styled.div``;
 
-export const NewHeaderContent = styled.div`
-  ${props =>
-    props.isExpanded === true &&
-    css`
-      display: block;
-      color: palevioletred;
-    `} ${props =>
-    props.isExpanded === false &&
-    css`
-      display: none;
-      color: palevioletred;
-    `};
-`;
-
-
+// export const NewHeaderContent = styled.div`
+//   ${props =>
+//     props.isExpanded === true &&
+//     css`
+//       display: block;
+//       color: palevioletred;
+//     `} ${props =>
+//     props.isExpanded === false &&
+//     css`
+//       display: none;
+//       color: palevioletred;
+//     `};
+// `;
