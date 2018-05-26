@@ -29,7 +29,7 @@ class AdminDashboard extends React.Component {
     const token = JSON.parse(window.sessionStorage.getItem("token")) || null;
     const parsedToken = token.data.split(".");
     const role = JSON.parse(base64.decode(parsedToken[1]));
-    if (role.sub !== "admin" && token !== null) {
+    if (role.auth[0].authority === "ROLE_USER" && token !== null) {
       this.props.history.push("/");
     }
   }

@@ -8,46 +8,54 @@ import UserprofileSwitch from "../../components/UserprofileSwitch";
 import ChangeInfo from "../../containers/ChangeInfoPage";
 import AllUserAdverts from "../../containers/AllUserAdverts";
 import { StyledWrapper } from "./styles";
+import axios from 'axios';
 
 class UserDashboard extends React.Component {
   state = {
-    person: {
-      firstName: "Peter",
-      lastName: "Novak"
-    }
+    userInfo: []
   };
 
   componentWillMount() {
     const token = JSON.parse(window.sessionStorage.getItem("token")) || null;
     const parsedToken = token.data.split(".");
     const role = JSON.parse(base64.decode(parsedToken[1]));
-    if (role.sub !== "user" && token !== null) {
+    console.log(role.auth[0].authority);
+    if (role.auth[0].authority == "ROLE_ADMIN" && token !== null) {
       this.props.history.push("/");
     }
+
+    this.setState({token: token.data}, ()=>{
+      this.getUserData();
+    });
   }
+
+  getUserData = async () => {
+    try {
+      const response = await axios({
+        method: "get",
+        url: "/user/profile",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${this.state.token}`
+        },
+      });
+      this.setState({ userInfo: response.data }, () => {
+        console.log(this.state.userInfo);
+      });
+    } catch (err) {
+        console.log(err);
+    }
+};
 
   render() {
     return (
       <StyledWrapper>
-        <UserprofileSwitch
-          firstname={this.state.person.firstName}
-          lastname={this.state.person.lastName}
-        />
-
+        <UserprofileSwitch username={this.state.userInfo.username} />
         <Switch>
-          <Route path="/dashboard/userprofile/info" component={UserInfo} />
-          <Route
-            path="/dashboard/userprofile/changeInfo"
-            component={ChangeInfo}
-          />
-          <Route
-            path="/dashboard/userprofile/myAdverts"
-            component={AllUserAdverts}
-          />
-          <Route
-            path="/dashboard/userBigadvert/:id"
-            component={AdvertForUser}
-          />
+          <Route path="/dashboard/user/info" component={UserInfo} />
+          <Route path="/dashboard/user/changeInfo" component={ChangeInfo} />
+          <Route path="/dashboard/user/myAdverts" component={AllUserAdverts} />
+          <Route path="/dashboard/userBigadvert/:id" component={AdvertForUser} />
         </Switch>
       </StyledWrapper>
     );

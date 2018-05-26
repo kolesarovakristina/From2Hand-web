@@ -7,13 +7,13 @@ const UserProfile =(props) => (
 
         <StyledWrapper>
 
-            <StyledLink to="/dashboard/userprofile/info" 
+            <StyledLink to="/dashboard/user/info" 
                 activeStyle={{background:"rgb(22,131,147)", color:"rgb(255,255,255)", fontSize: 21, fontWeight:"bold"}}>
-            {props.firstname + ' ' + props.lastname}</StyledLink>
-            <StyledLink to="/dashboard/userprofile/changeinfo" 
+            {props.username}</StyledLink>
+            <StyledLink to="/dashboard/user/changeinfo" 
                 activeStyle={{background:"rgb(22,131,147)", color:"rgb(255,255,255)", fontSize: 21, fontWeight:"bold"}}>
             Change Info</StyledLink>
-            <StyledLink to="/dashboard/userprofile/myadverts" 
+            <StyledLink to="/dashboard/user/myadverts" 
                 activeStyle={{background:"rgb(22,131,147)", color:"rgb(255,255,255)", fontSize: 21, fontWeight:"bold"}}>
             My Adverts</StyledLink>
 

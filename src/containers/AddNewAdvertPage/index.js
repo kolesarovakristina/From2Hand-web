@@ -194,7 +194,7 @@ class AddNewAdvertPage extends React.Component {
               },
             });
             alert("Send");
-            this.props.history.push("/dashboard/userprofile/myadverts");
+            this.props.history.push("/dashboard/user/myadverts");
 
         } catch (err) {
             console.log(err);

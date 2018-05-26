@@ -24,7 +24,7 @@ class UserInfo extends React.Component {
 
   }
   componentDidMount(){
-    console.log("user infoadsas",this.state.userInfo);
+    console.log("user ",this.state.userInfo);
   }
 
   getUserData = async () => {
@@ -37,7 +37,9 @@ class UserInfo extends React.Component {
           "Authorization": `Bearer ${this.state.token}`
         },
       });
-      this.setState({ userInfo: response.data });
+      this.setState({ userInfo: response.data }, () => {
+        console.log(this.state.userInfo);
+      });
     } catch (err) {
         console.log(err);
     }
@@ -47,14 +49,10 @@ class UserInfo extends React.Component {
   render() {
     return (
       <UserInfoWrapper>
-        {/* {this.state.person.map((user, index) => (
           <UserInfoComponent
-            email={user.email}
-            phoneNumber={user.phoneNumber}
-            key={index}
-            
+            email={this.state.userInfo.email}
+            phoneNumber={this.state.userInfo.phonenumber}
           />
-        ))} */}
       </UserInfoWrapper>
     );
   }

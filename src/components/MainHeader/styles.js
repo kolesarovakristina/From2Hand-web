@@ -30,17 +30,6 @@ export const StyledCategory = styled(Link)`
     `};
 `;
 
-export const StyledLogOut = styled(Link)`
-  text-decoration: none;
-  height: 100px;
-  line-height: 100px;
-  positon: relative;
-  float: right;
-  font-weight: bold;
-  padding: 0 10px;
-  text-transform: uppercase;
-  font-size: 19px;
-`;
 export const StyledLink = styled(Link)`
   color: #fff;
   text-decoration: none;
@@ -63,6 +52,28 @@ export const StyledHeaderLogo = styled.img`
 `;
 
 export const NewHeader = styled.div``;
+
+export const StyledButton = styled.div`
+      cursor: pointer;
+      color: #fff;
+      text-decoration: none;
+      height: 100px;
+      line-height: 100px;
+      positon: relative;
+      float: right;
+      font-weight: bold;
+      padding: 0 10px;
+      text-transform: uppercase;
+      font-size: 19px;
+`;
+
+export const StyledImage = styled.img`
+  cursor: pointer;
+  height: 40px;
+  positon: relative;
+  float: right;
+  margin: 30px 10px;
+`;
 
 // export const NewHeaderContent = styled.div`
 //   ${props =>

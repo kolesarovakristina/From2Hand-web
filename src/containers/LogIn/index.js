@@ -12,6 +12,7 @@ import {
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
 import base64 from "base-64";
+import {withRouter} from "react-router-dom";
 
 class LoginPage extends React.Component {
   state = {
@@ -34,10 +35,11 @@ class LoginPage extends React.Component {
     const token = JSON.parse(window.sessionStorage.getItem("token"));
     const parsedToken = token.data.split(".");
     const role = JSON.parse(base64.decode(parsedToken[1]));
-    if (role.sub === "admin") {
+    if (role.auth[0].authority === "ROLE_ADMIN") {
       this.props.history.push("/dashboard/admin");
-    } else if (role.sub === "user") {
-      this.props.history.push("/dashboard/user");
+    }
+    else if (role.auth[0].authority === "ROLE_USER") {
+      this.props.history.push("/dashboard/user/info");
     }
   };
 
@@ -54,7 +56,6 @@ class LoginPage extends React.Component {
         config: { headers: { "Content-Type": "aplication/json" } }
       });
       window.sessionStorage.setItem("token", JSON.stringify(response));
-      // this.props.history.push("/dashboard/userprofile/info");
       this.parseTokenAndRedirectUser();
     } catch (err) {
       console.log(err);
@@ -86,7 +87,7 @@ class LoginPage extends React.Component {
               Login
             </StyledButton>
             <Or>or</Or>
-            <StyledLink to="/user/registration">
+            <StyledLink to="/registration">
               <StyledButton>SIGN UP</StyledButton>
             </StyledLink>
           </form>
@@ -96,4 +97,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

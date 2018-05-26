@@ -10,6 +10,7 @@ import {
 } from '../../components/FormInput/styles';
 import logo from '../../assets/from2handLogin.png';
 import './style.css';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 class RegisterForm extends React.Component {
@@ -78,11 +79,11 @@ class RegisterForm extends React.Component {
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
 			alert('You have successfully registered.');
-			this.props.history.push("/user/login");
+			this.props.history.push("/login");
 		} catch (err) {
 			console.log(err);
 			alert('Something went wrong. Try again.');
-			this.props.history.push("/user/registration");
+			this.props.history.push("/registration");
 
 		}
 	};
@@ -147,7 +148,7 @@ class RegisterForm extends React.Component {
 	render() {
 		return (
 			<RegisterWrapper>
-				<StyledImage src={logo} />
+				<Link to='/'><StyledImage src={logo} /></Link>
 				<form
 					onSubmit={this.onSubmit}
 					name="contactform"

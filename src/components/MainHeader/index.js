@@ -1,6 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import logo from "../../assets/from2hand.png";
+import plusButton from "../../assets/circular-button.png";
+import { Link } from "react-router-dom";
+import ReactTooltip from 'react-tooltip'
+
+
 import {
   StyledMainHeader,
   StyledLink,
@@ -8,7 +13,9 @@ import {
   NewHeader,
   NewHeaderContent,
   StyledCategory,
-  StyledLogOut
+  StyledLogOut,
+  StyledButton,
+  StyledImage
 } from "./styles";
 
 class MainHeader extends React.Component {
@@ -33,15 +40,23 @@ class MainHeader extends React.Component {
     if (this.state.isLoged) {
       return (
         <StyledMainHeader>
-          <StyledHeaderLogo src={logo} />
-          <button onClick={this.logOut}>Log Out</button>
+          <Link to='/'> <StyledHeaderLogo src={logo} /></Link>
+
+          <StyledLink to="/dashboard/user/info">My Profile</StyledLink>
+          <StyledButton onClick={this.logOut}>Log Out</StyledButton>
+          <Link to='/dashboard/addAdvert'>
+            <StyledImage data-tip data-for='plusButton' src={plusButton}/>
+          </Link>
+          <ReactTooltip id='plusButton' effect='solid' place='left' type='light' >
+            <span>Add new advert</span>
+          </ReactTooltip>
         </StyledMainHeader>
       );
     }
 
     return (
       <StyledMainHeader>
-        <StyledHeaderLogo src={logo} />
+        <Link to='/'> <StyledHeaderLogo src={logo} /></Link>
         <StyledLink to="/registration">Sign Up</StyledLink>
         <StyledLink to="/login">Log In</StyledLink>
       </StyledMainHeader>

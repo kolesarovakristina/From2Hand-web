@@ -31,8 +31,8 @@ class Dashboard extends React.Component {
             path="/dashboard/userBigadvert/:id"
             component={AdvertForUser}
           />
-          <Route path="/dashboard/userprofile" component={UserProfile} />
-          <Route path="/dashboard/addAdvert" component={AddAdvert} /> */}
+          <Route path="/dashboard/userprofile" component={UserProfile} /> */}
+          <Route path="/dashboard/addAdvert" component={AddAdvert} />
         </Switch>
         <Footer text="© 2018 FROM2HAND" />
       </div>
