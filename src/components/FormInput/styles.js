@@ -13,7 +13,7 @@ export const StyledInputWrapper = styled.div``;
 export const StyledInput = styled.input`
   padding: 0 15px;
   height: 40px;
-  width: calc(100% - 32px);
+  width: calc(100%);
   font-size: 15px;
   display: inline-block;
   color: grey;

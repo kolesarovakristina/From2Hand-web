@@ -1,8 +1,6 @@
 import React from 'react';
 import FormInput from '../../components/FormInput';
 import {
-	StyledWrapper,
-	StyledInputWrapper,
 	StyledButton,
 	StyledImage,
 	Or,

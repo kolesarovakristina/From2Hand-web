@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const StyledWrapper = Styled(Link)`
 text-decoration: none;
 padding: 60px;
-width: calc(33.33% - 120px);
+width: calc(33.33%);
 position: relative;
 display: inline-block;
 transition: transform .2s;

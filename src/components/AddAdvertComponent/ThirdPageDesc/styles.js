@@ -21,7 +21,7 @@ export const StyledTextArea = styled.textarea`
     display: block;
     border: 1px solid rgb(22,131,147);
     padding: 15px;
-    width: 50%;
+    width: 55%;
     margin: auto;
     font-size: 17px;
     outline: 0;
@@ -33,7 +33,7 @@ export const StyledTextArea = styled.textarea`
 export const StyledInput = styled.input`
     display: block;
     margin: 3px auto 0;
-    width: calc(50% + 10px);
+    width: calc(55%);
     height: 35px;
     font-size: 17px;
     letter-spacing: .5px;
@@ -54,7 +54,7 @@ export const SelectWrapper = styled.div`
 
 export const StyledSelect = styled.select`
     display: inline-block;
-    width: calc(50% + 33px);
+    width: calc(55%);
     margin-top: 3px;
     height: 35px;
     font-size: 17px;
@@ -71,7 +71,7 @@ export const StyledOption = styled.option``;
 
 export const ButtonWrapper = styled.div`
     display: inline-block;
-    width: calc(100% - 20px);
+    width: calc(100%);
     margin-top: 70px;
     background-color: rgb(230,230,230);
     padding: 10px;

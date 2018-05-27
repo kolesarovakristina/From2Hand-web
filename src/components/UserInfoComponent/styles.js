@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { style } from "react-toastify";
 
 export const UserInfoWrapper = styled.div`
-width: calc(100% - 10px);
+width: calc(100%);
     display: inline-block;
     border: 5px solid rgba(22,131,147, 1);
     border-bottom-right-radius: 10px;
@@ -12,7 +12,6 @@ width: calc(100% - 10px);
     
     export const StyledImage = styled.img`
     width: 100%;
-    margin-bottom: -4.5px;
     border-bottom-left-radius: 5px;
     `;
     

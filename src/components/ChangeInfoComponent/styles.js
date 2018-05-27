@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
-    width: calc(100% - 10px);
+    width: calc(100%);
     // margin: 0 20%;
     padding: 20px 0 45px;
     display: inline-block;
@@ -18,13 +18,13 @@ export const StyledWrapper = styled.div`
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 1px;
-    min-width: calc(40% - 30px);
+    min-width: calc(40%);
     margin: 0 30%;
     padding: 25px 0 3px;
     `;
     
     export const StyledInput = styled.input`
-min-width: calc(40% - 30px);
+min-width: calc(40%);
 margin: 0 30%;
 border: 1px solid rgb(22,131,147);
 padding: 10px 15px;

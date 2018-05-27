@@ -16,7 +16,7 @@ export const StyledLink = Styled(Link)`
 `;
 export const StyledTitle = Styled.div`
   font-size: 18px;
-  width: calc(100% - 30px);
+  width: calc(100%);
   display: inline-block;
   text-transform: uppercase;
   color: white;
@@ -47,8 +47,8 @@ export const StyledDesc = Styled.div`
   font-size: 15px;
   padding: 15px;
   color: black;
-  width: calc(54% - 30px);
-  height: calc(150px - 30px);
+  width: calc(54%);
+  height: calc(150px);
   display: inline-block;
   float: left;
   background-color: rgb(240,240,240);

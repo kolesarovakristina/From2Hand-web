@@ -5,7 +5,7 @@ export const StyledWrapper = styled.div`
     background-color: rgba(230, 230, 230, 1);
     border-radius: 3px;
     padding-bottom: 12px;
-    height: calc(100% - 290px);
+    height: calc(100%);
     position: relative;
     float: left;
 `;
@@ -21,7 +21,7 @@ export const NavCategory = styled.div `
     display: inline-block;
     cursor: pointer;
     text-align: left;
-    width: calc(100% - 30px);
+    width: calc(100%);
     transition: all .1s ease-in-out;
         &:hover{
             background-color: rgb(130,130,130);
@@ -36,7 +36,7 @@ export const NavHeader = styled.div `
     background-color: rgb(130,130,130);
     color: #fff;
     letter-spacing: .5px;
-    width: calc(100% - 30px);
+    width: calc(100%);
     padding: 20px 0 20px 30px;
     margin-bottom: 12px;
     border-top-left-radius: 3px;
