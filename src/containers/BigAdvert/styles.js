@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div`
 export const StyledTitle = styled.div`
 	background-color: #168393;
 	width: 100%;
-	padding: 5px 0;
+	padding: 6px 0;
 	padding-left: 40px;
 	color: white;
 	font-size: 40px;
