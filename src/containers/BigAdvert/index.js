@@ -35,7 +35,7 @@ class BigAdvert extends React.Component {
 						faucibus risus sed, egestas purus.
 					</StyledDesc>
 					<StyledLocationTitle>Location:</StyledLocationTitle>
-					<StyledLocation>Košice 1, Kavečanyň</StyledLocation>
+					<StyledLocation>Košice 1, Kavečany</StyledLocation>
 					<StyledPriceTitle>Price:</StyledPriceTitle>
 					<StyledPrice>1000€</StyledPrice>
 				</StyledDescWrapper>
