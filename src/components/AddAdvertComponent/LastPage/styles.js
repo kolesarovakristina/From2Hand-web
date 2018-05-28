@@ -22,7 +22,7 @@ export const StyledMainHeader = styled.div`
 `;
 
 export const StyledTitle = styled.div`
-    width: calc(100% - 40px);
+    width: calc(100%);
     background: rgb(22,131,147);
     color: #fff;
     padding: 10px 20px;
@@ -79,7 +79,7 @@ export const TextWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
     display: inline-block;
-    width: calc(100% - 20px);
+    width: calc(100%);
     margin-top: 70px;
     background-color: rgb(230,230,230);
     padding: 10px;

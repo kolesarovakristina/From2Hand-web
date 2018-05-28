@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
 
 export const ButtonWrapper = styled.div`
     display: inline-block;
-    width: calc(100% - 20px);
+    width: calc(100%);
     margin-top: 70px;
     background-color: rgb(230,230,230);
     padding: 10px;

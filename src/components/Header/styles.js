@@ -52,7 +52,7 @@ export const SearchImg = styled.img`
 `
 export const StyledInput = styled.input`
   height: 30px;
-  width: 180px;
+  width: 200px;
   border: 0px;
   padding: 0 10px;
   margin: 6px 3px;

@@ -6,7 +6,7 @@ import UserInfo from "../../containers/UserInfo";
 import AdvertForUser from "../AdvertForUser";
 import UserprofileSwitch from "../../components/UserprofileSwitch";
 import ChangeInfo from "../../containers/ChangeInfoPage";
-import AllUserAdverts from "../../containers/AllUserAdverts";
+import AllUserAdverts from "../../containers/AdminAllAdverts";
 import {
   StyledWrapper,
   StyledLink,
@@ -16,6 +16,7 @@ import {
 import AddNewSubcategory from "../../components/addNewSubcategory";
 //to do change name to AddNewCategory
 import CategoryForm from "../../components/CategoryForm";
+import AdminAllAdverts from "../../containers/AdminAllAdverts";
 
 class AdminDashboard extends React.Component {
   state = {
@@ -43,7 +44,7 @@ class AdminDashboard extends React.Component {
             activeStyle={{
               background: "rgb(22,131,147)",
               color: "rgb(255,255,255)",
-              fontSize: 15,
+              fontSize: 25,
               fontWeight: "bold"
             }}
           >
@@ -54,7 +55,7 @@ class AdminDashboard extends React.Component {
             activeStyle={{
               background: "rgb(22,131,147)",
               color: "rgb(255,255,255)",
-              fontSize: 15,
+              fontSize: 25,
               fontWeight: "bold"
             }}
           >
@@ -65,7 +66,7 @@ class AdminDashboard extends React.Component {
             activeStyle={{
               background: "rgb(22,131,147)",
               color: "rgb(255,255,255)",
-              fontSize: 15,
+              fontSize: 25,
               fontWeight: "bold"
             }}
           >
@@ -74,15 +75,9 @@ class AdminDashboard extends React.Component {
         </StyledRightMenu>
         <StyledContent>
           <Switch>
-            <Route path="/dashboard/admin/allAdverts" />
-            <Route
-              path="/dashboard/admin/addCategory"
-              component={CategoryForm}
-            />
-            <Route
-              path="/dashboard/admin/addSubcategory"
-              component={AddNewSubcategory}
-            />
+            <Route path="/dashboard/admin/allAdverts" component={AdminAllAdverts}/>
+            <Route path="/dashboard/admin/addCategory" component={CategoryForm} />
+            <Route path="/dashboard/admin/addSubcategory" component={AddNewSubcategory} />
           </Switch>
         </StyledContent>
       </StyledWrapper>

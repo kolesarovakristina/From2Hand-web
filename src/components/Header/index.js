@@ -3,14 +3,12 @@ import { withRouter } from "react-router";
 import {
   StyledHeaderWrapper,
   StyledMenuWrapper,
-  StyledNavLink,
   SearchImg,
   StyledInput,
   StyledSelect,
   StyledOption
 } from "./styles";
 import searchButton from "../../assets/categoryImage/searching.png";
-import PropTypes from "prop-types";
 import axios from "axios";
 
 

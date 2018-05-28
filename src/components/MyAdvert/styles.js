@@ -42,7 +42,7 @@ export const StyledDesc = Styled.div`
   padding: 15px;
   color: black;
   width: calc(54% - 30px);
-  height: calc(150px - 30px);
+  height: calc(150px);
   display: inline-block;
   float: left;
   background-color: rgb(240,240,240);

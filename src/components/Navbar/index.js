@@ -15,15 +15,20 @@ class Navbar extends React.Component {
     }
 
     fillStateCategoryData = async () => {
+        const id = window.sessionStorage.getItem("categoryID");
         try {
-            const response = await axios.get("/category");
-            this.setState({ categoryData: response.data[0] });
-            this.setState({subcategoryData: response.data[0].subcategories})
-            console.log(this.state.subcategoryData);
+            const response = await axios({
+              method: "get",
+              url: `/category/${id}`,
+              config: { headers: { "Content-Type": "application/json" } }
+            });
+            this.setState({ categoryData: response.data });
+            this.setState({ subcategoryData: response.data.subcategories });
         } catch (err) {
             console.log(err);
-        }
+          }
     };
+
 
     render() {
         return(

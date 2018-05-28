@@ -1,7 +1,6 @@
 import React from "react";
 import { StyledWrapper, StyledInput, StyledButton } from "./styles";
 import axios from "axios";
-import FormInput from "../FormInput";
 
 class CategoryForm extends React.Component {
   state = {

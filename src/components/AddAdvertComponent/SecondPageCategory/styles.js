@@ -40,7 +40,7 @@ export const StyledOption = styled.option`
 
 export const ButtonWrapper = styled.div`
     display: inline-block;
-    width: calc(100% - 20px);
+    width: calc(100%);
     margin-top: 60px;
     background-color: rgb(230,230,230);
     padding: 10px;
