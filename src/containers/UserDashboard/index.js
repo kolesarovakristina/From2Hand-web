@@ -7,6 +7,7 @@ import AdvertForUser from "../AdvertForUser";
 import UserprofileSwitch from "../../components/UserprofileSwitch";
 import ChangeInfo from "../../containers/ChangeInfoPage";
 import AllUserAdverts from "../../containers/AllUserAdverts";
+import ButtonBack from "../../components/ButtonBack";
 import { StyledWrapper } from "./styles";
 import axios from 'axios';
 
@@ -50,6 +51,7 @@ class UserDashboard extends React.Component {
   render() {
     return (
       <StyledWrapper>
+        <ButtonBack/>
         <UserprofileSwitch username={this.state.userInfo.username} />
         <Switch>
           <Route path="/dashboard/user/info" component={UserInfo} />

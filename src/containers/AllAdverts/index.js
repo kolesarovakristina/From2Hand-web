@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import MainHeader from "../../components/MainHeader";
 import Header from "../../components/Header";
 import AdvertWrapper from "../../components/AdvertWrapper";
+import ButtonBack from '../../components/ButtonBack';
 import PropTypes from "prop-types";
 import { StyledWrapper, AllAdvertsWrapper } from "./styles";
 import axios from 'axios';
@@ -35,6 +36,7 @@ class AllAdverts extends React.Component {
   render() {
     return (
       <StyledWrapper>
+        <ButtonBack/>
         <Navbar />
         <AllAdvertsWrapper>
           {this.state.allAdverts.map((item, index) => (

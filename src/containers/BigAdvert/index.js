@@ -1,5 +1,6 @@
 import React from 'react';
 import img from '../../assets/horse.jpg';
+import ButtonBack from '../../components/ButtonBack';
 import {
 	StyledWrapper,
 	StyledTitle,
@@ -25,6 +26,7 @@ class BigAdvert extends React.Component {
 	render() {
 		return (
 			<StyledWrapper>
+				<ButtonBack/>
 				<StyledTitle>Some Title</StyledTitle>
 				<StyledImg src={img} />
 				<StyledDescWrapper>
