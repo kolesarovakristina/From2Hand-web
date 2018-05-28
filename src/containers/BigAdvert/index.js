@@ -32,7 +32,7 @@ class BigAdvert extends React.Component {
 					<StyledDesc>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel
 						lobortis turpis. Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium,
-						faucibus risus sed, egestas purus.
+						faucibus risus sed, egestas purus
 					</StyledDesc>
 					<StyledLocationTitle>Location:</StyledLocationTitle>
 					<StyledLocation>Košice 1, Kavečany</StyledLocation>
