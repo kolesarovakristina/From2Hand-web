@@ -1,119 +1,55 @@
 import styled from 'styled-components';
 
-export const StyledWrapper = styled.div``;
+export const StyledWrapper = styled.div`
+	width: 80%;
+	margin: 50px 10% 120px;
+	display: inline-block;
+`;
 
-export const StyledTitle = styled.h1`
+export const StyledTitle = styled.div`
 	background-color: #168393;
-	height: 55px;
-	width: 650px;
-	padding-top: 5px;
-	padding-left: 25px;
-	float: right;
-	margin-right: 150px;
+	width: 100%;
+	padding: 5px 0;
+	padding-left: 40px;
 	color: white;
 	font-size: 40px;
-	border-radius: 10px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1.5px;
 `;
 export const StyledDescWrapper = styled.div`
-	float: right;
-	width: 667px;
-	height: 230px;
-	margin-top: -26.5px;
-	margin-right: 150px;
-	border-radius: 10px;
-	border: 1.7px solid #168393;
-	padding-left: 5px;
+	width: 100%;
 	background-color: white;
+	padding: 20px;
 `;
 export const StyledUserInfo = styled.div`
-	float: right;
-	margin-right: 150px;
 	font-size: 15px;
-	border-radius: 10px;
-	height: 180px;
-	width: 673px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	width: 100%;
 	background-color: rgb(230, 230, 230);
+	padding: 20px;
 `;
-export const StyledImg = styled.img`
-	margin-left: 85px;
-	margin-top: 90px;
+export const StyledWrapperDescAndInfo = styled.div`
+	width: 60%;
 	float: left;
-	width: 415px;
-	height: 314px;
+`;
+export const StyledImageWrapper = styled.div`width: 40%;`;
+
+export const StyledImg = styled.img`
+	float: left;
+	width: 100%;
+	border-bottom-left-radius: 20px;
 `;
 export const StyledDesc = styled.div`
-	padding-left: 30px;
-	padding-right: 50px;
-	padding-top: 3px;
+	padding: 0 5px;
+	font-size: 18px;
 `;
-export const StyledLocation = styled.div`
-	padding-left: 30px;
-	padding-top: 3px;
-`;
-export const StyledPrice = styled.div`
-	padding-left: 30px;
-	padding-top: 3px;
-`;
-
-export const StyledUserName = styled.div`
-	margin-left: 30px;
-	padding-top: 4px;
-`;
-export const StyledUserNumber = styled.div`
-	margin-left: 30px;
-	padding-top: 4px;
-`;
-export const StyledUserEmail = styled.div`
-	margin-left: 30px;
-	padding-top: 4px;
-`;
-
-export const StyledDescTitle = styled.div`
-	font-size: 20px;
-	color: #494949;
+export const StyledTitleI = styled.div`
+	padding: 5px;
 	font-weight: bold;
-	padding-top: 10px;
-	padding-left: 30px;
-`;
-export const StyledLocationTitle = styled.div`
-	font-size: 20px;
-	color: #494949;
-	font-weight: bold;
-	padding-top: 8px;
-	padding-left: 30px;
-`;
-export const StyledPriceTitle = styled.div`
-	font-size: 20px;
-	color: #494949;
-	font-weight: bold;
-	padding-left: 30px;
-	padding-top: 8px;
-`;
-export const StyledContactTitle = styled.div`
-	font-size: 20px;
-	color: #494949;
-	font-weight: bold;
-	margin-left: 30px;
-	padding-top: 5px;
-`;
-export const StyledNameTitle = styled.div`
-	font-size: 20px;
-	color: #494949;
-	font-weight: bold;
-	margin-left: 30px;
-	padding-top: 5px;
-`;
-export const StyledNumberTitle = styled.div`
-	font-size: 20px;
-	color: #494949;
-	font-weight: bold;
-	margin-left: 30px;
-	padding-top: 3px;
-`;
-export const StyledEmailTitle = styled.div`
-	font-size: 20px;
-	color: #494949;
-	font-weight: bold;
-	margin-left: 30px;
-	padding-top: 3px;
+	font-size: 25px;
+	color: #414f4b;
 `;

@@ -5,20 +5,11 @@ import {
 	StyledTitle,
 	StyledImg,
 	StyledDesc,
-	StyledPrice,
-	StyledUserInfo,
-	StyledUserName,
-	StyledUserNumber,
-	StyledUserEmail,
 	StyledDescWrapper,
-	StyledLocation,
-	StyledDescTitle,
-	StyledLocationTitle,
-	StyledPriceTitle,
-	StyledContactTitle,
-	StyledNameTitle,
-	StyledNumberTitle,
-	StyledEmailTitle
+	StyledTitleI,
+	StyledUserInfo,
+	StyledImageWrapper,
+	StyledWrapperDescAndInfo
 } from './styles';
 
 class BigAdvert extends React.Component {
@@ -26,28 +17,32 @@ class BigAdvert extends React.Component {
 		return (
 			<StyledWrapper>
 				<StyledTitle>Some Title</StyledTitle>
-				<StyledImg src={img} />
-				<StyledDescWrapper>
-					<StyledDescTitle>Description:</StyledDescTitle>
-					<StyledDesc>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel
-						lobortis turpis. Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium,
-						faucibus risus sed, egestas purus
-					</StyledDesc>
-					<StyledLocationTitle>Location:</StyledLocationTitle>
-					<StyledLocation>Košice 1, Kavečany</StyledLocation>
-					<StyledPriceTitle>Price:</StyledPriceTitle>
-					<StyledPrice>1000€</StyledPrice>
-				</StyledDescWrapper>
-				<StyledUserInfo>
-					<StyledContactTitle>CONTACT:</StyledContactTitle>
-					<StyledNameTitle>Name:</StyledNameTitle>
-					<StyledUserName>Ivan Hrozny</StyledUserName>
-					<StyledNumberTitle>Telephone Number:</StyledNumberTitle>
-					<StyledUserNumber>09123456</StyledUserNumber>
-					<StyledEmailTitle>Email address:</StyledEmailTitle>
-					<StyledUserEmail>ivako@mail.com</StyledUserEmail>
-				</StyledUserInfo>
+				<StyledImageWrapper>
+					<StyledImg src={img} />
+				</StyledImageWrapper>
+				<StyledWrapperDescAndInfo>
+					<StyledDescWrapper>
+						<StyledTitleI>Description:</StyledTitleI>
+						<StyledDesc>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel
+							lobortis turpis. Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium,
+							faucibus risus sed, egestas purus
+						</StyledDesc>
+						<StyledTitleI>Location:</StyledTitleI>
+						<StyledDesc>Košice 1, Kavečany</StyledDesc>
+						<StyledTitleI>Price:</StyledTitleI>
+						<StyledDesc>1000€</StyledDesc>
+					</StyledDescWrapper>
+					<StyledUserInfo>
+						<StyledTitleI>CONTACT:</StyledTitleI>
+						<StyledTitleI>Name:</StyledTitleI>
+						<StyledDesc>Ivan Hrozny</StyledDesc>
+						<StyledTitleI>Telephone Number:</StyledTitleI>
+						<StyledDesc>09123456</StyledDesc>
+						<StyledTitleI>Email address:</StyledTitleI>
+						<StyledDesc>ivako@mail.com</StyledDesc>
+					</StyledUserInfo>
+				</StyledWrapperDescAndInfo>
 			</StyledWrapper>
 		);
 	}
