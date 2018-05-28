@@ -35,9 +35,10 @@ export const NavHeader = styled.div `
     font-weight: bold;
     background-color: rgb(130,130,130);
     color: #fff;
+    font-size: 20px;
     letter-spacing: .5px;
     width: calc(100%);
-    padding: 20px 0 20px 30px;
+    padding: 15px 30px;
     margin-bottom: 12px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;

@@ -32,10 +32,14 @@ class AllAdverts extends React.Component {
         }
   };
 
+  getValueFromSubcategory = (event) => {
+    console.log(event.target.id);
+  }
+
   render() {
     return (
       <StyledWrapper>
-        <Navbar />
+        <Navbar getID={this.getValueFromSubcategory} />
         <AllAdvertsWrapper>
           {this.state.allAdverts.map((item, index) => (
             <AdvertWrapper

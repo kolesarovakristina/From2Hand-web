@@ -3,32 +3,10 @@ import { Link } from "react-router-dom";
 
 export const StyledMainHeader = styled.div`
   padding: 0 5%;
-  // width: calc(100% - 10%);
   height: 100px;
   background-color: rgb(22, 131, 147);
   color: rgb(230, 230, 230);
 `;
-// export const StyledCategory = styled(Link)`
-//   ${props =>
-//     props.isAdmin === true &&
-//     css`
-//       color: #fff;
-//       text-decoration: none;
-//       height: 100px;
-//       line-height: 100px;
-//       positon: relative;
-//       float: right;
-//       font-weight: bold;
-//       padding: 0 10px;
-//       text-transform: uppercase;
-//       font-size: 19px;
-//     `} ${props =>
-//     props.isAdmin === false &&
-//     css`
-//       display: none;
-//       color: palevioletred;
-//     `};
-// `;
 
 export const StyledLink = styled(Link)`
   color: #fff;
@@ -41,6 +19,11 @@ export const StyledLink = styled(Link)`
   padding: 0 10px;
   text-transform: uppercase;
   font-size: 19px;
+  transition: all .2s ease-in-out;
+  &:hover{
+    text-decoration: none;
+    color: rgba(255,255,255, .5);
+  }
 `;
 
 export const StyledHeaderLogo = styled.img`
@@ -62,6 +45,11 @@ export const StyledButton = styled.div`
       padding: 0 10px;
       text-transform: uppercase;
       font-size: 19px;
+      transition: all .2s ease-in-out;
+      &:hover{
+        text-decoration: none;
+        color: rgba(255,255,255, .5);
+      }
 `;
 
 export const StyledImage = styled.img`

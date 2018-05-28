@@ -8,6 +8,7 @@ const FormInput = props => (
     value={props.value}
     placeholder={props.placeholder}
     onChange={props.changeState}
-  />
+    required
+    autoComplete={false}  />
 );
 export default FormInput;

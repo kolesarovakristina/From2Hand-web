@@ -25,7 +25,6 @@ class SecondPage extends React.Component {
     };
 
     fillStateSubcategoryData = async (event) => {
-        console.log("call");
         const id =  event.target.value;
         try {
             const response = await axios.get(`/category/${id}`);

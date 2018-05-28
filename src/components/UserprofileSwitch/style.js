@@ -27,4 +27,11 @@ export const StyledLink = styled(NavLink)`
     background-color: rgb(230,230,230);
     color: #828282;
     transition: all .2s ease-in-out;
+    &:hover{
+        text-decoration: none;
+        color: #828282;
+    }
+    &:focus{
+        text-decoration: none;
+    }
 `;

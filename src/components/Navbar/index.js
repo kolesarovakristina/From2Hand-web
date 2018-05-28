@@ -29,13 +29,12 @@ class Navbar extends React.Component {
           }
     };
 
-
     render() {
         return(
             <StyledWrapper>
                 <NavHeader>{this.state.categoryData.title}</NavHeader>
                 {this.state.subcategoryData.map((item, index) => (
-                    <NavCategory id={item.id}>{item.title}</NavCategory>
+                    <NavCategory onClick={this.props.getID} id={item.id}>{item.title}</NavCategory>
                 ))}
             </StyledWrapper>
         );
