@@ -10,17 +10,42 @@ import {
 	StyledTitleI,
 	StyledUserInfo,
 	StyledImageWrapper,
-	StyledWrapperDescAndInfo
+	StyledWrapperDescAndInfo,
+	StyledOverlay,
+	StyledImgIsExpand,
+	StyledExpandWrapper,
+	StyledExpandButton
 } from './styles';
 
 class BigAdvert extends React.Component {
+	state = {
+		isExpand: false
+	};
+
+	showExpand = () => {
+		this.setState({ isExpand: true });
+	};
+
+	closeExpand = () => {
+		this.setState({ isExpand: false });
+	};
 	render() {
+		if (this.state.isExpand) {
+			return (
+				<StyledOverlay>
+					<StyledExpandWrapper>
+						<StyledImgIsExpand src={img} />
+						<StyledExpandButton onClick={this.closeExpand}>X</StyledExpandButton>
+					</StyledExpandWrapper>
+				</StyledOverlay>
+			);
+		}
 		return (
 			<StyledWrapper>
-				<ButtonBack/>
+				<ButtonBack />
 				<StyledTitle>Some Title</StyledTitle>
 				<StyledImageWrapper>
-					<StyledImg src={img} />
+					<StyledImg src={img} onClick={this.showExpand} />
 				</StyledImageWrapper>
 				<StyledWrapperDescAndInfo>
 					<StyledDescWrapper>

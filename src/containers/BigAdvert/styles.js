@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.div`
 	width: 80%;
@@ -42,6 +42,32 @@ export const StyledImg = styled.img`
 	float: left;
 	width: 100%;
 	border-bottom-left-radius: 20px;
+`;
+export const StyledImgIsExpand = styled.img`width: 100%;`;
+export const StyledExpandWrapper = styled.div`
+	width: 50%;
+	margin: 100px auto;
+	position: relative;
+`;
+export const StyledExpandButton = styled.span`
+	position: absolute;
+	top: -35px;
+	right: -30px;
+	font-size: 30px;
+	color: white;
+	&:hover {
+		cursor: pointer;
+		font-weight: bold;
+	}
+`;
+export const StyledOverlay = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	background-color: rgba(000, 000, 000, 0.8);
 `;
 export const StyledDesc = styled.div`
 	padding: 0 5px;
