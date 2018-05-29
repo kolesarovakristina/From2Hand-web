@@ -51,7 +51,7 @@ class BigAdvert extends React.Component {
 					<StyledDescWrapper>
 						<StyledTitleI>Description:</StyledTitleI>
 						<StyledDesc>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel
+							Lorem ipsum dolors sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel
 							lobortis turpis. Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium,
 							faucibus risus sed, egestas purus
 						</StyledDesc>
