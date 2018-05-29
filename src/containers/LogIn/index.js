@@ -36,7 +36,7 @@ class LoginPage extends React.Component {
     const parsedToken = token.data.split(".");
     const role = JSON.parse(base64.decode(parsedToken[1]));
     if (role.auth[0].authority === "ROLE_ADMIN") {
-      this.props.history.push("/dashboard/admin");
+      this.props.history.push("/dashboard/admin/allAdverts");
     }
     else if (role.auth[0].authority === "ROLE_USER") {
       this.props.history.push("/dashboard/user/info");
