@@ -38,7 +38,7 @@ class BigAdvert extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log('state 2 ',this.state.advertData);
+		console.log('st a t e2 ',this.state.advertData);
 	}
 
 	fillStateData = async () => {
