@@ -1,6 +1,7 @@
 import React from 'react';
 import img from '../../assets/horse.jpg';
 import ButtonBack from '../../components/ButtonBack';
+import axios from 'axios';
 import {
 	StyledWrapper,
 	StyledTitle,
@@ -19,7 +20,8 @@ import {
 
 class BigAdvert extends React.Component {
 	state = {
-		isExpand: false
+		isExpand: false,
+		advertData: {}
 	};
 
 	showExpand = () => {
@@ -29,21 +31,49 @@ class BigAdvert extends React.Component {
 	closeExpand = () => {
 		this.setState({ isExpand: false });
 	};
+
+	componentWillMount(){
+		this.fillStateData();
+	}
+
+	componentDidMount(){
+		console.log('state 2 ',this.state.advertData);
+	}
+
+	fillStateData = async () => {
+		const id =  this.props.match.params.id;
+		try {
+			const response = await axios({
+				method: 'get',
+				url: `/advert/${id}`,
+				config: { headers: { 'Content-Type': 'application/json' } }
+			});
+			this.setState({ advertData: response.data }, ()=>{
+				console.log('state ',this.state.advertData);
+			});
+			console.log(response.data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	
+
 	render() {
 		if (this.state.isExpand) {
 			return (
 				<StyledOverlay>
 					<StyledExpandWrapper>
-						<StyledImgIsExpand src={img} />
+						<StyledImgIsExpand src={`data:image;base64,${this.state.advertData.photoAdvert.data}`} />
 						<StyledExpandButton onClick={this.closeExpand}>X</StyledExpandButton>
 					</StyledExpandWrapper>
 				</StyledOverlay>
 			);
 		}
 		return (
+			<div>
+			<ButtonBack />
 			<StyledWrapper>
-				<ButtonBack />
-				<StyledTitle>Some Title</StyledTitle>
+				<StyledTitle>{this.state.advertData.name}</StyledTitle>
 				<StyledImageWrapper>
 					<StyledImg src={img} onClick={this.showExpand} />
 				</StyledImageWrapper>
@@ -51,14 +81,12 @@ class BigAdvert extends React.Component {
 					<StyledDescWrapper>
 						<StyledTitleI>Description:</StyledTitleI>
 						<StyledDesc>
-							Lorem ipsum dolors sit amet, consectetur adipiscing elit. Vivamus eget fringilla arcu, vel
-							lobortis turpis. Vestibulum scelerisque vulputate convallis. Integer quis mauris pretium,
-							faucibus risus sed, egestas purus
+							{this.state.advertData.descr}
 						</StyledDesc>
 						<StyledTitleI>Location:</StyledTitleI>
-						<StyledDesc>Košice 1, Kavečany</StyledDesc>
+						<StyledDesc>{this.state.advertData.district}, {this.state.advertData.cityDistrict}</StyledDesc>
 						<StyledTitleI>Price:</StyledTitleI>
-						<StyledDesc>1000€</StyledDesc>
+						<StyledDesc>{this.state.advertData.price}€</StyledDesc>
 					</StyledDescWrapper>
 					<StyledUserInfo>
 						<StyledTitleI>CONTACT:</StyledTitleI>
@@ -71,6 +99,7 @@ class BigAdvert extends React.Component {
 					</StyledUserInfo>
 				</StyledWrapperDescAndInfo>
 			</StyledWrapper>
+			</div>
 		);
 	}
 }

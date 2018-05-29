@@ -56,6 +56,7 @@ class MainHeader extends React.Component {
 
             <StyledLink to="/dashboard/user/info">My Profile</StyledLink>
             <StyledButton onClick={this.logOut}>Log Out</StyledButton>
+            <StyledLink to="/">Home</StyledLink>
             <Link to='/dashboard/addAdvert'>
               <StyledImage data-tip data-for='plusButton' src={plusButton}/>
             </Link>
@@ -70,6 +71,7 @@ class MainHeader extends React.Component {
             <StyledMainHeader>
             <Link to='/'> <StyledHeaderLogo src={logo} /></Link>
             <StyledButton onClick={this.logOut}>Log Out</StyledButton>
+            <StyledLink to="/">Home</StyledLink>
           </StyledMainHeader>
         );
       }
@@ -80,6 +82,7 @@ class MainHeader extends React.Component {
         <Link to='/'> <StyledHeaderLogo src={logo} /></Link>
         <StyledLink to="/registration">Sign Up</StyledLink>
         <StyledLink to="/login">Log In</StyledLink>
+        <StyledLink to="/">Home</StyledLink>
       </StyledMainHeader>
     );
   }

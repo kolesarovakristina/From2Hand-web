@@ -17,7 +17,7 @@ transition: transform .2s;
 export const StyledTitle = Styled.h1`
 color: rgb(22,131,147);
 letter-spacing: .5px;
-font-size: 15px;
+font-size: 17px;
 leter-spacing: 1px;
 font-weight: bold;
 text-align: center;

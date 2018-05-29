@@ -27,9 +27,30 @@ class AddNewAdvertPage extends React.Component {
         image: '',
         category: '',
         subcategory: '',
-        token: ''
+        token: '',
+        imageUrl: null
     }
 
+    _onChange = (e) => {
+        const reader = new FileReader();
+        const file = this.state.image;
+        reader.onloadend = () => {
+            this.setState({
+                imageUrl: reader.result
+            })
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+            this.setState({
+                imageUrl: reader.result
+            })
+        } 
+        else {
+            this.setState({
+                imageUrl: ""
+            })
+        }
+    };
 
     handleToPage2 = () => {
         this.setState({toPage2State:true});
@@ -156,27 +177,54 @@ class AddNewAdvertPage extends React.Component {
         console.log(event.target.value);
     }
 
-    componentWillMount() {
-        console.log("token", window.sessionStorage.getItem("token"));
-        const token = window.sessionStorage.getItem("token") || null;
-        console.log(JSON.parse(token));
-        this.setState({token: JSON.parse(token)},()=>{
-            console.log(this.state.token.data);
-        });
+    handleValueFromImage = event => {
+        console.log(event.target.files[0]);
+        this.setState({image: event.target.files[0]}, ()=>{
 
+            const reader = new FileReader();
+            const file = this.state.image;
+            console.log('file ',file);
+            reader.onloadend = () => {
+                this.setState({
+                    imageUrl: reader.result
+                })
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+                this.setState({
+                    imageUrl: reader.result
+                }, () => {
+                    console.log(this.state.imageUrl);
+                });
+            } 
+            else {
+                this.setState({
+                    imageUrl: ""
+                })
+            }
+
+        });
+    }
+
+    componentWillMount() {
+        const token = window.sessionStorage.getItem("token") || null;
+        if(token)
+            this.setState({token: JSON.parse(token)});
+        else
+            this.props.history.push("/");
     }
 
     createAdvert = async (event) => {
         event.preventDefault();
-        const form = {
-            categoryId: this.state.categoryId,
-            city: this.state.district,
-            descr: this.state.desc,
-            name: this.state.title,
-            price: this.state.price,
-        };
 
-        const myJSON = JSON.stringify(form);
+        const form = new FormData();
+        form.append("category", this.state.subcategoryId);
+        form.append("district", this.state.district);
+        form.append("cityDistrict", this.state.cityDistrict);
+        form.append("descr", this.state.desc);
+        form.append("name", this.state.title);
+        form.append("price", this.state.price);
+        form.append("photo", this.state.image);
         console.log(form);
 
         const config = {
@@ -189,16 +237,18 @@ class AddNewAdvertPage extends React.Component {
             url: "/advert",
             data: form,
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "multipart/form-data",
                 "Authorization": `Bearer ${this.state.token.data}`
-              },
-            });
-            alert("Send");
-            this.props.history.push("/dashboard/user/myadverts");
+            },
+        });
+        alert("Advert successfully added!");
+        this.props.history.push("/dashboard/user/myadverts");
 
         } catch (err) {
             console.log(err);
-            alert("Fail");
+            alert("Something went wrong, please try again.");
+            this.props.history.push("/dashboard/addAdvert");
+
         }
     }
 
@@ -235,7 +285,8 @@ class AddNewAdvertPage extends React.Component {
                 <StyledWrapper>
                     <StyledTitle>Add New Advert</StyledTitle>
                     <FourthPage backTo3Page={this.handleBackToPage3}
-                                toPage5={this.handleToPage5}/>
+                                toPage5={this.handleToPage5}
+                                getPhotoData={this.handleValueFromImage} />
                 </StyledWrapper >
             );
         }
@@ -245,6 +296,7 @@ class AddNewAdvertPage extends React.Component {
                 <StyledWrapper>
                     <StyledTitle>Add New Advert</StyledTitle>
                     <LastPage backTo4Page={this.handleBackToPage4}
+                              image={`${this.state.imageUrl}`}
                               title={this.state.title}
                               category={this.state.category}
                               subcategory={this.state.subcategory}
