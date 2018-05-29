@@ -62,8 +62,20 @@ class LoginPage extends React.Component {
     }
   };
   render() {
+    const Captcha = require('react-captcha');  
     return (
+      
       <StyledWrapper>
+        <form>
+  	<Captcha
+     sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
+     lang = 'en'
+     theme = 'light'
+     type = 'image'
+     callback = {(value) => console.log(value)}/> 
+     
+     <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
+     </form>
         <StyledImage src={Logo} />
         <StyledInputWrapper>
           <form onSubmit={this.onSubmit}>
