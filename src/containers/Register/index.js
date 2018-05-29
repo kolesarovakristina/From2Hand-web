@@ -144,21 +144,11 @@ class RegisterForm extends React.Component {
 	}
 
 	render() {
-		return (const Captcha = require('react-captcha');  
 		
 		return (
 			<RegisterWrapper>
 
-				<form>
- <Captcha
-     sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
-     lang = 'en'
-     theme = 'light'
-     type = 'image'
-     callback = {(value) => console.log(value)}/> 
-     
-     <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
-     </form>
+		
 				<Link to='/'><StyledImage src={logo} /></Link>
 				<form
 					onSubmit={this.onSubmit}
