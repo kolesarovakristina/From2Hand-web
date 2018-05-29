@@ -7,6 +7,7 @@ import LastPage from '../../components/AddAdvertComponent/LastPage';
 import { StyledTitle, StyledWrapper } from "./styles";
 import axios from 'axios';
 
+
 class AddNewAdvertPage extends React.Component {
     state = {
         toPage2State: false,
@@ -28,29 +29,10 @@ class AddNewAdvertPage extends React.Component {
         category: '',
         subcategory: '',
         token: '',
-        imageUrl: null
+        imageUrl: null,
+        defaultPhoto: true
     }
 
-    _onChange = (e) => {
-        const reader = new FileReader();
-        const file = this.state.image;
-        reader.onloadend = () => {
-            this.setState({
-                imageUrl: reader.result
-            })
-        }
-        if (file) {
-            reader.readAsDataURL(file);
-            this.setState({
-                imageUrl: reader.result
-            })
-        } 
-        else {
-            this.setState({
-                imageUrl: ""
-            })
-        }
-    };
 
     handleToPage2 = () => {
         this.setState({toPage2State:true});
@@ -179,6 +161,9 @@ class AddNewAdvertPage extends React.Component {
 
     handleValueFromImage = event => {
         console.log(event.target.files[0]);
+
+        this.setState({defaultPhoto: false});
+
         this.setState({image: event.target.files[0]}, ()=>{
 
             const reader = new FileReader();
@@ -286,7 +271,9 @@ class AddNewAdvertPage extends React.Component {
                     <StyledTitle>Add New Advert</StyledTitle>
                     <FourthPage backTo3Page={this.handleBackToPage3}
                                 toPage5={this.handleToPage5}
-                                getPhotoData={this.handleValueFromImage} />
+                                getPhotoData={this.handleValueFromImage}
+                                inputImage={`${this.state.imageUrl}`}
+                                defaultPhoto={this.state.defaultPhoto} />
                 </StyledWrapper >
             );
         }

@@ -4,6 +4,12 @@ export const StyledWrapper = styled.div`
     background-color: #fff;
 `;
 
+export const ImageWrapper = styled.img`
+    width: 30%;
+    margin: 4px 35% 0;
+    border: 2px solid rgb(22, 131, 147);
+`;
+
 export const ButtonWrapper = styled.div`
     display: inline-block;
     width: calc(100%);
