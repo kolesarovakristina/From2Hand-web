@@ -14,6 +14,7 @@
     "react-addons-pure-render-mixin": "^15.6.2",
     "react-bootstrap-table": "^4.3.1",
     "react-bootstrap-table-next": "^0.1.12",
+    "react-captcha": "^2.0.9",
     "react-cookie": "^2.1.4",
     "react-dom": "^16.2.0",
     "react-google-charts": "https://github.com/ZeptInc/react-google-charts",
@@ -34,6 +35,7 @@
     "styled-components": "^3.2.0",
     "styled-components-theme": "^1.0.5",
     "utf8": "^3.0.0",
+    "webfont-loader": "^1.1.0",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
