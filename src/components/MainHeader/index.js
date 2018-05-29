@@ -26,10 +26,12 @@ class MainHeader extends React.Component {
 
   componentWillMount() {
     const token = JSON.parse(window.sessionStorage.getItem("token")) || null;
-    const parsedToken = token.data.split(".");
-    const role = JSON.parse(base64.decode(parsedToken[1]));
-    this.setState({role: JSON.parse(base64.decode(parsedToken[1]))});
-    this.setState({token: JSON.parse(window.sessionStorage.getItem("token"))});
+    if(token){
+      const parsedToken = token.data.split(".");
+      const role = JSON.parse(base64.decode(parsedToken[1]));
+      this.setState({role: JSON.parse(base64.decode(parsedToken[1]))});
+      this.setState({token: JSON.parse(window.sessionStorage.getItem("token"))});
+    }
     
 
     if (token !== null) {
