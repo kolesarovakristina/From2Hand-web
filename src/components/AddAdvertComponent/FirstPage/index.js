@@ -5,9 +5,11 @@ import { StyledWrapper, StyledTitle, StyledButton, StyledInput } from "./styles"
 const FirstPage = props => (
 
     <StyledWrapper>
-        <StyledTitle>Tell us what you're selling</StyledTitle>
-        <StyledInput placeholder='Enter a title of your advert' onChange={props.getValueFromTitle}/>
-        <StyledButton onClick={props.toPage2}>Get Started</StyledButton>
+        <form onSubmit={props.toPage2}>
+            <StyledTitle>Tell us what you're selling</StyledTitle>
+            <StyledInput minLength={10} required placeholder='Enter a title of your advert' onChange={props.getValueFromTitle}/>
+            <StyledButton type='submit' >Get Started</StyledButton>
+        </form>
     </StyledWrapper>
 )
 

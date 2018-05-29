@@ -33,6 +33,7 @@ class Navbar extends React.Component {
         return(
             <StyledWrapper>
                 <NavHeader>{this.state.categoryData.title}</NavHeader>
+                <NavCategory onClick={this.props.getAllAdvert}>All</NavCategory>
                 {this.state.subcategoryData.map((item, index) => (
                     <NavCategory onClick={this.props.getID} id={item.id}>{item.title}</NavCategory>
                 ))}

@@ -10,7 +10,9 @@ import axios from 'axios';
 
 class AllAdverts extends React.Component {
 	state = {
-		allAdverts: []
+		allAdverts: [],
+		subcategoryAdverts: [],
+		advertID: ''
 	};
 
 	componentWillMount() {
@@ -20,41 +22,68 @@ class AllAdverts extends React.Component {
 
 	fillStateAllAdverts = async () => {
 		const id = this.props.match.params.id;
+		// try {
+		// 	const response = await axios({
+		// 		method: 'get',
+		// 		url: `/advert/category/${id}`,
+		// 		config: { headers: { 'Content-Type': 'application/json' } }
+		// 	});
+		// 	this.setState({ allAdverts: response.data });
+		// } catch (err) {
+		// 	console.log(err);
+		// }
+
 		try {
 			const response = await axios({
 				method: 'get',
-				url: `/advert/category/${id}`,
+				url: `/category/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
 			this.setState({ allAdverts: response.data });
+			console.log('toto ', response.data);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
-	getValueFromSubcategory = (event) => {
+	getValueFromSubcategory = async (event) => {
 		console.log(event.target.id);
+		const id = event.target.id;
+		try {
+			const response = await axios({
+				method: 'get',
+				url: `/category/${id}`,
+				config: { headers: { 'Content-Type': 'application/json' } }
+			});
+			this.setState({ allAdverts: response.data.adverts });
+			console.log(response.data.adverts);
+		} catch (err) {
+			console.log(err);
+		}
 	};
+
+	getAllAdvert = () => {
+		this.fillStateAllAdverts();
+	}
 
 	render() {
 		return (
-			<StyledWrapper>
-				<Navbar getID={this.getValueFromSubcategory} />
+			<div>
 				<ButtonBack />
-				<AllAdvertsWrapper>
-					{this.state.allAdverts.map((item, index) => (
-						<AdvertWrapper
-							title={item.name}
-							description={item.descr}
-							price={item.price + '€'}
-							location={item.city}
-							poziciaVpoli={index}
-							id={item.id}
+				<StyledWrapper>
+					<Navbar getID={this.getValueFromSubcategory} 
+							getAllAdvert={this.getAllAdvert}/>
+					{/* <AllAdvertsWrapper>
+						{this.state.allAdverts.map((item, index) => (
+							<AdvertWrapper
+							id={this.state.advertID}
+							item={item}
 							user={false}
-						/>
-					))}
-				</AllAdvertsWrapper>
-			</StyledWrapper>
+							/>
+						))}
+					</AllAdvertsWrapper> */}
+				</StyledWrapper>
+			</div>
 		);
 	}
 }

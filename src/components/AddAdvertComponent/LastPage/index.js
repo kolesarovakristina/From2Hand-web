@@ -10,9 +10,8 @@ const LastPage = props => (
 
         <Wrapper>
             <StyledTitle>{props.title}</StyledTitle>
-            
             <ImageWrapper>
-                <StyledImage src={image}/>
+                <StyledImage src={props.image}/>
             </ImageWrapper>
 
             <TextWrapper>

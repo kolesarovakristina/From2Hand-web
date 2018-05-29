@@ -6,6 +6,12 @@ import configureStore from "./store/index";
 import registerServiceWorker from "./registerServiceWorker";
 import "./index.css";
 import App from "./App"; 
+import WebFont from 'webfontloader';
+WebFont.load({
+  google: {
+    families: ['Roboto', 'sans-serif']
+  }
+});
 
 const store = configureStore();
 ReactDOM.render(

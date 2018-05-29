@@ -10,6 +10,7 @@ import "./index.css";
 import ProfilePage from "./containers/ProfilePage";
 import CategoryForm from "./components/CategoryForm";
 
+
 const App = () => (
   <div>
     <ThemeProvider theme={theme}>

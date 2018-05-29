@@ -33,12 +33,14 @@ class AllUserAdverts extends React.Component {
       <StyledWrapper>
           {this.state.userAdverts.map((item, index) => (
             <AdvertWrapper
-              title={item.name}
-              description={item.descr}
-              price={item.price + "€"}
-              location={item.city}
-              poziciaVpoli={index}
-              id={item.id}
+              item={item}
+              // title={item.name}
+              // description={item.descr}
+              // price={item.price + "€"}
+              // district={item.district}
+              // cityDistrict={item.cityDistrict}
+              // poziciaVpoli={index}
+              // id={item.id}
               user = {true}
             />
           ))}

@@ -6,7 +6,6 @@ export const StyledWrapper = styled.div`
   display: inline-block;
   width: calc(100%);
   margin-bottom: 55px;
-
 `;
 
 export const AllAdvertsWrapper = styled.div`

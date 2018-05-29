@@ -16,11 +16,15 @@ export const StyledLink = styled(Link)`
   positon: relative;
   float: right;
   font-weight: bold;
-  padding: 0 10px;
+  padding: 0 15px;
   text-transform: uppercase;
-  font-size: 19px;
+  font-size: 18px;
   transition: all .2s ease-in-out;
   &:hover{
+    text-decoration: none;
+    color: rgba(255,255,255, .5);
+  }
+  &:focus{
     text-decoration: none;
     color: rgba(255,255,255, .5);
   }
@@ -28,6 +32,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledHeaderLogo = styled.img`
   height: 75px;
+  padding-left: 15px;
   padding-top: 25px;
   positon: relative;
   float: left;

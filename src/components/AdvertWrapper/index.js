@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import advertImage from "../../assets/categoryImage/animals.png";
 
 import {
@@ -15,16 +14,16 @@ import {
 } from "./styles";
 
 const AdvertItem = props => (
-  <StyledLink to={props.user === true ? `/dashboard/userBigadvert/${props.id}` : `/dashboard/bigadvert/${props.id}`}>
+  <StyledLink to={props.user === true ? `/dashboard/userBigadvert/${props.item.id}` : `/dashboard/bigadvert/${props.item.id}`}>
     <StyledWrapper>
-        <StyledTitle>{props.title}</StyledTitle>
+        <StyledTitle>{props.item.name}</StyledTitle>
       <DescWrapper>
         <ImageWrapper>
-          <StyledImg src={advertImage} />
+          <StyledImg src={`data:image;base64,${props.item.photoAdvert.data}`} />
         </ImageWrapper>
-        <StyledDesc>{props.description}</StyledDesc>
-        <StyledPrice>{props.price}</StyledPrice>
-        <StyledLocation>{props.location}</StyledLocation>
+        <StyledDesc>{props.item.descr}</StyledDesc>
+        <StyledPrice>{props.item.price}</StyledPrice>
+        <StyledLocation>{props.item.district +', '+props.item.cityDistrict}</StyledLocation>
       </DescWrapper>
     </StyledWrapper>
   </StyledLink>
