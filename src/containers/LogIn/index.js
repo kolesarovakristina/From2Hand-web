@@ -14,6 +14,7 @@ import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
 import base64 from "base-64";
 import {withRouter} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 class LoginPage extends React.Component {
   state = {
@@ -69,7 +70,7 @@ class LoginPage extends React.Component {
     return (
       
       <StyledWrapper>
-        <StyledImage src={Logo} />
+        <Link to='/'><StyledImage src={Logo} /></Link>
         <StyledInputWrapper>
           <form onSubmit={this.onSubmit}>
             <FormInput

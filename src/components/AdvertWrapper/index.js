@@ -19,7 +19,7 @@ const AdvertItem = props => (
         <StyledTitle>{props.item.name}</StyledTitle>
       <DescWrapper>
         <ImageWrapper>
-          <StyledImg src={`data:image;base64,${props.item.photoAdvert.data}`} />
+          {/* <StyledImg src={`data:image;base64,${props.item.photoAdvert.data}`} /> */}
         </ImageWrapper>
         <StyledDesc>{props.item.descr}</StyledDesc>
         <StyledPrice>{props.item.price}</StyledPrice>
