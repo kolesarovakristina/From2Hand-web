@@ -1,28 +1,20 @@
 import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
-display:flex;
-flex-direction: row;
-float: center;
-width:50%;
-height:50%;
- margin-right:50px;
- margin-left:50px;
-padding: 20px 0 45px;
-
-border: 5px solid rgba(22,131,147, 1);
-
-
-background-color: #fff;
+  width:100%;
+  padding: 30px;
 `;
 export const StyledSelect = styled.select`
-  height: 30px;
-  width: 180px;
-  border: 0px;
-  padding: 0 10px;
-  margin: 6px 3px;
-  border: 2px solid #168393;
-  
+display: block;
+height: 80px;
+margin: 0 auto 3px;
+padding: 0 30px;
+width: 40%;
+font-size: 17px;
+border: 1px solid rgb(22, 131, 147);
+font-weight: bold;
+transition: all .15s ease-in-out;
+background-color: #fff;
 `;
 
 export const StyledOption = styled.option`
@@ -31,17 +23,34 @@ export const StyledOption = styled.option`
   }
 `;
 export const StyledInput = styled.input`
-padding: 0 15px;
-height: 40px;
-font-size: 15px;
-color: grey;
-border: 2px solid #168393;
-margin 2px 0;
-
-
+  display: block;
+  height: 80px;
+  margin: 0 auto 3px;
+  padding: 0 30px;
+  width: 40%;
+  font-size: 17px;
+  border: 1px solid rgb(22, 131, 147);
+  font-weight: bold;
+  transition: all .15s ease-in-out;
+  background-color: #fff;
 `;
 export const StyledButton= styled.button`
-width:80px;
-height:50px;
+display: block;
+    height: 80px;
+    margin: 3px auto;
+    width: 40%;
+    font-size: 18px;
+    border: 1px solid rgb(22, 131, 147);
+    background-color: rgb(22, 131, 147);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+        &:hover {
+        background-color: #fff;
+        color: rgb(22, 131, 147);
+        }
 `;
 

@@ -7,7 +7,8 @@ import {
   StyledInputWrapper,
   StyledImage,
   StyledButton,
-  Or
+  Or,
+  CaptchaWrapper
 } from "../../components/FormInput/styles";
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
@@ -68,16 +69,6 @@ class LoginPage extends React.Component {
     return (
       
       <StyledWrapper>
-        <form>
-  	<Captcha
-     sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
-     lang = 'en'
-     theme = 'light'
-     type = 'image'
-     callback = {(value) => console.log(value)}/> 
-     
-     <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
-     </form>
         <StyledImage src={Logo} />
         <StyledInputWrapper>
           <form onSubmit={this.onSubmit}>
@@ -97,6 +88,19 @@ class LoginPage extends React.Component {
               placeholder="Enter password"
               value={this.state.password}
             />
+            <CaptchaWrapper>
+              <form>
+                <Captcha
+                id='captcha'
+                sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
+                lang = 'en'
+                theme = 'light'
+                type = 'image'
+                callback = {(value) => console.log(value)}/> 
+                
+                <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
+              </form>
+            </CaptchaWrapper>
             <StyledButton className="login" type="submit">
               Login
             </StyledButton>

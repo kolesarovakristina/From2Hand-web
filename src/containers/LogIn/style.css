@@ -1,3 +1,8 @@
 .login {
-    margin-top: 25px;
+    margin-top: 10px;
 }
+
+.g-recaptcha {
+    display: inline-block;
+  }
+  

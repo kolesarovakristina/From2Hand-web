@@ -11,6 +11,7 @@ class AllUserAdverts extends React.Component {
 
   componentWillMount() {
     this.fillStateData();
+    console.log('advvert ',this.state.userAdverts.length);
   }
 
   fillStateData = async () => {
@@ -29,23 +30,31 @@ class AllUserAdverts extends React.Component {
     console.log(this.props.novyObjekt);
   }
   render() {
-    return (
-      <StyledWrapper>
+    if(this.state.userAdverts.length > 0) {
+      return (
+        <StyledWrapper>
           {this.state.userAdverts.map((item, index) => (
             <AdvertWrapper
-              item={item}
-              // title={item.name}
-              // description={item.descr}
-              // price={item.price + "€"}
-              // district={item.district}
-              // cityDistrict={item.cityDistrict}
-              // poziciaVpoli={index}
-              // id={item.id}
-              user = {true}
+            item={item}
+            user = {true}
             />
           ))}
-      </StyledWrapper>
-    );
+        </StyledWrapper>
+      );
+   }
+
+   return (
+    <StyledWrapper>
+      {this.state.userAdverts.map((item, index) => (
+        <AdvertWrapper
+        item={item}
+        user = {true}
+        />
+      ))}
+      <div style={{textAlign: 'center', fontSize: 21}}>There is no data to display</div>
+    </StyledWrapper>
+  );
+
   }
 }
 export default AllUserAdverts;

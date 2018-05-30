@@ -7,12 +7,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 import { TableWrapper } from "../AdminDashboard/styles";
 import deleteButton from '../../assets/delete.png';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class AdminAllAdverts extends React.Component {
 
     state = {
         allAdverts: []
-      }
+    }
     
       componentWillMount() {
         this.fillStateAllAdverts();
@@ -43,7 +45,6 @@ class AdminAllAdverts extends React.Component {
 				url: `/advert/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
-            alert('Advert deleted');
             window.location.reload();
 		} catch (err) {
             console.log(err);
@@ -55,7 +56,22 @@ class AdminAllAdverts extends React.Component {
         return (
           <div
             onClick={() => {
-                this.deleteAdvert(row.id);
+                // this.deleteAdvert(row.id);
+                confirmAlert({
+                    title: 'Confirm to submit',
+                    message: 'Are you sure to do this.',
+                    buttons: [
+                      {
+                        label: 'Yes',
+                        onClick: () => this.deleteAdvert(row.id)
+                      },
+                      {
+                        label: 'No',
+                        onClick: () => window.location.reload()
+
+                      }
+                    ]
+                  })
             }}
           >
           <img style={{width: 25, cursor:'pointer'}} src={deleteButton} />

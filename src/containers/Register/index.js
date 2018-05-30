@@ -4,7 +4,8 @@ import {
 	StyledButton,
 	StyledImage,
 	Or,
-	RegisterWrapper
+	RegisterWrapper,
+	CaptchaWrapper
 } from '../../components/FormInput/styles';
 import logo from '../../assets/from2handLogin.png';
 import './style.css';
@@ -26,7 +27,8 @@ class RegisterForm extends React.Component {
 		phonenumber: '',
 		city: '',
 		password: '',
-		confirmpassword: ''
+		confirmpassword: '',
+		captcha: false
 	};
 	handleUserName = (e) => {
 		console.log(e.target.value);
@@ -145,20 +147,9 @@ class RegisterForm extends React.Component {
 
 	render() {
 		const Captcha = require('react-captcha');  
-		
+
 		return (
 			<RegisterWrapper>
-
-	<form>
- 	<Captcha
-     sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
-     lang = 'en'
-     theme = 'light'
-     type = 'image'
-     callback = {(value) => console.log(value)}/> 
-     
-     <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
-     </form>
 
 				<Link to='/'><StyledImage src={logo} /></Link>
 				<form
@@ -229,9 +220,20 @@ class RegisterForm extends React.Component {
 					<StyledButton className="paddingTop" type="submit">
 						Send
 					</StyledButton>
-					<Or>or</Or>
-					<StyledButton>Reset</StyledButton>
 				</form>
+					<CaptchaWrapper>
+						<form>
+							<Captcha
+							sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
+							lang = 'en'
+							theme = 'light'
+							type = 'image'
+							callback = {(value) => console.log(value)}/> 
+							<div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
+						</form>
+					</CaptchaWrapper>
+					{/* <Or>or</Or>
+				<StyledButton onClick={this.resetInput}>Reset</StyledButton> */}
 			</RegisterWrapper>
 		);
 	}

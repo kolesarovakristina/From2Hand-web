@@ -15,6 +15,7 @@
     "react-bootstrap-table": "^4.3.1",
     "react-bootstrap-table-next": "^0.1.12",
     "react-captcha": "^2.0.9",
+    "react-confirm-alert": "^2.0.2",
     "react-cookie": "^2.1.4",
     "react-dom": "^16.2.0",
     "react-google-charts": "https://github.com/ZeptInc/react-google-charts",
