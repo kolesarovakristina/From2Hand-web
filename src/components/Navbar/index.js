@@ -24,7 +24,7 @@ class Navbar extends React.Component {
             });
             this.setState({ categoryData: response.data });
             this.setState({ subcategoryData: response.data.subcategories });
-            console.log(response.data);
+            console.log('navbar ',response.data);
         } catch (err) {
             console.log(err);
           }

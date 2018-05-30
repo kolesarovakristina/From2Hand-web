@@ -61,10 +61,6 @@ class Header extends React.Component {
     this.setState({priceTo: event.target.value});
   }
   
-  // appendDataToSession = () => {
-  //   console.log('ok');
-  // }
-  
   render(){
     return(
       <StyledHeaderWrapper>
