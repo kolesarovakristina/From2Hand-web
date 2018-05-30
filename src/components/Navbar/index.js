@@ -19,11 +19,12 @@ class Navbar extends React.Component {
         try {
             const response = await axios({
               method: "get",
-              url: `/category/${id}`,
+              url: `/advert/category/${id}`,
               config: { headers: { "Content-Type": "application/json" } }
             });
             this.setState({ categoryData: response.data });
             this.setState({ subcategoryData: response.data.subcategories });
+            console.log(response.data);
         } catch (err) {
             console.log(err);
           }
@@ -34,9 +35,9 @@ class Navbar extends React.Component {
             <StyledWrapper>
                 <NavHeader>{this.state.categoryData.title}</NavHeader>
                 <NavCategory onClick={this.props.getAllAdvert}>All</NavCategory>
-                {this.state.subcategoryData.map((item, index) => (
+                {/* {this.state.subcategoryData.map((item, index) => (
                     <NavCategory onClick={this.props.getID} id={item.id}>{item.title}</NavCategory>
-                ))}
+                ))} */}
             </StyledWrapper>
         );
     }

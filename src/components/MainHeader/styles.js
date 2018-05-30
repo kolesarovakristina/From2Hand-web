@@ -26,7 +26,7 @@ export const StyledLink = styled(Link)`
   }
   &:focus{
     text-decoration: none;
-    color: rgba(255,255,255, .5);
+    color: rgba(255,255,255);
   }
 `;
 

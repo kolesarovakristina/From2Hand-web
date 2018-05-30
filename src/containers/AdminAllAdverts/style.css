@@ -2,4 +2,9 @@
     width: 75%;
     background: rgb(255, 255, 255);
     float: left;
+    border: 2px solid rgb(22,131,147);
+}
+
+th {
+    background: rgb(230,230,230);
 }

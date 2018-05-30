@@ -6,6 +6,7 @@ import FourthPage from '../../components/AddAdvertComponent/FourthPageDragAndDro
 import LastPage from '../../components/AddAdvertComponent/LastPage';
 import { StyledTitle, StyledWrapper } from "./styles";
 import axios from 'axios';
+import base64 from "base-64";
 
 
 class AddNewAdvertPage extends React.Component {
@@ -192,7 +193,17 @@ class AddNewAdvertPage extends React.Component {
     }
 
     componentWillMount() {
-        const token = window.sessionStorage.getItem("token") || null;
+      const token1 = JSON.parse(window.sessionStorage.getItem("token")) || null;
+      const token = window.sessionStorage.getItem("token") || null;
+      if(token1){
+        const parsedToken = token1.data.split(".");
+        const role = JSON.parse(base64.decode(parsedToken[1]));
+        this.setState({role: JSON.parse(base64.decode(parsedToken[1]))});
+        this.setState({token: JSON.parse(window.sessionStorage.getItem("token"))});
+        if (role.auth[0].authority === "ROLE_ADMIN")
+            this.props.history.push("/");
+      }
+
         if(token)
             this.setState({token: JSON.parse(token)});
         else

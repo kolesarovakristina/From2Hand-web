@@ -71,6 +71,7 @@ class MainHeader extends React.Component {
             <StyledMainHeader>
             <Link to='/'> <StyledHeaderLogo src={logo} /></Link>
             <StyledButton onClick={this.logOut}>Log Out</StyledButton>
+            <StyledLink to='/dashboard/admin/allAdverts'>Admin</StyledLink>
             <StyledLink to="/">Home</StyledLink>
           </StyledMainHeader>
         );

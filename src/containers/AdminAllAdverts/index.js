@@ -6,6 +6,7 @@ import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-a
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 import { TableWrapper } from "../AdminDashboard/styles";
+import deleteButton from '../../assets/delete.png';
 
 class AdminAllAdverts extends React.Component {
 
@@ -35,7 +36,19 @@ class AdminAllAdverts extends React.Component {
       };
 
       deleteAdvert = async (id) => {
-          console.log(id);
+        console.log(id);
+		try {
+			const response = await axios({
+				method: 'delete',
+				url: `/advert/${id}`,
+				config: { headers: { 'Content-Type': 'application/json' } }
+			});
+            alert('Advert deleted');
+            window.location.reload();
+		} catch (err) {
+            console.log(err);
+            alert('Error');
+		}
       }
 
       deleteCell = (cell, row) => {
@@ -45,7 +58,7 @@ class AdminAllAdverts extends React.Component {
                 this.deleteAdvert(row.id);
             }}
           >
-          <span>del</span>
+          <img style={{width: 25, cursor:'pointer'}} src={deleteButton} />
           </div>
         );
       }
@@ -63,9 +76,9 @@ class AdminAllAdverts extends React.Component {
                         <TableHeaderColumn dataField='name' dataSort={ true } filter={ { type: 'TextFilter', delay: 1000 } }>Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='price' dataSort={ true } filter={ { type: 'TextFilter', delay: 1000 } }>Price</TableHeaderColumn>
                         <TableHeaderColumn dataField='descr' dataSort={ true } filter={ { type: 'TextFilter', delay: 1000 } }>Description</TableHeaderColumn>
-                        <TableHeaderColumn dataField='district' dataSort={ true } filter={ { type: 'TextFilter', delay: 1000 } }>City</TableHeaderColumn>
-                        <TableHeaderColumn dataField='cityDistrict' dataSort={ true } filter={ { type: 'TextFilter', delay: 1000 } }>City</TableHeaderColumn>
-                        <TableHeaderColumn dataField='id' dataFormat={this.deleteCell}>delete</TableHeaderColumn>
+                        <TableHeaderColumn dataField='district' dataSort={ true } filter={ { type: 'TextFilter', delay: 1000 } }>District</TableHeaderColumn>
+                        <TableHeaderColumn dataField='cityDistrict' dataSort={ true } filter={ { type: 'TextFilter', delay: 1000 } }>City </TableHeaderColumn>
+                        <TableHeaderColumn dataField='id' dataFormat={this.deleteCell}>Delete</TableHeaderColumn>
                     </BootstrapTable>
                 </TableWrapper>
             </StyledWrapper>
