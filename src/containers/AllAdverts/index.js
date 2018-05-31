@@ -10,23 +10,7 @@ import axios from 'axios';
 
 class AllAdverts extends React.Component {
 	state = {
-		allAdverts: [
-			{
-				name: 'Peter',
-				descr: 'Some text',
-				price: '10'
-			},
-			{
-				name: 'Helena',
-				descr: 'Lorem ipsun',
-				price: '20'
-			},
-			{
-				name: 'Dominik',
-				descr: 'Another text',
-				price: '15'
-			}
-		],
+		allAdverts: [],
 		subcategoryAdverts: [],
 		advertID: '',
 		searchState: ''
@@ -34,50 +18,39 @@ class AllAdverts extends React.Component {
 
 	componentWillMount() {
 		window.sessionStorage.setItem('categoryID', this.props.match.params.id);
-		// this.fillStateAllAdverts();
+		this.fillStateAllAdverts();
 	}
 
-	// fillStateAllAdverts = async () => {
-	// 	const id = this.props.match.params.id;
-		// try {
-		// 	const response = await axios({
-		// 		method: 'get',
-		// 		url: `/advert/category/${id}`,
-		// 		config: { headers: { 'Content-Type': 'application/json' } }
-		// 	});
-		// 	this.setState({ allAdverts: response.data });
-		// } catch (err) {
-		// 	console.log(err);
-		// }
+	fillStateAllAdverts = async () => {
+		const id = this.props.match.params.id;
+		try {
+			const response = await axios({
+				method: 'get',
+				url: `/category/${id}`,
+				config: { headers: { 'Content-Type': 'application/json' } }
+			});
+			this.setState({ allAdverts: response.data.subcategorier[1].adverts });
+			console.log('all adverts ', response.data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
-	// 	try {
-	// 		const response = await axios({
-	// 			method: 'get',
-	// 			url: `/category/${id}`,
-	// 			config: { headers: { 'Content-Type': 'application/json' } }
-	// 		});
-	// 		this.setState({ allAdverts: response.data });
-	// 		console.log('toto ', response.data);
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
-
-	// getValueFromSubcategory = async (event) => {
-	// 	console.log(event.target.id);
-	// 	const id = event.target.id;
-	// 	try {
-	// 		const response = await axios({
-	// 			method: 'get',
-	// 			url: `/category/${id}`,
-	// 			config: { headers: { 'Content-Type': 'application/json' } }
-	// 		});
-	// 		this.setState({ allAdverts: response.data.adverts });
-	// 		console.log(response.data.adverts);
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
+	getValueFromSubcategory = async (event) => {
+		console.log(event.target.id);
+		const id = event.target.id;
+		try {
+			const response = await axios({
+				method: 'get',
+				url: `/category/${id}`,
+				config: { headers: { 'Content-Type': 'application/json' } }
+			});
+			this.setState({ allAdverts: response.data.adverts });
+			console.log(response.data.adverts);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	getAllAdvert = () => {
 		this.fillStateAllAdverts();
@@ -91,7 +64,7 @@ class AllAdverts extends React.Component {
 	render() {
 		let filteredAdverts = this.state.allAdverts.filter(
 			(item) => {
-				return item.name.toLowerCase().indexOf(this.state.searchState.toLowerCase()) !== -1;
+				return item.descr.toLowerCase().indexOf(this.state.searchState.toLowerCase()) !== -1;
 			}
 		);
 

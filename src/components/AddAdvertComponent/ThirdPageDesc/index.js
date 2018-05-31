@@ -15,8 +15,14 @@ class ThirdPage extends React.Component {
         kosice2: [
             {name: 'Pereš'},
             {name: 'Poľov'}
-        ]
+        ],
+        districtValue: ''
       };
+
+      districtValue = event => {
+          console.log(event.target.value);
+          this.setState({districtValue: event.target.value});
+      }
 
     render() {
         return (

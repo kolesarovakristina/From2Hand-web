@@ -14,7 +14,8 @@ display: inline-block;
 float:left;
 `;
 export const StyledContent = styled.div`
-  width: 65%;
+  width: 75%;
+  display: inline-block;
 `;
 export const StyledLink = styled(NavLink)`
 background: rgb(230,230,230);
@@ -40,4 +41,5 @@ export const TableWrapper = styled.div`
   display:inline-block;
   width: 100%;
   padding: 30px;
+  background: #fff;
 `;

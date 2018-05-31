@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const StyledWrapper = styled.div`
 width: 100%;
 padding: 30px;
+background: #fff;
 `;
 export const StyledInput = styled.input`
 display: block;

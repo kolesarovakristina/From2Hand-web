@@ -58,8 +58,8 @@ class AdminAllAdverts extends React.Component {
             onClick={() => {
                 // this.deleteAdvert(row.id);
                 confirmAlert({
-                    title: 'Confirm to submit',
-                    message: 'Are you sure to do this.',
+                    title: 'Confirm to delete',
+                    message: 'Are you sure delete this advert?',
                     buttons: [
                       {
                         label: 'Yes',

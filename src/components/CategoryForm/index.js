@@ -50,6 +50,7 @@ class CategoryForm extends React.Component {
     return (
       <StyledWrapper>
         <StyledInput
+          required
           type="text"
           onChange={this.handleTitle}
           onSubmit={this.onSubmit}

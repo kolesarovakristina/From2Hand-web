@@ -24,12 +24,10 @@ class LoginPage extends React.Component {
   };
 
   handleUserNameInput = e => {
-    console.log(e.target.value);
     this.setState({ username: e.target.value });
   };
 
   handleUserPasswordInput = e => {
-    console.log(e.target.value);
     this.setState({ password: e.target.value });
   };
 
@@ -96,17 +94,14 @@ class LoginPage extends React.Component {
                 sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
                 lang = 'en'
                 theme = 'light'
-                type = 'image'
-                callback = {(value) => console.log(value)}/> 
+                type = 'image'/>
                 
                 <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
               </form>
             </CaptchaWrapper>
-            <StyledButton className="login" type="submit">
-              Login
-            </StyledButton>
-            <Or>or</Or>
+            <StyledButton className="login" type="submit">Login</StyledButton>
           </form>
+            <Or>or</Or>
           <StyledLink to="/registration">
             <StyledButton>SIGN UP</StyledButton>
           </StyledLink>
