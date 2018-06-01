@@ -35,13 +35,13 @@ export const ImageWrapper = Styled.div`
   width: 14%;
   overflow: hidden;
   float: left;
-  // border-bottom: 1px solid rgb(22,131,147);
   border-bottom-left-radius: 5px;
+  background: #fff;
 `;
 export const StyledImg = Styled.img`
   background-color: rgb(220,220,220);
   display: inline-block;
-  width:100%;
+  height: 100%;
 `;
 export const StyledDesc = Styled.div`
   font-size: 15px;

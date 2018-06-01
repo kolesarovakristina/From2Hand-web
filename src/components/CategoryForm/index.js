@@ -36,26 +36,37 @@ class CategoryForm extends React.Component {
         data: form
       });
       console.log(response);
+      alert('Category successfully added!');
+      window.location.reload();
+      
     } catch (err) {
       console.log(err);
+      alert('Fail!');
+      window.location.reload();
     }
   };
 
   render() {
     return (
       <StyledWrapper>
-        <form onSubmit={this.onSubmit}>
-          <StyledInput
-            type="text"
-            onChange={this.handleTitle}
-            onSubmit={this.onSubmit}
-          />
+        <StyledInput
+          required
+          type="text"
+          onChange={this.handleTitle}
+          onSubmit={this.onSubmit}
+          placeholder='Enter category name'
+        />
 
-          <StyledInput
+        <StyledButton onClick={() => this.fileInput.click()}>Pick Image</StyledButton>
+
+        <form onSubmit={this.onSubmit}>
+          <input
+            style={{display: 'none'}}
             type="file"
             onChange={this.handleSetFile}
             accept="image/*"
             encType="multipart/form-data"
+            ref={fileInput =>this.fileInput = fileInput}
           />
           <StyledButton type="submit">Send</StyledButton>
         </form>

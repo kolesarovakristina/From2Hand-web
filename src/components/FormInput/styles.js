@@ -5,8 +5,13 @@ export const StyledWrapper = styled.div`
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   margin: auto;
-  height: 350px;
+  height: 420px;
 `;
+
+export const CaptchaWrapper = styled.div`
+  text-align: center;
+  margin-top: 15px;
+  `;
 
 export const StyledInputWrapper = styled.div``;
 

@@ -47,8 +47,12 @@ class AddNewSubcategory extends React.Component {
         data: form,
         config: { headers: { "Content-Type": "application/json" } }
       });
+      alert('Category successfully added!');
+      window.location.reload();
     } catch (err) {
       console.log(err);
+      alert('Fail!');
+      window.location.reload();
     }
     console.log(form);
   };

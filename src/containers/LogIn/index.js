@@ -7,7 +7,8 @@ import {
   StyledInputWrapper,
   StyledImage,
   StyledButton,
-  Or
+  Or,
+  CaptchaWrapper
 } from "../../components/FormInput/styles";
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
@@ -24,12 +25,10 @@ class LoginPage extends React.Component {
   };
 
   handleUserNameInput = e => {
-    console.log(e.target.value);
     this.setState({ username: e.target.value });
   };
 
   handleUserPasswordInput = e => {
-    console.log(e.target.value);
     this.setState({ password: e.target.value });
   };
   verifyCallback = response => {
@@ -42,6 +41,8 @@ class LoginPage extends React.Component {
     const token = JSON.parse(window.sessionStorage.getItem("token"));
     const parsedToken = token.data.split(".");
     const role = JSON.parse(base64.decode(parsedToken[1]));
+    console.log("parsed token", JSON.parse(base64.decode(parsedToken[1])));
+    console.log("parsed token", parsedToken);
     if (role.auth[0].authority === "ROLE_ADMIN") {
       this.props.history.push("/dashboard/admin");
     } else if (role.auth[0].authority === "ROLE_USER") {

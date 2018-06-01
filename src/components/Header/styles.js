@@ -49,6 +49,7 @@ export const StyledSettingsWrapper = styled.div`
 export const SearchImg = styled.img`
     margin-left: 3px;
     height: 25px;
+    cursor: pointer;
 `
 export const StyledInput = styled.input`
   height: 30px;

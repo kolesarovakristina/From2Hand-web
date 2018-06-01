@@ -19,12 +19,6 @@ import CategoryForm from "../../components/CategoryForm";
 import AdminAllAdverts from "../../containers/AdminAllAdverts";
 
 class AdminDashboard extends React.Component {
-  state = {
-    person: {
-      firstName: "Peter",
-      lastName: "Novak"
-    }
-  };
 
   componentWillMount() {
     const token = JSON.parse(window.sessionStorage.getItem("token")) || null;

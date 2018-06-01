@@ -21,7 +21,8 @@ import {
 class BigAdvert extends React.Component {
 	state = {
 		isExpand: false,
-		advertData: {}
+		advertData: {},
+		userData: {}
 	};
 
 	showExpand = () => {
@@ -37,7 +38,7 @@ class BigAdvert extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log('state 2 ',this.state.advertData);
+		console.log('s t a t e 2 ',this.state.advertData);
 	}
 
 	fillStateData = async () => {
@@ -49,14 +50,15 @@ class BigAdvert extends React.Component {
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
 			this.setState({ advertData: response.data }, ()=>{
-				console.log('state ',this.state.advertData);
+				console.log('state ',this.state.advertData.user);
 			});
+			this.setState({userData: response.data.user})
 			console.log(response.data);
 		} catch (err) {
 			console.log(err);
 		}
 	};
-	
+
 
 	render() {
 		if (this.state.isExpand) {
@@ -91,11 +93,11 @@ class BigAdvert extends React.Component {
 					<StyledUserInfo>
 						<StyledTitleI>CONTACT:</StyledTitleI>
 						<StyledTitleI>Name:</StyledTitleI>
-						<StyledDesc>Ivan Hrozny</StyledDesc>
+						<StyledDesc>{this.state.userData.username}</StyledDesc>
 						<StyledTitleI>Telephone Number:</StyledTitleI>
-						<StyledDesc>09123456</StyledDesc>
+						<StyledDesc>{this.state.userData.phonenumber}</StyledDesc>
 						<StyledTitleI>Email address:</StyledTitleI>
-						<StyledDesc>ivako@mail.com</StyledDesc>
+						<StyledDesc>{this.state.userData.email}</StyledDesc>
 					</StyledUserInfo>
 				</StyledWrapperDescAndInfo>
 			</StyledWrapper>

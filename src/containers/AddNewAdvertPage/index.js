@@ -6,6 +6,8 @@ import FourthPage from '../../components/AddAdvertComponent/FourthPageDragAndDro
 import LastPage from '../../components/AddAdvertComponent/LastPage';
 import { StyledTitle, StyledWrapper } from "./styles";
 import axios from 'axios';
+import base64 from "base-64";
+
 
 class AddNewAdvertPage extends React.Component {
     state = {
@@ -28,29 +30,10 @@ class AddNewAdvertPage extends React.Component {
         category: '',
         subcategory: '',
         token: '',
-        imageUrl: null
+        imageUrl: null,
+        defaultPhoto: true
     }
 
-    _onChange = (e) => {
-        const reader = new FileReader();
-        const file = this.state.image;
-        reader.onloadend = () => {
-            this.setState({
-                imageUrl: reader.result
-            })
-        }
-        if (file) {
-            reader.readAsDataURL(file);
-            this.setState({
-                imageUrl: reader.result
-            })
-        } 
-        else {
-            this.setState({
-                imageUrl: ""
-            })
-        }
-    };
 
     handleToPage2 = () => {
         this.setState({toPage2State:true});
@@ -179,6 +162,9 @@ class AddNewAdvertPage extends React.Component {
 
     handleValueFromImage = event => {
         console.log(event.target.files[0]);
+
+        this.setState({defaultPhoto: false});
+
         this.setState({image: event.target.files[0]}, ()=>{
 
             const reader = new FileReader();
@@ -207,7 +193,17 @@ class AddNewAdvertPage extends React.Component {
     }
 
     componentWillMount() {
-        const token = window.sessionStorage.getItem("token") || null;
+      const token1 = JSON.parse(window.sessionStorage.getItem("token")) || null;
+      const token = window.sessionStorage.getItem("token") || null;
+      if(token1){
+        const parsedToken = token1.data.split(".");
+        const role = JSON.parse(base64.decode(parsedToken[1]));
+        this.setState({role: JSON.parse(base64.decode(parsedToken[1]))});
+        this.setState({token: JSON.parse(window.sessionStorage.getItem("token"))});
+        if (role.auth[0].authority === "ROLE_ADMIN")
+            this.props.history.push("/");
+      }
+
         if(token)
             this.setState({token: JSON.parse(token)});
         else
@@ -286,7 +282,9 @@ class AddNewAdvertPage extends React.Component {
                     <StyledTitle>Add New Advert</StyledTitle>
                     <FourthPage backTo3Page={this.handleBackToPage3}
                                 toPage5={this.handleToPage5}
-                                getPhotoData={this.handleValueFromImage} />
+                                getPhotoData={this.handleValueFromImage}
+                                inputImage={`${this.state.imageUrl}`}
+                                defaultPhoto={this.state.defaultPhoto} />
                 </StyledWrapper >
             );
         }

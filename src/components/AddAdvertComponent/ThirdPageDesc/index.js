@@ -15,8 +15,14 @@ class ThirdPage extends React.Component {
         kosice2: [
             {name: 'Pereš'},
             {name: 'Poľov'}
-        ]
+        ],
+        districtValue: ''
       };
+
+      districtValue = event => {
+          console.log(event.target.value);
+          this.setState({districtValue: event.target.value});
+      }
 
     render() {
         return (
@@ -30,7 +36,7 @@ class ThirdPage extends React.Component {
                         cols="10" rows="5" charswidth="23" name="text_body" 
                         placeholder='Please, write product description, min 20 characters, max 255 characters'>
                     </StyledTextArea>
-                    <StyledInput required maxLength={10} onChange={this.props.priceValue} type='text' placeholder='Price of product (EUR)'/>
+                    <StyledInput required maxLength={10} onChange={this.props.priceValue} type='number' placeholder='Price of product (EUR)'/>
                     <SelectWrapper>
                         <StyledSelect required onChange={this.props.districtValue}>
                             <StyledOption value="" disabled selected>Select district</StyledOption>
