@@ -12,13 +12,15 @@ import {
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
 import base64 from "base-64";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Captcha from "react-captcha";
 
 class LoginPage extends React.Component {
   state = {
     username: "",
     password: "",
-    token: ""
+    token: "",
+    allowSend: false
   };
 
   handleUserNameInput = e => {
@@ -30,6 +32,11 @@ class LoginPage extends React.Component {
     console.log(e.target.value);
     this.setState({ password: e.target.value });
   };
+  verifyCallback = response => {
+    if (response.length > 0) {
+      this.setState({ allowSend: true });
+    }
+  };
 
   parseTokenAndRedirectUser = () => {
     const token = JSON.parse(window.sessionStorage.getItem("token"));
@@ -37,8 +44,7 @@ class LoginPage extends React.Component {
     const role = JSON.parse(base64.decode(parsedToken[1]));
     if (role.auth[0].authority === "ROLE_ADMIN") {
       this.props.history.push("/dashboard/admin");
-    }
-    else if (role.auth[0].authority === "ROLE_USER") {
+    } else if (role.auth[0].authority === "ROLE_USER") {
       this.props.history.push("/dashboard/user/info");
     }
   };
@@ -62,20 +68,8 @@ class LoginPage extends React.Component {
     }
   };
   render() {
-    const Captcha = require('react-captcha');  
     return (
-      
       <StyledWrapper>
-        <form>
-  	<Captcha
-     sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
-     lang = 'en'
-     theme = 'light'
-     type = 'image'
-     callback = {(value) => console.log(value)}/> 
-     
-     <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
-     </form>
         <StyledImage src={Logo} />
         <StyledInputWrapper>
           <form onSubmit={this.onSubmit}>
@@ -95,14 +89,26 @@ class LoginPage extends React.Component {
               placeholder="Enter password"
               value={this.state.password}
             />
-            <StyledButton className="login" type="submit">
-              Login
-            </StyledButton>
-            <Or>or</Or>
-            <StyledLink to="/registration">
-              <StyledButton>SIGN UP</StyledButton>
-            </StyledLink>
+            <Captcha
+              sitekey="6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF"
+              lang="en"
+              theme="light"
+              type="image"
+              callback={this.verifyCallback}
+            />
+            {this.state.allowSend === true ? (
+              <StyledButton className="login" type="submit">
+                Login
+              </StyledButton>
+            ) : (
+              <StyledButton className="login" disabled>
+                Click at reCaptcha
+              </StyledButton>
+            )}
           </form>
+          <StyledLink to="/registration">
+            <StyledButton>SIGN UP</StyledButton>
+          </StyledLink>
         </StyledInputWrapper>
       </StyledWrapper>
     );
