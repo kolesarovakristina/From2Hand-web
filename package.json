@@ -24,6 +24,7 @@
     "react-grid-layout": "^0.16.6",
     "react-input-validator": "^1.2.0",
     "react-meteor-data": "^0.2.11",
+    "react-recaptcha": "^2.3.8",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",

@@ -13,14 +13,15 @@ import {
 import { StyledLink } from "../../components/MyAdvert/styles";
 import axios from "axios";
 import base64 from "base-64";
-import {withRouter} from "react-router-dom";
-import {Link} from 'react-router-dom';
+import { withRouter } from "react-router-dom";
+import Captcha from "react-captcha";
 
 class LoginPage extends React.Component {
   state = {
     username: "",
     password: "",
-    token: ""
+    token: "",
+    allowSend: false
   };
 
   handleUserNameInput = e => {
@@ -30,17 +31,21 @@ class LoginPage extends React.Component {
   handleUserPasswordInput = e => {
     this.setState({ password: e.target.value });
   };
+  verifyCallback = response => {
+    if (response.length > 0) {
+      this.setState({ allowSend: true });
+    }
+  };
 
   parseTokenAndRedirectUser = () => {
     const token = JSON.parse(window.sessionStorage.getItem("token"));
     const parsedToken = token.data.split(".");
     const role = JSON.parse(base64.decode(parsedToken[1]));
-    console.log('parsed token',JSON.parse(base64.decode(parsedToken[1])));
-    console.log('parsed token',parsedToken);
+    console.log("parsed token", JSON.parse(base64.decode(parsedToken[1])));
+    console.log("parsed token", parsedToken);
     if (role.auth[0].authority === "ROLE_ADMIN") {
-      this.props.history.push("/dashboard/admin/allAdverts");
-    }
-    else if (role.auth[0].authority === "ROLE_USER") {
+      this.props.history.push("/dashboard/admin");
+    } else if (role.auth[0].authority === "ROLE_USER") {
       this.props.history.push("/dashboard/user/info");
     }
   };
@@ -64,11 +69,9 @@ class LoginPage extends React.Component {
     }
   };
   render() {
-    const Captcha = require('react-captcha');  
     return (
-      
       <StyledWrapper>
-        <Link to='/'><StyledImage src={Logo} /></Link>
+        <StyledImage src={Logo} />
         <StyledInputWrapper>
           <form onSubmit={this.onSubmit}>
             <FormInput
@@ -87,21 +90,23 @@ class LoginPage extends React.Component {
               placeholder="Enter password"
               value={this.state.password}
             />
-            <CaptchaWrapper>
-              <form>
-                <Captcha
-                id='captcha'
-                sitekey = '6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF'
-                lang = 'en'
-                theme = 'light'
-                type = 'image'/>
-                
-                <div class="g-recaptcha" data-sitekey="6Lf341sUAAAAABO8QsJfODUJJp9-qc70AYONp9ZH"></div>
-              </form>
-            </CaptchaWrapper>
-            <StyledButton className="login" type="submit">Login</StyledButton>
+            <Captcha
+              sitekey="6Lcy_lsUAAAAAAwGCk8rJO9OL0xRPqebV-dpDQXF"
+              lang="en"
+              theme="light"
+              type="image"
+              callback={this.verifyCallback}
+            />
+            {this.state.allowSend === true ? (
+              <StyledButton className="login" type="submit">
+                Login
+              </StyledButton>
+            ) : (
+              <StyledButton className="login" disabled>
+                Click at reCaptcha
+              </StyledButton>
+            )}
           </form>
-            <Or>or</Or>
           <StyledLink to="/registration">
             <StyledButton>SIGN UP</StyledButton>
           </StyledLink>
