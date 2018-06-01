@@ -25,7 +25,6 @@ class AddNewAdvertPage extends React.Component {
         desc: '',
         price: '',
         district: '',
-        cityDistrict: '',
         image: '',
         category: '',
         subcategory: '',
@@ -113,14 +112,18 @@ class AddNewAdvertPage extends React.Component {
     }
 
     handleBackToPage4 = () => {
-        this.setState({toPage2State:false});
-        this.setState({toPage3State:false});
-        this.setState({toPage4State:false});
-        this.setState({toPage5State:false});
-        this.setState({backTo1State:false});
-        this.setState({backTo2State:false});
-        this.setState({backTo3State:false});
-        this.setState({backTo4State:true});
+        this.setState({
+            defaultPhoto:true,
+            toPage2State:false,
+            toPage3State:false,
+            toPage4State:false,
+            toPage5State:false,
+            backTo1State:false,
+            backTo2State:false,
+            backTo3State:false,
+            backTo4State:true
+        });
+
     }
 
     handleValueFromTitle = event => {
@@ -131,7 +134,6 @@ class AddNewAdvertPage extends React.Component {
     handleValueFromCategory = event => {
         this.setState({ categoryId: event.target.value });
         this.setState({ category: event.target.options[event.target.selectedIndex].text});
-        console.log(event.target.value);
     }
 
     handleValueFromSubcategory = event => {
@@ -216,7 +218,6 @@ class AddNewAdvertPage extends React.Component {
         const form = new FormData();
         form.append("category", this.state.subcategoryId);
         form.append("district", this.state.district);
-        form.append("cityDistrict", this.state.cityDistrict);
         form.append("descr", this.state.desc);
         form.append("name", this.state.title);
         form.append("price", this.state.price);

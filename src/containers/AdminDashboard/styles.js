@@ -42,4 +42,5 @@ export const TableWrapper = styled.div`
   width: 100%;
   padding: 30px;
   background: #fff;
+  border: 2px solid rgb(22, 131, 147);
 `;

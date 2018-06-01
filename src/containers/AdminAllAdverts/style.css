@@ -8,3 +8,12 @@
 th {
     background: rgb(230,230,230);
 }
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover, 
+.pagination > .active > span:hover, 
+.pagination > .active > a:focus, 
+.pagination > .active > span:focus {
+    background: rgb(22,131,147);
+}

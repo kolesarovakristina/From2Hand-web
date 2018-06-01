@@ -17,12 +17,15 @@ import {
 	StyledExpandWrapper,
 	StyledExpandButton
 } from './styles';
+import { LoaderWrapper, LoadingImage } from '../AdvertForUser/styles';
+import loading from '../../assets/loading.gif';
 
 class BigAdvert extends React.Component {
 	state = {
 		isExpand: false,
 		advertData: {},
-		userData: {}
+		userData: {},
+		loading:true
 	};
 
 	showExpand = () => {
@@ -37,10 +40,6 @@ class BigAdvert extends React.Component {
 		this.fillStateData();
 	}
 
-	componentDidMount(){
-		console.log('s t a t e 2 ',this.state.advertData);
-	}
-
 	fillStateData = async () => {
 		const id =  this.props.match.params.id;
 		try {
@@ -49,11 +48,14 @@ class BigAdvert extends React.Component {
 				url: `/advert/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
-			this.setState({ advertData: response.data }, ()=>{
-				console.log('state ',this.state.advertData.user);
-			});
-			this.setState({userData: response.data.user})
-			console.log(response.data);
+			this.setState({ 
+				advertData: response.data,
+				userData: response.data.user,
+				loading: false
+			 });
+			
+
+			
 		} catch (err) {
 			console.log(err);
 		}
@@ -61,6 +63,13 @@ class BigAdvert extends React.Component {
 
 
 	render() {
+		if(this.state.loading){
+			return(
+				<LoaderWrapper>
+					<LoadingImage src={loading}/>
+				</LoaderWrapper>
+			)
+		}
 		if (this.state.isExpand) {
 			return (
 				<StyledOverlay>
@@ -77,16 +86,17 @@ class BigAdvert extends React.Component {
 			<StyledWrapper>
 				<StyledTitle>{this.state.advertData.name}</StyledTitle>
 				<StyledImageWrapper>
-					<StyledImg src={img} onClick={this.showExpand} />
+					<StyledImg src={`data:image;base64,${this.state.advertData.photoAdvert.data}`} onClick={this.showExpand} />
 				</StyledImageWrapper>
 				<StyledWrapperDescAndInfo>
 					<StyledDescWrapper>
+						<StyledTitleI>DETAILS:</StyledTitleI>
 						<StyledTitleI>Description:</StyledTitleI>
 						<StyledDesc>
 							{this.state.advertData.descr}
 						</StyledDesc>
 						<StyledTitleI>Location:</StyledTitleI>
-						<StyledDesc>{this.state.advertData.district}, {this.state.advertData.cityDistrict}</StyledDesc>
+						<StyledDesc>{this.state.advertData.district}</StyledDesc>
 						<StyledTitleI>Price:</StyledTitleI>
 						<StyledDesc>{this.state.advertData.price}€</StyledDesc>
 					</StyledDescWrapper>

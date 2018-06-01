@@ -1,28 +1,8 @@
 import React from "react";
 import { StyledWrapper, StyledTitle, StyledTextArea, StyledSelect, ButtonWrapper, StyledButton, StyledOption, SelectWrapper, StyledInput } from "./styles";
+import axios from 'axios';
 
 class ThirdPage extends React.Component {
-
-    state = {
-        district: [
-          {name: "Košice 1"},
-          {name: "Košice 2"}
-        ],
-        kosice1: [
-            {name: 'Džungľa'},
-            {name: 'Kavecany'}
-        ],
-        kosice2: [
-            {name: 'Pereš'},
-            {name: 'Poľov'}
-        ],
-        districtValue: ''
-      };
-
-      districtValue = event => {
-          console.log(event.target.value);
-          this.setState({districtValue: event.target.value});
-      }
 
     render() {
         return (
@@ -38,18 +18,12 @@ class ThirdPage extends React.Component {
                     </StyledTextArea>
                     <StyledInput required maxLength={10} onChange={this.props.priceValue} type='number' placeholder='Price of product (EUR)'/>
                     <SelectWrapper>
-                        <StyledSelect required onChange={this.props.districtValue}>
+                        <StyledSelect required onUpdate onChange={this.props.districtValue}>
                             <StyledOption value="" disabled selected>Select district</StyledOption>
-                                {this.state.district.map((item, index) => (
-                                    <StyledOption value={item.name}>{item.name}</StyledOption>
-                                ))}
-                        </StyledSelect>
-
-                        <StyledSelect required onChange={this.props.citydistrictValue}>
-                            <StyledOption value="" disabled selected>Select city district</StyledOption>
-                            {this.state.kosice1.map((item, index) => (
-                                <StyledOption value={item.name}>{item.name}</StyledOption>
-                            ))}
+                            <StyledOption value="Košice 1">Košice 1</StyledOption>
+                            <StyledOption value="Košice 2">Košice 2</StyledOption>
+                            <StyledOption value="Košice 3">Košice 3</StyledOption>
+                            <StyledOption value="Košice 4">Košice 4</StyledOption>
                         </StyledSelect>
                     </SelectWrapper>
                     <ButtonWrapper>

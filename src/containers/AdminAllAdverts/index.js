@@ -18,9 +18,7 @@ class AdminAllAdverts extends React.Component {
     
       componentWillMount() {
         this.fillStateAllAdverts();
-      }
-
-
+    }
     
       fillStateAllAdverts = async () => {
           try {
@@ -56,7 +54,6 @@ class AdminAllAdverts extends React.Component {
         return (
           <div
             onClick={() => {
-                // this.deleteAdvert(row.id);
                 confirmAlert({
                     title: 'Confirm to delete',
                     message: 'Are you sure delete this advert?',

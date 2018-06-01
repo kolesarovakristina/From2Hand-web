@@ -7,7 +7,16 @@ class FourthPage extends React.Component {
 		return (
 			<StyledWrapper>
 		        <StyledMainHeader>Please, select one photo of product</StyledMainHeader>
-				<input style={{display: 'none'}} type="file" onChange={this.props.getPhotoData} ref={fileInput =>this.fileInput = fileInput}/>
+				<input 
+					required
+					minLength={1}
+					style={{display: 'none'}}
+					type="file"
+					onChange={this.props.getPhotoData}
+					ref={fileInput =>this.fileInput = fileInput}
+					accept="image/*"
+            		encType="multipart/form-data"
+				/>
 				<PickFileButton onClick={() => this.fileInput.click()}>Pick File</PickFileButton>
 				{this.props.defaultPhoto === true ? <ImageWrapper src={defaultImage}/> : <ImageWrapper src={this.props.inputImage} />}
 				<ButtonWrapper>

@@ -39,11 +39,6 @@ const LastPage = props => (
                     <StyledHeader>District:</StyledHeader>
                     <StyledText>{props.district}</StyledText>
                 </TitleWrapper>
-
-                <TitleWrapper>
-                    <StyledHeader>City District:</StyledHeader>
-                    <StyledText>{props.cityDistrict}</StyledText>
-                </TitleWrapper>
             </TextWrapper>
 
         </Wrapper>

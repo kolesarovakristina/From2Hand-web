@@ -8,9 +8,9 @@ export const StyledWrapper = styled.div`
     height: calc(100%);
     position: relative;
     float: left;
-`;
-
-export const NavCategory = styled.div `
+    `;
+    
+    export const NavCategory = styled.div `
     color: rgb(75,75,75);
     font-weight: bold;
     padding-left: 30px;
@@ -27,7 +27,6 @@ export const NavCategory = styled.div `
             background-color: rgb(130,130,130);
             color: #fff;
         }
-
 `;
 
 export const NavHeader = styled.div `

@@ -3,6 +3,7 @@ import {StyledWrapper,
         NavCategory,
         NavHeader} from "./styles";
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 class Navbar extends React.Component {
 
     state = {
@@ -33,7 +34,6 @@ class Navbar extends React.Component {
         return(
             <StyledWrapper>
                 <NavHeader>{this.state.categoryData.title}</NavHeader>
-                <NavCategory onClick={this.props.getAllAdvert}>All</NavCategory>
                 {this.state.subcategoryData.map((item, index) => (
                     <NavCategory onClick={this.props.getID} id={item.id}>{item.title}</NavCategory>
                 ))}

@@ -27,11 +27,7 @@ class Dashboard extends React.Component {
           <Route path="/dashboard/bigadvert/:id" component={BigAdvert} />
           <Route path="/dashboard/admin" component={AdminDashboard} />
           <Route path="/dashboard/user" component={UserDashboard} />
-          {/* <Route
-            path="/dashboard/userBigadvert/:id"
-            component={AdvertForUser}
-          />
-          <Route path="/dashboard/userprofile" component={UserProfile} /> */}
+          <Route path="/dashboard/userBigadvert/:id" component={AdvertForUser}/>
           <Route path="/dashboard/addAdvert" component={AddAdvert} />
         </Switch>
         <Footer text="© 2018 FROM2HAND" />

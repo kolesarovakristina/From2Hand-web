@@ -7,13 +7,16 @@ import ButtonBack from '../../components/ButtonBack';
 import PropTypes from 'prop-types';
 import { StyledWrapper, AllAdvertsWrapper, SearchBar } from './styles';
 import axios from 'axios';	
+import './style.css';
 
 class AllAdverts extends React.Component {
+	
 	state = {
 		allAdverts: [],
 		subcategoryAdverts: [],
 		advertID: '',
-		searchState: ''
+		searchState: '',
+		active:false
 	};
 
 	componentWillMount() {
@@ -29,7 +32,7 @@ class AllAdverts extends React.Component {
 				url: `/category/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
-			this.setState({ allAdverts: response.data.subcategorier[1].adverts });
+			this.setState({ allAdverts: response.data.subcategories[0].adverts });
 			console.log('all adverts ', response.data);
 		} catch (err) {
 			console.log(err);
@@ -37,6 +40,8 @@ class AllAdverts extends React.Component {
 	};
 
 	getValueFromSubcategory = async (event) => {
+		const currentState = this.state.active;
+        this.setState({ active: !currentState });
 		console.log(event.target.id);
 		const id = event.target.id;
 		try {
@@ -51,10 +56,6 @@ class AllAdverts extends React.Component {
 			console.log(err);
 		}
 	};
-
-	getAllAdvert = () => {
-		this.fillStateAllAdverts();
-	}
 
 	getValueFromSearchbar = event => {
 		console.log(event.target.value);
@@ -74,16 +75,16 @@ class AllAdverts extends React.Component {
 				<div>
 				<ButtonBack />
 				<StyledWrapper>
-					<Navbar getID={this.getValueFromSubcategory} 
-							getAllAdvert={this.getAllAdvert}/>
+					<Navbar getID={this.getValueFromSubcategory}
+					className={this.state.active ? 'classActive': null} /> 
 					<AllAdvertsWrapper>
 						<SearchBar type='text' placeholder='Searchbar' onChange={this.getValueFromSearchbar}/>
 						{filteredAdverts.map((item) => (
-							<AdvertWrapper
+						<AdvertWrapper
 							id={this.state.advertID}
 							item={item}
 							user={false}
-							/>
+						/>
 						))}
 					</AllAdvertsWrapper>
 				</StyledWrapper>
@@ -95,8 +96,7 @@ class AllAdverts extends React.Component {
 			<div>
 			<ButtonBack />
 			<StyledWrapper>
-				<Navbar getID={this.getValueFromSubcategory} 
-						getAllAdvert={this.getAllAdvert}/>
+				<Navbar getID={this.getValueFromSubcategory}/>
 				<AllAdvertsWrapper>
 					<SearchBar type='text' placeholder='Searchbar' onChange={this.getValueFromSearchbar}/>
 					<div style={{textAlign: 'center', fontSize: 21, padding: 20, background: 'white', border: '2px solid rgb(22,131,147)', borderRadius: 5}}>There is no data to display</div>
