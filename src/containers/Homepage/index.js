@@ -6,10 +6,13 @@ import MainHeader from "../../components/MainHeader";
 import { StyledWrapper } from "./styles";
 import CategoryComponent from "../../components/Category";
 import axios from "axios";
+import { LoadingImage, LoaderWrapper } from "../AdvertForUser/styles";
+import loading from '../../assets/loading.gif';
 
 class Homepage extends React.Component {
   state = {
-    categoryData: []
+    categoryData: [],
+    loading:true
   };
 
   componentWillMount() {
@@ -19,13 +22,24 @@ class Homepage extends React.Component {
   fillStateData = async () => {
     try {
       const response = await axios.get("/category");
-      this.setState({ categoryData: response.data });
+      this.setState({ 
+        categoryData: response.data,
+        loading: false
+      });
     } catch (err) {
       console.log(err);
     }
   };
 
   render() {
+    if(this.state.loading){
+			return(
+				<LoaderWrapper>
+					<LoadingImage src={loading}/>
+				</LoaderWrapper>
+			)
+    }
+
     return (
       <StyledWrapper>
         {this.state.categoryData.map(item => (

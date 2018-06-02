@@ -66,5 +66,5 @@ width: 30%;
 position: absolute;
 top: 0; left: 0; right: 0; bottom: 0;
 margin: auto;
-height: 500px;
+height: 400px;
 `;

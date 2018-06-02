@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 import { StyledWrapper, AllAdvertsWrapper, SearchBar } from './styles';
 import axios from 'axios';	
 import './style.css';
+import { LoadingImage, LoaderWrapper } from "../AdvertForUser/styles";
+import loading from '../../assets/loading.gif';
 
 class AllAdverts extends React.Component {
 	
@@ -15,7 +17,8 @@ class AllAdverts extends React.Component {
 		allAdverts: [],
 		subcategoryAdverts: [],
 		advertID: '',
-		searchState: ''	
+		searchState: '',
+		loading:true
 	};
 
 	componentWillMount() {
@@ -32,7 +35,10 @@ class AllAdverts extends React.Component {
 				url: `/category/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
-			this.setState({ subcategoryAdverts: response.data.subcategories });
+			this.setState({
+				subcategoryAdverts: response.data.subcategories,
+				loading: false
+			});
 			console.log('all adverts ', response.data.subcategories);
 		} catch (err) {
 			console.log(err);
@@ -63,6 +69,15 @@ class AllAdverts extends React.Component {
 	}
 	
 	render() {
+
+		if(this.state.loading){
+			return(
+				<LoaderWrapper>
+					<LoadingImage src={loading}/>
+				</LoaderWrapper>
+			)
+	    }
+
 		let filteredAdverts = this.state.allAdverts.filter(
 			(item) => {
 				return item.descr.toLowerCase().indexOf(this.state.searchState.toLowerCase()) !== -1;
@@ -77,7 +92,7 @@ class AllAdverts extends React.Component {
 				<StyledWrapper>
 					<Navbar getID={this.getValueFromSubcategory} />
 					<AllAdvertsWrapper>
-						<SearchBar type='text' placeholder='Searchbar' onChange={this.getValueFromSearchbar}/>
+						<SearchBar type='text' placeholder='Search' onChange={this.getValueFromSearchbar}/>
 						{filteredAdverts.map((item) => (
 						<AdvertWrapper
 							id={this.state.advertID}

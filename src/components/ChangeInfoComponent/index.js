@@ -10,8 +10,6 @@ const ChangeInfoComponent = props =>(
             <StyledInput onChange={props.getPhoneNuber} type='text' placeholder='Enter your new telephone number'/>
             <StyledHeader>Password:</StyledHeader>
             <StyledInput onChange={props.getPassword} type='password' placeholder='Enter your new password'/>
-            <StyledHeader>Confirm Password:</StyledHeader>
-            <StyledInput type='password' placeholder='Confirm your new password'/>
             <StyledButton type='submit'>Confirm</StyledButton>
         </form>
     </StyledWrapper>

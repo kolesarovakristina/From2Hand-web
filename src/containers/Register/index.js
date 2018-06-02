@@ -10,6 +10,8 @@ import logo from "../../assets/from2handLogin.png";
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { CheckboxWrapper, CheckInput, CheckSpan } from "./styles";
+import ReactTooltip from 'react-tooltip';
 
 class RegisterForm extends React.Component {
   constructor(props) {
@@ -20,13 +22,15 @@ class RegisterForm extends React.Component {
       errors: {}
     };
   }
+  
   state = {
     username: "",
     email: "",
     phonenumber: "",
     city: "",
     password: "",
-    confirmpassword: ""
+    confirmpassword: "",
+    checkbox: false
   };
   handleUserName = e => {
     console.log(e.target.value);
@@ -142,9 +146,17 @@ class RegisterForm extends React.Component {
     this.setState({ fields });
   }
 
+  handleCheckinput = event => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(value);
+    this.setState({checkbox:value});
+  }
+
   render() {
-    return (
-      <RegisterWrapper>
+    if(this.state.checkbox === true){
+      return (
+        <RegisterWrapper>
         <Link to="/">
           <StyledImage src={logo} />
         </Link>
@@ -152,9 +164,10 @@ class RegisterForm extends React.Component {
           onSubmit={this.onSubmit}
           name="contactform"
           className="contactform"
-        >
+          >
           <fieldset>
             <FormInput
+              maxLength={2}
               ref="name"
               type="text"
               label=""
@@ -164,7 +177,7 @@ class RegisterForm extends React.Component {
               changeState={this.handleUserName}
               onChange={this.handleChange.bind(this, "name")}
               value={this.state.fields["name"]}
-            />
+              />
             <span style={{ color: "red" }}>{this.state.errors["name"]}</span>
 
             <FormInput
@@ -177,16 +190,16 @@ class RegisterForm extends React.Component {
               changeState={this.handleEmail}
               onChange={this.handleChange.bind(this, "email")}
               value={this.state.fields["email"]}
-            />
+              />
             <span style={{ color: "red" }}>{this.state.errors["email"]}</span>
             <FormInput
-              type="text"
+              type="number"
               label=""
               placeholder="Phone number"
               onSubmit={this.onSubmit}
               value={this.state.phonenumber}
               changeState={this.handlePhoneNumber}
-            />
+              />
             <FormInput
               type="text"
               label=""
@@ -194,7 +207,7 @@ class RegisterForm extends React.Component {
               onSubmit={this.onSubmit}
               value={this.state.city}
               changeState={this.handleCity}
-            />
+              />
             <FormInput
               type="password"
               label=""
@@ -202,15 +215,11 @@ class RegisterForm extends React.Component {
               onSubmit={this.onSubmit}
               value={this.state.password}
               changeState={this.handlePassword}
-            />
-            <FormInput
-              type="password"
-              label=""
-              placeholder="Confirm password"
-              onSubmit={this.onSubmit}
-              value={this.state.confirmpassword}
-              changeState={this.handleConfirmPassword}
-            />
+              />
+            <CheckboxWrapper>
+                <CheckInput type="checkbox" onClick={this.handleCheckinput}/>
+                <CheckSpan>I agree to the <Link to='#' style={{color: 'rgb(22, 131, 147)', fontWeight:'bold'}}>terms of service</Link></CheckSpan>
+            </CheckboxWrapper>
           </fieldset>
           <StyledButton className="paddingTop" type="submit">
             Send
@@ -218,6 +227,82 @@ class RegisterForm extends React.Component {
         </form>
       </RegisterWrapper>
     );
+  }
+  return (
+    <RegisterWrapper>
+    <Link to="/">
+      <StyledImage src={logo} />
+    </Link>
+    <form
+      onSubmit={this.onSubmit}
+      name="contactform"
+      className="contactform"
+      >
+      <fieldset>
+        <FormInput
+          maxLength={2}
+          ref="name"
+          type="text"
+          label=""
+          onSubmit={this.onSubmit}
+          placeholder="Username"
+          value={this.state.username}
+          changeState={this.handleUserName}
+          onChange={this.handleChange.bind(this, "name")}
+          value={this.state.fields["name"]}
+          />
+        <span style={{ color: "red" }}>{this.state.errors["name"]}</span>
+
+        <FormInput
+          refs="email"
+          type="text"
+          label=""
+          placeholder="Email"
+          onSubmit={this.onSubmit}
+          value={this.state.email}
+          changeState={this.handleEmail}
+          onChange={this.handleChange.bind(this, "email")}
+          value={this.state.fields["email"]}
+          />
+        <span style={{ color: "red" }}>{this.state.errors["email"]}</span>
+        <FormInput
+          type="number"
+          label=""
+          placeholder="Phone number"
+          onSubmit={this.onSubmit}
+          value={this.state.phonenumber}
+          changeState={this.handlePhoneNumber}
+          />
+        <FormInput
+          type="text"
+          label=""
+          placeholder="City"
+          onSubmit={this.onSubmit}
+          value={this.state.city}
+          changeState={this.handleCity}
+          />
+        <FormInput
+          type="password"
+          label=""
+          placeholder="password"
+          onSubmit={this.onSubmit}
+          value={this.state.password}
+          changeState={this.handlePassword}
+          />
+        <CheckboxWrapper>
+            <CheckInput type="checkbox" onClick={this.handleCheckinput}/>
+            <CheckSpan>I agree to the <Link to='#' style={{color: 'rgb(22, 131, 147)', fontWeight:'bold'}}>terms of service</Link></CheckSpan>
+        </CheckboxWrapper>
+      </fieldset>
+      <div data-tip data-for='sendButton' >
+        <StyledButton disabled className="paddingTop" type="submit">Send</StyledButton>
+      </div>
+      <ReactTooltip id='sendButton' effect='solid' place='bottom' type='dark' >
+        <span>Please indicate that you have read and agree to the terms of service.</span>
+      </ReactTooltip>
+    </form>
+  </RegisterWrapper>
+);
   }
 }
 
