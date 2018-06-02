@@ -61,6 +61,7 @@ class CategoryForm extends React.Component {
 
         <form onSubmit={this.onSubmit}>
           <input
+            required
             style={{display: 'none'}}
             type="file"
             onChange={this.handleSetFile}

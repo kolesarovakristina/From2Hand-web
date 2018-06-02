@@ -62,7 +62,9 @@ export const Or = styled.div`
 `;
 
 export const RegisterWrapper = styled.div`
-  width: 30%;
-  position: relative;
-  margin: 4% auto;
+width: 30%;
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+margin: auto;
+height: 500px;
 `;

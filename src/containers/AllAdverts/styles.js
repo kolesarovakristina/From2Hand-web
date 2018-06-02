@@ -18,7 +18,8 @@ export const AllAdvertsWrapper = styled.div`
 
 export const SearchBar = styled.input`
   width: 100%;
-  margin-bottom: 20px;
+  top:2px;
+  position:relative;
   display: block;
   padding: 7px 15px;
   height: 45px;

@@ -19,6 +19,10 @@ display: block;
     font-weight: bold;
     transition: all .15s ease-in-out;
     background-color: #fff;
+    outline: 0;
+    &:focus{
+        border: 2px solid rgb(22, 131, 147);
+    }
 `;
 export const StyledButton = styled.button`
     display: block;

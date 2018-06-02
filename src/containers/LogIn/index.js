@@ -44,7 +44,7 @@ class LoginPage extends React.Component {
     console.log("parsed token", JSON.parse(base64.decode(parsedToken[1])));
     console.log("parsed token", parsedToken);
     if (role.auth[0].authority === "ROLE_ADMIN") {
-      this.props.history.push("/dashboard/admin");
+      this.props.history.push("/dashboard/admin/allAdverts");
     } else if (role.auth[0].authority === "ROLE_USER") {
       this.props.history.push("/dashboard/user/info");
     }
@@ -107,6 +107,7 @@ class LoginPage extends React.Component {
               </StyledButton>
             )}
           </form>
+          <Or>or</Or>
           <StyledLink to="/registration">
             <StyledButton>SIGN UP</StyledButton>
           </StyledLink>

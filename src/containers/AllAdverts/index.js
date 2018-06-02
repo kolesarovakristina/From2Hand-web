@@ -15,8 +15,7 @@ class AllAdverts extends React.Component {
 		allAdverts: [],
 		subcategoryAdverts: [],
 		advertID: '',
-		searchState: '',
-		active:false
+		searchState: ''	
 	};
 
 	componentWillMount() {
@@ -26,14 +25,15 @@ class AllAdverts extends React.Component {
 
 	fillStateAllAdverts = async () => {
 		const id = this.props.match.params.id;
+		console.log(id);
 		try {
 			const response = await axios({
 				method: 'get',
 				url: `/category/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
-			this.setState({ allAdverts: response.data.subcategories[0].adverts });
-			console.log('all adverts ', response.data);
+			this.setState({ subcategoryAdverts: response.data.subcategories });
+			console.log('all adverts ', response.data.subcategories);
 		} catch (err) {
 			console.log(err);
 		}
@@ -47,11 +47,11 @@ class AllAdverts extends React.Component {
 		try {
 			const response = await axios({
 				method: 'get',
-				url: `/category/${id}`,
+				url: `/advert/category/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
-			this.setState({ allAdverts: response.data.adverts });
-			console.log(response.data.adverts);
+			this.setState({ allAdverts: response.data });
+			console.log(response.data);
 		} catch (err) {
 			console.log(err);
 		}
@@ -75,8 +75,7 @@ class AllAdverts extends React.Component {
 				<div>
 				<ButtonBack />
 				<StyledWrapper>
-					<Navbar getID={this.getValueFromSubcategory}
-					className={this.state.active ? 'classActive': null} /> 
+					<Navbar getID={this.getValueFromSubcategory} />
 					<AllAdvertsWrapper>
 						<SearchBar type='text' placeholder='Searchbar' onChange={this.getValueFromSearchbar}/>
 						{filteredAdverts.map((item) => (

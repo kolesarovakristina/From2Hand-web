@@ -215,8 +215,6 @@ class RegisterForm extends React.Component {
           <StyledButton className="paddingTop" type="submit">
             Send
           </StyledButton>
-          <Or>or</Or>
-          <StyledButton>Reset</StyledButton>
         </form>
       </RegisterWrapper>
     );

@@ -61,7 +61,7 @@ class AddNewSubcategory extends React.Component {
     return (
       <StyledWrapper>
         <form onSubmit={this.onSubmit}>
-          <StyledSelect onChange={this.handleSelect}>
+          <StyledSelect required onChange={this.handleSelect}>
             <StyledOption value="">Select category</StyledOption>
             {this.state.allCategories.map((item, index) => (
               <StyledOption value={item.id} key={item.id}>
@@ -71,6 +71,7 @@ class AddNewSubcategory extends React.Component {
           </StyledSelect>
 
           <StyledInput
+            required
             placeholder="New Subcategory"
             onChange={this.handleTitleInput}
           />
