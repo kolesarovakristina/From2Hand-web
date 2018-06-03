@@ -8,7 +8,10 @@ const FormInput = props => (
     value={props.value}
     placeholder={props.placeholder}
     onChange={props.changeState}
-    required
+  
+    required 
+    minLength={3}
+    maxLength={20}
     autoComplete={false}  />
 );
 export default FormInput;

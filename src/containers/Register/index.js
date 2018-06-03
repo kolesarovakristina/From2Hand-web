@@ -167,7 +167,7 @@ class RegisterForm extends React.Component {
           >
           <fieldset>
             <FormInput
-              maxLength={2}
+              
               ref="name"
               type="text"
               label=""
@@ -181,6 +181,7 @@ class RegisterForm extends React.Component {
             <span style={{ color: "red" }}>{this.state.errors["name"]}</span>
 
             <FormInput
+             
               refs="email"
               type="text"
               label=""
@@ -193,6 +194,7 @@ class RegisterForm extends React.Component {
               />
             <span style={{ color: "red" }}>{this.state.errors["email"]}</span>
             <FormInput
+            
               type="number"
               label=""
               placeholder="Phone number"
@@ -201,6 +203,8 @@ class RegisterForm extends React.Component {
               changeState={this.handlePhoneNumber}
               />
             <FormInput
+             required minLength={3}
+             maxLength={20}
               type="text"
               label=""
               placeholder="City"
@@ -209,6 +213,7 @@ class RegisterForm extends React.Component {
               changeState={this.handleCity}
               />
             <FormInput
+            
               type="password"
               label=""
               placeholder="password"
@@ -240,7 +245,8 @@ class RegisterForm extends React.Component {
       >
       <fieldset>
         <FormInput
-          maxLength={2}
+         required minLength={3}
+         maxLength={20}
           ref="name"
           type="text"
           label=""
@@ -254,6 +260,8 @@ class RegisterForm extends React.Component {
         <span style={{ color: "red" }}>{this.state.errors["name"]}</span>
 
         <FormInput
+       required minLength={3}
+       maxLength={20}
           refs="email"
           type="text"
           label=""
@@ -266,6 +274,8 @@ class RegisterForm extends React.Component {
           />
         <span style={{ color: "red" }}>{this.state.errors["email"]}</span>
         <FormInput
+        required minLength={3}
+        maxLength={20}
           type="number"
           label=""
           placeholder="Phone number"
@@ -274,6 +284,8 @@ class RegisterForm extends React.Component {
           changeState={this.handlePhoneNumber}
           />
         <FormInput
+        required minLength={3}
+        maxLength={20}
           type="text"
           label=""
           placeholder="City"
@@ -282,6 +294,8 @@ class RegisterForm extends React.Component {
           changeState={this.handleCity}
           />
         <FormInput
+        required minLength={3}
+        maxLength={20}
           type="password"
           label=""
           placeholder="password"
