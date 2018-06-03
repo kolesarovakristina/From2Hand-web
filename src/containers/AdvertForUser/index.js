@@ -65,6 +65,7 @@ class AdvertForUser extends React.Component {
 		else{
 			this.props.history.push("/");
 		}
+		console.log('pass ',window.sessionStorage.getItem('pass'));
 	}
 
 	fillStateData = async () => {
@@ -184,9 +185,7 @@ class AdvertForUser extends React.Component {
 	  }
 
 	  getValueFromDistrict = event => {
-		  this.setState({district: event.target.value},()=>{
-			  console.log('state',this.state.district);
-		  });
+		  this.setState({district: event.target.value});
 	  }
 
 	  getValueFromPrice = event => {

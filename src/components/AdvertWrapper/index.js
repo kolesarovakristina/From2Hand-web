@@ -23,7 +23,7 @@ const AdvertItem = props => (
         </ImageWrapper>
         <StyledDesc>{props.item.descr}</StyledDesc>
         <StyledPrice>{props.item.price}</StyledPrice>
-        <StyledLocation>{props.item.district +', '+props.item.cityDistrict}</StyledLocation>
+        <StyledLocation>{props.item.district}</StyledLocation>
       </DescWrapper>
     </StyledWrapper>
   </StyledLink>

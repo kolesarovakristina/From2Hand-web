@@ -7,7 +7,6 @@ import ButtonBack from '../../components/ButtonBack';
 import PropTypes from 'prop-types';
 import { StyledWrapper, AllAdvertsWrapper, SearchBar } from './styles';
 import axios from 'axios';	
-import './style.css';
 import { LoadingImage, LoaderWrapper } from "../AdvertForUser/styles";
 import loading from '../../assets/loading.gif';
 
@@ -113,7 +112,7 @@ class AllAdverts extends React.Component {
 				<Navbar getID={this.getValueFromSubcategory}/>
 				<AllAdvertsWrapper>
 					<SearchBar type='text' placeholder='Searchbar' onChange={this.getValueFromSearchbar}/>
-					<div style={{textAlign: 'center', fontSize: 21, padding: 20, background: 'white', border: '2px solid rgb(22,131,147)', borderRadius: 5}}>There is no data to display</div>
+					<div style={{textAlign: 'center', fontSize: 21, padding: 20, background: 'rgb(230,230,230)', borderRadius: 5}}>There is no data to display</div>
 				</AllAdvertsWrapper>
 			</StyledWrapper>
 		</div>

@@ -18,18 +18,17 @@ export const AllAdvertsWrapper = styled.div`
 
 export const SearchBar = styled.input`
   width: 100%;
-  top:2px;
   position:relative;
   display: block;
   padding: 7px 15px;
-  height: 45px;
+  height: 60px;
   border-radius: 5px;
-  border: 2px solid rgb(22,131,147);
+  border: 2px solid rgb(100,100,100);
   font-size: 18px;
   outline: 0;
   transition: all .2s ease-in-out;
   &:focus{
-    font-size: 20px;
-    height: 50px;
+    font-size: 22px;
+    // height: 50px;
   }
 `;
