@@ -2,11 +2,14 @@ import React from "react";
 import ChangeInfoComponent from '../../components/ChangeInfoComponent';
 import { StyledWrapper } from "./styles";
 import axios from 'axios';
-
+import { confirmAlert } from 'react-confirm-alert';
 class ChangeInfoPage extends React.Component {
   state = {
     userInfo: [],
-    token: ''
+    token: '',
+    email: '',
+    phonenumber: '',
+    password: ''
   }
 
   componentWillMount() {
@@ -16,11 +19,13 @@ class ChangeInfoPage extends React.Component {
       this.props.history.push("/login");
     }
 
-    this.setState({token: token.data}, ()=>{
+    this.setState({
+        token: token.data,
+        password: window.sessionStorage.getItem("pass")
+      }, ()=>{
       this.getUserData();
     });
-
-  }
+    }
 
   getUserData = async () => {
     try {
@@ -32,51 +37,88 @@ class ChangeInfoPage extends React.Component {
           "Authorization": `Bearer ${this.state.token}`
         },
       });
-      this.setState({ userInfo: response.data }, () => {
-        console.log('change info ',this.state.userInfo);
-      });
+      this.setState({ userInfo: response.data });
+      this.handleInit( response.data );
     } catch (err) {
         console.log(err);
     }
   };
 
-  changeUserInfo = async (event) => {
+  handleInit = (userObject) => {
+		console.log('handle init',userObject);
+		this.setState({
+			email: userObject.email,
+			password: JSON.parse(this.state.password),
+			phonenumber: userObject.phonenumber
+		})
+	}
+
+  changeUserInfo = (event) => {
     const id = this.state.userInfo.id;
-    console.log(id);
+    console.log('id',id);
     event.preventDefault();
 
-    const form = new FormData();
-    form.append("email", this.state.userInfo.email);
-    form.append("password", this.state.userInfo.password);
-    form.append("phonenumber", this.state.phonenumber);
-    console.log(form);
-    
+    confirmAlert({
+			title: 'Confirm to delete',
+			message: 'Are you sure to delete this advert?',
+			buttons: [
+			  {
+				label: 'Yes',
+				onClick: () => this.handleUpdateInfo(id)
+			  },
+			  {
+				label: 'No',
+				onClick: () => window.location.reload()
+			  }
+			]
+		  })
+  }
+
+  handleUpdateInfo =async(id)=>{
+    const form = {
+			email: this.state.email,
+			phonenumber: this.state.phonenumber,
+			password: this.state.password
+		};
+    console.log('form',form);
+
     try {
-        const response = await axios({
-          method: "put",
-          url: `/user/${id}`,
-          data: form,
-          config: { headers: { "Content-Type": "application/json" } }
-        });
-        alert('Information successfully updated!');
-    } catch (err) {
-        console.log(err);
-        alert('Fail');
-    }
+      const response = await axios({
+        method: "put",
+        url: `/user/${id}`,
+        data: form,
+        config: { headers: { "Content-Type": "application/json" } }
+      });
+      alert('Information successfully updated!');
+  } catch (err) {
+      console.log(err);
+      alert('Fail');
+  }
   }
 
   getEmailValue = (event) => {
-    this.setState({});
+    this.setState({email: event.target.value});
+  }
+
+  getPhoneNumberValue = (event) => {
+    this.setState({phonenumber: event.target.value});
+  }
+
+  getPasswordValue = (event) => {
+    this.setState({password: event.target.value});
   }
 
   render() {
     return (
       <StyledWrapper>
         <ChangeInfoComponent
+          email={this.state.email}
+          phonenumber={this.state.phonenumber}
+          password={this.state.password}
           changeInfo={this.changeUserInfo}
           getEmail={this.getEmailValue}
           getPhoneNumber={this.getPhoneNumberValue}
-          getEmail={this.getEmailValue}
+          getPassword={this.getPasswordValue}
           />
       </StyledWrapper>
     );

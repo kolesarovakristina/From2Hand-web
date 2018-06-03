@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.div`
-	width: 80%;
-	margin: 50px 10% 120px;
+	width: 70%;
+	margin: 50px 15% 120px;
 	display: inline-block;
 `;
 

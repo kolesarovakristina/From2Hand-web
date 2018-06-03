@@ -41,8 +41,6 @@ class LoginPage extends React.Component {
     const token = JSON.parse(window.sessionStorage.getItem("token"));
     const parsedToken = token.data.split(".");
     const role = JSON.parse(base64.decode(parsedToken[1]));
-    console.log("parsed token", JSON.parse(base64.decode(parsedToken[1])));
-    console.log("parsed token", parsedToken);
     if (role.auth[0].authority === "ROLE_ADMIN") {
       this.props.history.push("/dashboard/admin/allAdverts");
     } else if (role.auth[0].authority === "ROLE_USER") {
@@ -63,6 +61,7 @@ class LoginPage extends React.Component {
         config: { headers: { "Content-Type": "aplication/json" } }
       });
       window.sessionStorage.setItem("token", JSON.stringify(response));
+      window.sessionStorage.setItem("pass", JSON.stringify(this.state.password));
       this.parseTokenAndRedirectUser();
     } catch (err) {
       console.log(err);

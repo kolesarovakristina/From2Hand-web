@@ -37,7 +37,9 @@ export const NavHeader = styled.div `
     font-size: 20px;
     letter-spacing: .5px;
     width: calc(100%);
-    padding: 15px 30px;
+    padding: 0px 30px;
+    height: 60px;
+    line-height: 60px;
     margin-bottom: 12px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
