@@ -11,13 +11,11 @@ import {
 import searchButton from "../../assets/categoryImage/searching.png";
 import axios from "axios";
 
-
 class Header extends React.Component {
   
   state = {
     categoryData: [],
     input: '',
-    category: '',
     district: '',
     priceFrom: '',
     priceTo: ''
@@ -41,11 +39,6 @@ class Header extends React.Component {
     this.setState({input: event.target.value});
   }
   
-  getValueFromInputCategories = event => {
-    console.log(event.target.value);
-    this.setState({category: event.target.value});
-  }
-  
   getValueFromInputDistrict = event => {
     console.log(event.target.value);
     this.setState({district: event.target.value});
@@ -60,28 +53,31 @@ class Header extends React.Component {
     console.log(event.target.value);
     this.setState({priceTo: event.target.value});
   }
+
+  appendDataToSession = () => {
+    window.sessionStorage.setItem('text',this.state.input);
+    window.sessionStorage.setItem('district',this.state.district);
+    window.sessionStorage.setItem('priceFrom',this.state.priceFrom);
+    window.sessionStorage.setItem('priceTo',this.state.priceTo);
+    this.props.history.push("/dashboard/adverts");
+  }
   
   render(){
     return(
       <StyledHeaderWrapper>
         <StyledMenuWrapper>
-          <StyledInput onChange={this.getValueFromInput} maxLength={25} type="text" placeholder="What Are You Looking For?" />
-          <StyledSelect  onChange={this.getValueFromInputCategories} className="headerSelect">
-            <StyledOption selected disabled>Categories</StyledOption>
-            {this.state.categoryData.map((item, index) => (
-              <StyledOption value={item.id}>{item.title}</StyledOption>
-            ))}
+          <form onSubmit={this.appendDataToSession}>
+          <StyledInput required onChange={this.getValueFromInput} maxLength={25} type="text" placeholder="What Are You Looking For?" />
+          <StyledSelect required onChange={this.getValueFromInputDistrict} className="headerSelect">
+            <StyledOption value = "Kosice 1">Kosice 1</StyledOption>
+            <StyledOption value = "Kosice 2">Kosice 2</StyledOption>
+            <StyledOption value = "Kosice 3">Kosice 3</StyledOption>
+            <StyledOption value = "Kosice 4">Kosice 4</StyledOption>
           </StyledSelect>
-          <StyledSelect onChange={this.getValueFromInputDistrict} className="headerSelect">
-            <StyledOption selected value disabled>Districts</StyledOption>
-            <StyledOption value = "Košice 1">Košice 1</StyledOption>
-            <StyledOption value = "Košice 2">Košice 2</StyledOption>
-            <StyledOption value = "Košice 3">Košice 3</StyledOption>
-            <StyledOption value = "Košice 4">Košice 4</StyledOption>
-          </StyledSelect>
-          <StyledInput onChange={this.getValueFromInputPriceFrom} maxLength={10} type="number" placeholder="Price From" />
-          <StyledInput onChange={this.getValueFromInputPriceTo} maxLength={10} type="number" placeholder="Price To" />
-          <SearchImg onClick={this.appendDataToSession} src={searchButton} />
+          <StyledInput required onChange={this.getValueFromInputPriceFrom} maxLength={10} type="number" placeholder="Price From" />
+          <StyledInput required onChange={this.getValueFromInputPriceTo} maxLength={10} type="number" placeholder="Price To" />
+          <button style={{border: 0, background:'rgb(230,230,230)'}} type="submit"><SearchImg src={searchButton} /></button>
+          </form>
         </StyledMenuWrapper> 
     </StyledHeaderWrapper>
     );

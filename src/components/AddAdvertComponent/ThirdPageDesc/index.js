@@ -20,10 +20,10 @@ class ThirdPage extends React.Component {
                     <SelectWrapper>
                         <StyledSelect required onUpdate onChange={this.props.districtValue}>
                             <StyledOption value="" disabled selected>Select district</StyledOption>
-                            <StyledOption value="Košice 1">Košice 1</StyledOption>
-                            <StyledOption value="Košice 2">Košice 2</StyledOption>
-                            <StyledOption value="Košice 3">Košice 3</StyledOption>
-                            <StyledOption value="Košice 4">Košice 4</StyledOption>
+                            <StyledOption value="Kosice 1">Kosice 1</StyledOption>
+                            <StyledOption value="Kosice 2">Kosice 2</StyledOption>
+                            <StyledOption value="Kosice 3">Kosice 3</StyledOption>
+                            <StyledOption value="Kosice 4">Kosice 4</StyledOption>
                         </StyledSelect>
                     </SelectWrapper>
                     <ButtonWrapper>

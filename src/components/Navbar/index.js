@@ -23,8 +23,10 @@ class Navbar extends React.Component {
               url: `/category/${id}`,
               config: { headers: { "Content-Type": "application/json" } }
             });
-            this.setState({ categoryData: response.data });
-            this.setState({ subcategoryData: response.data.subcategories });
+            this.setState({
+                categoryData: response.data,
+                subcategoryData: response.data.subcategories
+            });
         } catch (err) {
             console.log(err);
           }

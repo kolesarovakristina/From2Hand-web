@@ -34,11 +34,11 @@ export const StyledUserInfo = styled.div`
 	padding: 20px;
 `;
 export const StyledWrapperDescAndInfo = styled.div`
-	width: 60%;
+	width: 55%;
 	float: left;
 `;
 export const StyledImageWrapper = styled.div`
-	width: 40%;
+	width: 45%;
 	display: inline-block;
 	float: left;
 	`;

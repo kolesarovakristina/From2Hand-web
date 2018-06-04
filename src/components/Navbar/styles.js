@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
 export const StyledWrapper = styled.div`
-    width:20%;
+    width: 20%;
     background-color: rgba(230, 230, 230, 1);
     border-radius: 3px;
     padding-bottom: 12px;
-    height: calc(100%);
     position: relative;
     float: left;
-    `;
+`;
     
-    export const NavCategory = styled.div `
+export const NavCategory = styled.div `
     color: rgb(75,75,75);
     font-weight: bold;
     padding-left: 30px;
@@ -21,7 +20,7 @@ export const StyledWrapper = styled.div`
     display: inline-block;
     cursor: pointer;
     text-align: left;
-    width: calc(100%);
+    width: 100%;
     transition: all .1s ease-in-out;
         &:hover{
             background-color: rgb(130,130,130);
@@ -32,7 +31,7 @@ export const StyledWrapper = styled.div`
 export const NavHeader = styled.div `
     text-transform: uppercase;
     font-weight: bold;
-    background-color: rgb(130,130,130);
+    background-color: rgb(110,110,110);
     color: #fff;
     font-size: 20px;
     letter-spacing: .5px;

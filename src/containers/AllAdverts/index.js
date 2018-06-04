@@ -4,6 +4,7 @@ import MainHeader from '../../components/MainHeader';
 import Header from '../../components/Header';
 import AdvertWrapper from '../../components/AdvertWrapper';
 import ButtonBack from '../../components/ButtonBack';
+import Menu from '../../components/subcategoryMenu';
 import PropTypes from 'prop-types';
 import { StyledWrapper, AllAdvertsWrapper, SearchBar } from './styles';
 import axios from 'axios';	
@@ -17,7 +18,9 @@ class AllAdverts extends React.Component {
 		subcategoryAdverts: [],
 		advertID: '',
 		searchState: '',
-		loading:true
+		loading:true,
+		menu: true,
+		subcategory: ''
 	};
 
 	componentWillMount() {
@@ -27,7 +30,6 @@ class AllAdverts extends React.Component {
 
 	fillStateAllAdverts = async () => {
 		const id = this.props.match.params.id;
-		console.log(id);
 		try {
 			const response = await axios({
 				method: 'get',
@@ -38,16 +40,12 @@ class AllAdverts extends React.Component {
 				subcategoryAdverts: response.data.subcategories,
 				loading: false
 			});
-			console.log('all adverts ', response.data.subcategories);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
 	getValueFromSubcategory = async (event) => {
-		const currentState = this.state.active;
-        this.setState({ active: !currentState });
-		console.log(event.target.id);
 		const id = event.target.id;
 		try {
 			const response = await axios({
@@ -56,15 +54,32 @@ class AllAdverts extends React.Component {
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
 			this.setState({ allAdverts: response.data });
-			console.log(response.data);
 		} catch (err) {
 			console.log(err);
 		}
 	};
-
+	
 	getValueFromSearchbar = event => {
-		console.log(event.target.value);
 		this.setState({searchState: event.target.value});
+	}
+	
+	handleMenuState = (event) => {
+		this.setState({
+			menu: false,
+			subcategory: event.target.id
+		}, async()=>{
+			try {
+				const response = await axios({
+					method: 'get',
+					url: `/advert/category/${this.state.subcategory}`,
+					config: { headers: { 'Content-Type': 'application/json' } }
+				});
+				this.setState({ allAdverts: response.data });
+				console.log('callback',response.data);
+			} catch (err) {
+				console.log(err);
+			}
+		});
 	}
 	
 	render() {
@@ -83,40 +98,53 @@ class AllAdverts extends React.Component {
 			}
 		);
 
-		if(filteredAdverts.length > 0){
-
-			return (
-				<div>
+		if(this.state.menu === false){
+			
+			if(filteredAdverts.length > 0){
+				return (
+					<div>
 				<ButtonBack />
 				<StyledWrapper>
 					<Navbar getID={this.getValueFromSubcategory} />
 					<AllAdvertsWrapper>
 						<SearchBar type='text' placeholder='Search' onChange={this.getValueFromSearchbar}/>
 						{filteredAdverts.map((item) => (
-						<AdvertWrapper
+							<AdvertWrapper
 							id={this.state.advertID}
 							item={item}
 							user={false}
-						/>
+							/>
 						))}
 					</AllAdvertsWrapper>
 				</StyledWrapper>
 			</div>
-		);
+			);
+			}
+			if(filteredAdverts.length < 1){
+				return (
+					<div>
+					<ButtonBack />
+					<StyledWrapper>
+						<Navbar getID={this.getValueFromSubcategory}/>
+						<AllAdvertsWrapper>
+							<SearchBar type='text' placeholder='Searchbar' onChange={this.getValueFromSearchbar}/>
+							<div style={{textAlign: 'center', fontSize: 21, padding: 20, background: 'rgb(230,230,230)', borderRadius: 5}}>There is no data to display</div>
+						</AllAdvertsWrapper>
+					</StyledWrapper>
+				</div>
+			);
+
+			}
 		}
 
 		return (
 			<div>
 			<ButtonBack />
-			<StyledWrapper>
-				<Navbar getID={this.getValueFromSubcategory}/>
-				<AllAdvertsWrapper>
-					<SearchBar type='text' placeholder='Searchbar' onChange={this.getValueFromSearchbar}/>
-					<div style={{textAlign: 'center', fontSize: 21, padding: 20, background: 'rgb(230,230,230)', borderRadius: 5}}>There is no data to display</div>
-				</AllAdvertsWrapper>
-			</StyledWrapper>
+			<Menu menu={this.handleMenuState} />
 		</div>
-	);
+
+		)
+
 	}
 }
 export default AllAdverts;

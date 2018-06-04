@@ -1,6 +1,7 @@
 import React from "react";
 import FormInput from "../../components/FormInput";
 import Logo from "../../assets/from2handLogin.png";
+import {Link} from 'react-router-dom';
 import "./style.css";
 import {
   StyledWrapper,
@@ -21,7 +22,8 @@ class LoginPage extends React.Component {
     username: "",
     password: "",
     token: "",
-    allowSend: false
+    allowSend: false,
+    loading: true
   };
 
   handleUserNameInput = e => {
@@ -68,9 +70,10 @@ class LoginPage extends React.Component {
     }
   };
   render() {
+
     return (
       <StyledWrapper>
-        <StyledImage src={Logo} />
+        <Link to='/'><StyledImage src={Logo} /></Link>
         <StyledInputWrapper>
           <form onSubmit={this.onSubmit}>
             <FormInput

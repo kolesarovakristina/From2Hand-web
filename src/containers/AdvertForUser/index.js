@@ -65,7 +65,6 @@ class AdvertForUser extends React.Component {
 		else{
 			this.props.history.push("/");
 		}
-		console.log('pass ',window.sessionStorage.getItem('pass'));
 	}
 
 	fillStateData = async () => {
@@ -85,7 +84,6 @@ class AdvertForUser extends React.Component {
 		}
 	};
 	handleInit = (advertObject) => {
-		console.log(advertObject);
 		this.setState({
 			name: advertObject.name,
 			descr: advertObject.descr,
@@ -101,7 +99,7 @@ class AdvertForUser extends React.Component {
 				url: `/advert/${id}`,
 				config: { headers: { 'Content-Type': 'application/json' } }
 			});
-            this.props.history.push("/dashboard/homePage");
+            this.props.history.push("/dashboard/user/myadverts");
 		} catch (err) {
             console.log(err);
             alert('Something went wrong. Please, try again.');
@@ -235,10 +233,10 @@ class AdvertForUser extends React.Component {
 								value={this.state.descr}/>
 							<StyledTitleI>Location:</StyledTitleI>
 							<StyledSelect required onChange={this.getValueFromDistrict} value={this.state.district}>
-								<StyledOption value="Košice 1">Košice 1</StyledOption>
-								<StyledOption value="Košice 2">Košice 2</StyledOption>
-								<StyledOption value="Košice 3">Košice 3</StyledOption>
-								<StyledOption value="Košice 4">Košice 4</StyledOption>
+								<StyledOption value="Kosice 1">Kosice 1</StyledOption>
+								<StyledOption value="Kosice 2">Kosice 2</StyledOption>
+								<StyledOption value="Kosice 3">Kosice 3</StyledOption>
+								<StyledOption value="Kosice 4">Kosice 4</StyledOption>
 							</StyledSelect>
 							<StyledTitleI>Price:</StyledTitleI>
 							<StyledInput required maxLength={10} onChange={this.getValueFromPrice} type='number' value={this.state.price}/>
@@ -257,7 +255,7 @@ class AdvertForUser extends React.Component {
 					<SubmitButton type='submit'>Submit</SubmitButton>
 					</StyledWrapperDescAndInfo>
             	</form>
-					<SubmitButton style={{width: '60%', float:'right'}} onClick={this.goBack}>Back</SubmitButton>
+					<SubmitButton style={{width: '55%', float:'right'}} onClick={this.goBack}>Back</SubmitButton>
         	 </StyledWrapper>
 			);
 		}

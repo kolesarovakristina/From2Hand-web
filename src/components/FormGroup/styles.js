@@ -24,12 +24,6 @@ export const StyledInputWrapper = styled.div`
 //   align-items: center;
 // `;
 
-export const StyledIcon = styled.span``;
-
-// const border = {
-//   border:`1px solid ${props => props.theme.color.watermelon}`
-// };
-
 export const StyledInput = styled.input`
   font-size: 14px;
   width: 100%;

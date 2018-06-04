@@ -14,6 +14,7 @@ import AddAdvert from "../AddNewAdvertPage";
 import AdvertForUser from "../AdvertForUser";
 import UserDashboard from "../UserDashboard";
 import AdminDashboard from "../AdminDashboard";
+import SearchbarAdverts from "../SearchbarAdverts";
 
 class Dashboard extends React.Component {
   render() {
@@ -29,6 +30,8 @@ class Dashboard extends React.Component {
           <Route path="/dashboard/user" component={UserDashboard} />
           <Route path="/dashboard/userBigadvert/:id" component={AdvertForUser}/>
           <Route path="/dashboard/addAdvert" component={AddAdvert} />
+          <Route path="/dashboard/adverts" component={SearchbarAdverts} />
+
         </Switch>
         <Footer text="© 2018 FROM2HAND" />
       </div>

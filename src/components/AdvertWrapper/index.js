@@ -22,7 +22,7 @@ const AdvertItem = props => (
           <StyledImg src={`data:image;base64,${props.item.photoAdvert.data}`} />
         </ImageWrapper>
         <StyledDesc>{props.item.descr}</StyledDesc>
-        <StyledPrice>{props.item.price}</StyledPrice>
+        <StyledPrice>{props.item.price+'€'}</StyledPrice>
         <StyledLocation>{props.item.district}</StyledLocation>
       </DescWrapper>
     </StyledWrapper>

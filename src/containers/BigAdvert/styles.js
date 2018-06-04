@@ -13,8 +13,8 @@ export const StyledTitle = styled.div`
 	padding-left: 40px;
 	color: white;
 	font-size: 40px;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 1.5px;
@@ -26,8 +26,8 @@ export const StyledDescWrapper = styled.div`
 `;
 export const StyledUserInfo = styled.div`
 	font-size: 15px;
-	border-bottom-right-radius: 20px;
-	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 	width: 100%;
 	background-color: rgb(230, 230, 230);
 	padding: 20px;
@@ -41,7 +41,7 @@ export const StyledImageWrapper = styled.div`width: 45%;`;
 export const StyledImg = styled.img`
 	float: left;
 	width: 100%;
-	border-bottom-left-radius: 20px;
+	border-bottom-left-radius: 5px;
 `;
 export const StyledImgIsExpand = styled.img`width: 100%;`;
 export const StyledExpandWrapper = styled.div`
