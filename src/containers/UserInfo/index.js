@@ -14,12 +14,14 @@ class UserInfo extends React.Component {
     
     const token = JSON.parse(window.sessionStorage.getItem("token")) || null;
     if (token === null){
-      this.props.history.push("/login");
+      this.props.history.push("/");
+    }
+    else{
+      this.setState({token: token.data}, ()=>{
+        this.getUserData();
+      });
     }
 
-    this.setState({token: token.data}, ()=>{
-      this.getUserData();
-    });
 
 
   }

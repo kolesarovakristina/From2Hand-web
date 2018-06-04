@@ -67,7 +67,6 @@ class RegisterForm extends React.Component {
     };
 
     var myJSON = JSON.stringify(form);
-    console.log(form);
 
     try {
       const response = await axios({
@@ -147,7 +146,7 @@ class RegisterForm extends React.Component {
               />
             <CheckboxWrapper>
                 <CheckInput type="checkbox" onClick={this.handleCheckinput}/>
-                <CheckSpan>I agree to the <Link to='#' style={{color: 'rgb(22, 131, 147)', fontWeight:'bold'}}>terms of service</Link></CheckSpan>
+                <CheckSpan>I agree to the <Link to='/dashboard/privacy' style={{color: 'rgb(22, 131, 147)', fontWeight:'bold'}}>terms of service</Link></CheckSpan>
             </CheckboxWrapper>
           </fieldset>
           <StyledButton className="paddingTop" type="submit">
@@ -212,14 +211,13 @@ class RegisterForm extends React.Component {
           maxLength={20}
           type="password"
           placeholder="password"
-          // onSubmit={this.onSubmit}
           value={this.state.password}
           changeState={this.handlePassword}
         />
 
         <CheckboxWrapper>
           <CheckInput type="checkbox" onClick={this.handleCheckinput}/>
-          <CheckSpan>I agree to the <Link to='#' style={{color: 'rgb(22, 131, 147)', fontWeight:'bold'}}>terms of service</Link></CheckSpan>
+          <CheckSpan>I agree to the <Link to='/dashboard/privacy' style={{color: 'rgb(22, 131, 147)', fontWeight:'bold'}}>terms of service</Link></CheckSpan>
         </CheckboxWrapper>
         <div data-tip data-for='sendButton' >
           <StyledButton disabled className="paddingTop" type="submit">Send</StyledButton>

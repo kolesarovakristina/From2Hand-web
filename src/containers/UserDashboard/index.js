@@ -17,16 +17,21 @@ class UserDashboard extends React.Component {
 
   componentWillMount() {
     const token = JSON.parse(window.sessionStorage.getItem("token")) || null;
-    const parsedToken = token.data.split(".");
-    const role = JSON.parse(base64.decode(parsedToken[1]));
-    console.log(role.auth[0].authority);
-    if (role.auth[0].authority == "ROLE_ADMIN" && token !== null) {
+    if(token){
+      const parsedToken = token.data.split(".");
+      const role = JSON.parse(base64.decode(parsedToken[1]));
+      console.log(role.auth[0].authority);
+      if (role.auth[0].authority == "ROLE_ADMIN" && token !== null) {
+        this.props.history.push("/");
+      }
+      this.setState({token: token.data}, ()=>{
+        this.getUserData();
+      });
+    }
+    else{
       this.props.history.push("/");
     }
 
-    this.setState({token: token.data}, ()=>{
-      this.getUserData();
-    });
   }
 
   getUserData = async () => {
